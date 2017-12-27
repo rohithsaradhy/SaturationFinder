@@ -10,7 +10,7 @@
 
 Int_t board(0),skiroc(0);
 float X(0),Y(0),Z(0);
-void SaturationFinder::dataExtractor(float energy,std::string run_type)
+void SaturationFinder::dataExtractor(float energy,std::string run_type) //run_type :: {Electron,Pion,All,All_Electron,All_Pion}
 {
   std::cout<<std::endl<<std::endl<<"Starting dataExtractor"<<std::endl;
   std::cout<<"Energy : "<<energy<<" GeV"<<std::endl;
@@ -131,7 +131,11 @@ void SaturationFinder::dataExtractor(float energy,std::string run_type)
 
 
   }
-  std::cout<<Hist2D[2][1][0]->GetName()<<std::endl;
+
+
+
+
+
 
 
 
