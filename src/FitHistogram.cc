@@ -1,3 +1,5 @@
+//Fits the Histogram from the ProfileX and then store it is FitResultPtr[][][]
+
 #include "SaturationFinder.h"
 
 
@@ -7,7 +9,6 @@ Int_t startBin,endBin,countMe;
 TGraphErrors* grph ;
 TF1* flo = new TF1("flo","[0]*x+[1]"); //Setting straight line fit for Lower region
 float FitRangeMax[2],FitRangeMin[2];
-
 
 
 void SaturationFinder::FitHistogram()
@@ -52,10 +53,10 @@ void SaturationFinder::FitHistogram()
       // Initialising the Canvas...
       fitCanvas[board][skiroc][type_num] = new TCanvas(os.str().c_str(),os.str().c_str(),1366,768);
       // Taking the 2D profile...
-      pfx = ((TH2F*) Hist2D[board][skiroc][type_num])->ProfileX();
+      HistProfile[board][skiroc][type_num] = ((TH2F*) Hist2D[board][skiroc][type_num])->ProfileX();
 
-      endBin=pfx->FindLastBinAbove(1,1); //(contentThreshold,axis#) x=1;y=2;z=3
-      startBin =pfx->FindFirstBinAbove(1,1);//(contentThreshold,axis#) x=1;y=2;z=3
+      endBin=HistProfile[board][skiroc][type_num]->FindLastBinAbove(1,1); //(contentThreshold,axis#) x=1;y=2;z=3
+      startBin =HistProfile[board][skiroc][type_num]->FindFirstBinAbove(1,1);//(contentThreshold,axis#) x=1;y=2;z=3
 
       // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
       // continue;
@@ -63,16 +64,16 @@ void SaturationFinder::FitHistogram()
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
-        if(pfx->GetBinContent(i)<10) continue;
-        if(pfx->GetBinCenter(i)>1000) break;
+        if(HistProfile[board][skiroc][type_num]->GetBinContent(i)<10) continue;
+        if(HistProfile[board][skiroc][type_num]->GetBinCenter(i)>1000) break;
         countMe++;
-        X[i] = pfx->GetBinCenter(i);
-        errorY[i] = sqrt(pow(pfx->GetBinError(i),2) + pow(ErrorInY_ADC,2));
-        // errorY[i] = sqrt(pow(pfx->GetBinError(i),2));
+        X[i] = HistProfile[board][skiroc][type_num]->GetBinCenter(i);
+        errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2) + pow(ErrorInY_ADC,2));
+        // errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2));
 
         // cout<<errorY[i]<<endl;
         errorX[i] = 5;
-        Y[i] = pfx->GetBinContent(i);
+        Y[i] = HistProfile[board][skiroc][type_num]->GetBinContent(i);
         // cout<<X[i]<<"\t"<<Y[i]<<endl;
       }
 
@@ -88,7 +89,7 @@ void SaturationFinder::FitHistogram()
 
   //For Low to TOT
   int type_num =1; //for H_L
-  std::string type = "_LowGaintoTOTSLow";
+  std::string type = "LowGaintoTOTSLow";
   for(int board = 0;board<BOARD;board++)
   {
     for(int skiroc = 0 ;skiroc<4;skiroc++)
@@ -113,10 +114,10 @@ void SaturationFinder::FitHistogram()
       // Initialising the Canvas...
       fitCanvas[board][skiroc][type_num] = new TCanvas(os.str().c_str(),os.str().c_str(),1366,768);
       // Taking the 2D profile...
-      pfx = ((TH2F*) Hist2D[board][skiroc][type_num])->ProfileX();
+      HistProfile[board][skiroc][type_num] = ((TH2F*) Hist2D[board][skiroc][type_num])->ProfileX();
 
-      endBin=pfx->FindLastBinAbove(1,1); //(contentThreshold,axis#) x=1;y=2;z=3
-      startBin =pfx->FindFirstBinAbove(1,1);//(contentThreshold,axis#) x=1;y=2;z=3
+      endBin=HistProfile[board][skiroc][type_num]->FindLastBinAbove(1,1); //(contentThreshold,axis#) x=1;y=2;z=3
+      startBin =HistProfile[board][skiroc][type_num]->FindFirstBinAbove(1,1);//(contentThreshold,axis#) x=1;y=2;z=3
 
       // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
       // continue;
@@ -124,16 +125,16 @@ void SaturationFinder::FitHistogram()
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
-        if(pfx->GetBinContent(i)<10) continue;
-        if(pfx->GetBinCenter(i)>1000) break;
+        if(HistProfile[board][skiroc][type_num]->GetBinContent(i)<10) continue;
+        if(HistProfile[board][skiroc][type_num]->GetBinCenter(i)>1000) break;
         countMe++;
-        X[i] = pfx->GetBinCenter(i);
-        errorY[i] = sqrt(pow(pfx->GetBinError(i),2) + pow(ErrorInY_ADC,2));
-        // errorY[i] = sqrt(pow(pfx->GetBinError(i),2));
+        X[i] = HistProfile[board][skiroc][type_num]->GetBinCenter(i);
+        errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2) + pow(ErrorInY_ADC,2));
+        // errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2));
 
         // cout<<errorY[i]<<endl;
         errorX[i] = 5;
-        Y[i] = pfx->GetBinContent(i);
+        Y[i] = HistProfile[board][skiroc][type_num]->GetBinContent(i);
         // cout<<X[i]<<"\t"<<Y[i]<<endl;
       }
 

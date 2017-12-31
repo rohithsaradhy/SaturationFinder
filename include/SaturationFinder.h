@@ -23,7 +23,7 @@ class SaturationFinder
   public:
     TH2F* Hist2D[allocateMemory][4][3];
     TFitResultPtr FitResultPtr[allocateMemory][4][3];
-    TProfile* pfx[allocateMemory][4][3];
+    TProfile* HistProfile[allocateMemory][4][3];
     TCanvas* fitCanvas[allocateMemory][4][3];
 
     SaturationFinder(int, float, std::string, std::string);
@@ -35,6 +35,9 @@ class SaturationFinder
     void LoadHistogram();
 
     void FitHistogram();
+    void CutOff();
+
+
 
 
 
