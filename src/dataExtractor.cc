@@ -9,7 +9,7 @@
 
 
 Int_t board(0),skiroc(0);
-float X(0),Y(0),Z(0);
+float x(0),y(0),z(0);
 void SaturationFinder::dataExtractor()
 {
   std::cout<<std::endl<<std::endl<<"Starting dataExtractor"<<std::endl;
@@ -118,12 +118,12 @@ void SaturationFinder::dataExtractor()
     {
       board = Hit_Sensor_Layer->at(i);
       skiroc  = Hit_Sensor_Skiroc->at(i);
-      X = Hit_Sensor_Cell_LG_Amplitude->at(i);
-      // Y = Hit_Sensor_Cell_HG_Amplitude->at(i);
-      Y = Hit_Sensor_Cell_HG->at(i) - Hit_Sensor_Cell_HG_Sub->at(i);
-      Z = Hit_Sensor_Cell_ToT_Slow->at(i);
-      Hist2D[board][skiroc][0]->Fill(X,Y);
-      Hist2D[board][skiroc][1]->Fill(Z,X);
+      x = Hit_Sensor_Cell_LG_Amplitude->at(i);
+      y = Hit_Sensor_Cell_HG_Amplitude->at(i);
+      // y = Hit_Sensor_Cell_HG->at(i) - Hit_Sensor_Cell_HG_Sub->at(i);
+      z = Hit_Sensor_Cell_ToT_Slow->at(i);
+      Hist2D[board][skiroc][0]->Fill(x,y);
+      Hist2D[board][skiroc][1]->Fill(z,x);
     }
 
 
