@@ -20,11 +20,22 @@ class SaturationFinder
     float ENERGY = 0;
     std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
     std::string FIT_NAME = ""; // Prefix to plots and datafiles....
+
   public:
     TH2F* Hist2D[allocateMemory][4][3];
     TFitResultPtr FitResultPtr[allocateMemory][4][3];
     TProfile* HistProfile[allocateMemory][4][3];
     TCanvas* fitCanvas[allocateMemory][4][3];
+
+    float CF[allocateMemory][4][3];
+    float CF_Err[allocateMemory][4][3];
+    float CF_Intercept[allocateMemory][4][3];
+    float CF_Intercept_Err[allocateMemory][4][3];
+    float TP[allocateMemory][4][3];
+    float TP_Err[allocateMemory][4][3];
+
+
+
 
     SaturationFinder(int, float, std::string, std::string);
     ~SaturationFinder();
@@ -35,7 +46,8 @@ class SaturationFinder
     void LoadHistogram();
 
     void FitHistogram();
-    void CutOff();
+    void FindValues();
+    void CutOff(int, int, int);
 
 
 

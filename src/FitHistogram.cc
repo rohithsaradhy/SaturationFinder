@@ -9,33 +9,34 @@ Int_t startBin,endBin,countMe;
 TGraphErrors* grph ;
 TF1* flo = new TF1("flo","[0]*x+[1]"); //Setting straight line fit for Lower region
 float FitRangeMax[2],FitRangeMin[2];
+int type_num;
+std::string type;
+std::ostringstream os( std::ostringstream::ate );
+
 
 
 void SaturationFinder::FitHistogram()
 {
-  // gROOT->SetBatch(kTRUE); //Not displaying anything
+  gROOT->SetBatch(kTRUE); //Not displaying anything
 
   FitRangeMin[0] = 75;
   FitRangeMax[0] = 180;
-  FitRangeMin[1] = 250;
+  FitRangeMin[1] = 200;
   FitRangeMax[1] = 400;
 
   Int_t Hist_Entries(0);
 
-  std::ostringstream os( std::ostringstream::ate );
-
-
   //For HighGain to LowGain
-  int type_num =0; //for H_L
-  std::string type = "HighGaintoLowGain";
+  type_num =0; //for H_L
+  type = "HighGaintoLowGain";
   for(int board = 0;board<BOARD;board++)
   {
     for(int skiroc = 0 ;skiroc<4;skiroc++)
     {
 
-      //Selections...
-      if(board != 1) continue;
-      if(skiroc != 2) continue;
+      //FINDME...
+      // if(board != 2) continue;
+      // if(skiroc != 2) continue;
 
 
       // Making sure that histogram has enough entries to be used in the fit...
@@ -48,10 +49,6 @@ void SaturationFinder::FitHistogram()
         continue;
       }
 
-      os.str("");
-      os<<FIT_NAME<<"_Energy_"<<ENERGY<<"_Board_"<<board<<"_Skiroc_"<<skiroc<<"_"<<type;
-      // Initialising the Canvas...
-      fitCanvas[board][skiroc][type_num] = new TCanvas(os.str().c_str(),os.str().c_str(),1366,768);
       // Taking the 2D profile...
       HistProfile[board][skiroc][type_num] = ((TH2F*) Hist2D[board][skiroc][type_num])->ProfileX();
 
@@ -88,15 +85,15 @@ void SaturationFinder::FitHistogram()
 
 
   //For Low to TOT
-  int type_num =1; //for H_L
-  std::string type = "LowGaintoTOTSLow";
+  type_num =1; //for H_L
+  type = "LowGaintoTOTSLow";
   for(int board = 0;board<BOARD;board++)
   {
     for(int skiroc = 0 ;skiroc<4;skiroc++)
     {
-
-      if(board != 1) continue;
-      if(skiroc != 2) continue;
+      // FINDME
+      // if(board > 4) continue;
+      // if(skiroc != 2) continue;
 
 
       // Making sure that histogram has enough entries to be used in the fit...
@@ -109,10 +106,6 @@ void SaturationFinder::FitHistogram()
         continue;
       }
 
-      os.str("");
-      os<<FIT_NAME<<"_Energy_"<<ENERGY<<"_Board_"<<board<<"_Skiroc_"<<skiroc<<"_"<<type;
-      // Initialising the Canvas...
-      fitCanvas[board][skiroc][type_num] = new TCanvas(os.str().c_str(),os.str().c_str(),1366,768);
       // Taking the 2D profile...
       HistProfile[board][skiroc][type_num] = ((TH2F*) Hist2D[board][skiroc][type_num])->ProfileX();
 
