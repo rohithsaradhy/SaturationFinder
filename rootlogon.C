@@ -6,6 +6,8 @@
 	gROOT->LoadMacro("src/InitializeHist2D.cc");
 	gROOT->LoadMacro("src/LoadHistogram.cc");
 	gROOT->LoadMacro("src/SaveHistogram.cc");
+	gROOT->LoadMacro("src/FitHistogram.cc");
+
 
 
 }

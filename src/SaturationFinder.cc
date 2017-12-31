@@ -1,23 +1,22 @@
 #include "SaturationFinder.h"
 
 
-SaturationFinder::SaturationFinder()
-{
-  std::cout<< "Hope that we already intialised the board number"<<std::endl;
-
-}
-
-
-
-SaturationFinder::SaturationFinder(int board)
+SaturationFinder::SaturationFinder(int board,float energy, std::string run_type, std::string fit_name)
 {
 
   BOARD = board;
-  std::cout<<"Total Number of Boards is "<<BOARD<<std::endl;
+  ENERGY = energy;
+  RUN_TYPE = run_type;
+  FIT_NAME = fit_name;
+
+
+  getInfo();
 
 
 
 }
+
+
 SaturationFinder::~SaturationFinder()
 {
   for(int i=0;i<BOARD;i++)
@@ -28,4 +27,20 @@ SaturationFinder::~SaturationFinder()
       delete Hist2D[i][j][0] ;
     }
   }
+}
+
+void SaturationFinder::getInfo()
+{
+    std::cout<<std::endl<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<std::endl;
+    std::cout<<"Information about this object"<<std::endl;
+    std::cout<<std::endl<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<std::endl;
+    std::cout<<"Energy :"<<ENERGY<<std::endl;
+    std::cout<<"Total Boards :"<<BOARD<<std::endl;
+    std::cout<<"Run Type :"<<RUN_TYPE<<std::endl;
+    std::cout<<"Fit Name :"<<FIT_NAME;
+    std::cout<<std::endl<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<std::endl;
+
+    return ;
+
+
 }

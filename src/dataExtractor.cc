@@ -10,13 +10,9 @@
 
 Int_t board(0),skiroc(0);
 float X(0),Y(0),Z(0);
-void SaturationFinder::dataExtractor(float energy,std::string run_type) //run_type :: {Electron,Pion,All,All_Electron,All_Pion}
+void SaturationFinder::dataExtractor()
 {
   std::cout<<std::endl<<std::endl<<"Starting dataExtractor"<<std::endl;
-  std::cout<<"Energy : "<<energy<<" GeV"<<std::endl;
-  std::cout<<"Run Type : "<<run_type<<std::endl;
-
-
 
   //Initialising all the variables...
   // std::vector<int>* Hit_Sensor_Event;
@@ -55,7 +51,7 @@ void SaturationFinder::dataExtractor(float energy,std::string run_type) //run_ty
   //Open file and set the branch to that particular data...
   std::ostringstream filename( std::ostringstream::ate );
   filename.str("");
-  filename<<"/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_H6_NTuples/"<<run_type<<"/"<<energy<<"GeV.root";
+  filename<<"/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_H6_NTuples/"<<RUN_TYPE<<"/"<<ENERGY<<"GeV.root";
   std::cout<<"Opening File "<<filename.str().c_str()<<std::endl;
   TFile *file = TFile::Open(filename.str().c_str());
   TTree *T =  (TTree*)file->Get("pulseshapeplotter/T");
@@ -123,7 +119,8 @@ void SaturationFinder::dataExtractor(float energy,std::string run_type) //run_ty
       board = Hit_Sensor_Layer->at(i);
       skiroc  = Hit_Sensor_Skiroc->at(i);
       X = Hit_Sensor_Cell_LG_Amplitude->at(i);
-      Y = Hit_Sensor_Cell_HG_Amplitude->at(i);
+      // Y = Hit_Sensor_Cell_HG_Amplitude->at(i);
+      Y = Hit_Sensor_Cell_HG->at(i) - Hit_Sensor_Cell_HG_Sub->at(i);
       Z = Hit_Sensor_Cell_ToT_Slow->at(i);
       Hist2D[board][skiroc][0]->Fill(X,Y);
       Hist2D[board][skiroc][1]->Fill(Z,X);

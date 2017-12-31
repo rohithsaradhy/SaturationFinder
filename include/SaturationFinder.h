@@ -10,21 +10,32 @@
 #include "TRandom.h"
 
 
+const Int_t allocateMemory = 30;
 
 class SaturationFinder
 {
 
   private:
     int BOARD = 0;
+    float ENERGY = 0;
+    std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
+    std::string FIT_NAME = ""; // Prefix to plots and datafiles....
   public:
-    TH2F* Hist2D[30][4][3];
-    SaturationFinder();
+    TH2F* Hist2D[allocateMemory][4][3];
+    TFitResultPtr FitResultPtr[allocateMemory][4][3];
+    TProfile* pfx[allocateMemory][4][3];
+    TCanvas* fitCanvas[allocateMemory][4][3];
+
+    SaturationFinder(int, float, std::string, std::string);
     ~SaturationFinder();
-    SaturationFinder(int board);
-    void dataExtractor(float, std::string);
+    void getInfo();
+    void dataExtractor();
     void InitializeHist2D(Int_t);
-    void SaveHistogram(float,std::string);
-    void LoadHistogram(float,std::string);
+    void SaveHistogram();
+    void LoadHistogram();
+
+    void FitHistogram();
+
 
 
 };

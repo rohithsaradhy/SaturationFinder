@@ -3,12 +3,12 @@
 
 void run_me()
 {
-  SaturationFinder* a = new SaturationFinder(20);
-  SaturationFinder* b = new SaturationFinder(20);
+  SaturationFinder* a = new SaturationFinder(20,80,"Electron","Oct_H6");
+  // SaturationFinder* b = new SaturationFinder(20);
 
-  // a->dataExtractor(80,"Electron");
+  a->dataExtractor();
   // a->SaveHistogram(80,"Electron");
-  a->LoadHistogram(80,"Electron");
+  // a->LoadHistogram(80,"Electron");
   a->Hist2D[1][1][0]->Draw();
 
   // b->dataExtractor(50,"Electron");
