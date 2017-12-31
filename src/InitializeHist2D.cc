@@ -39,7 +39,7 @@ void SaturationFinder::InitializeHist2D(Int_t option)
     bin_total=0;
 
     // Y range definition
-    y_Max =3000;
+    y_Max =4000;
     y_Min = 0;
     y_bin=1;
     y_totalbins = (y_Max - y_Min)/y_bin;
@@ -77,7 +77,7 @@ void SaturationFinder::InitializeHist2D(Int_t option)
       {
         std::ostringstream histoName( std::ostringstream::ate );
         histoName<<"Board_"<<i<<"_Ski_"<<j<<"_HighGaintoLowGain";
-        Hist2D[i][j][0] = new TH2F(histoName.str().c_str(),histoName.str().c_str(),3000,0,3000,3000,0,3000);//bin_total,binningX,y_totalbins,y_Min,y_Max);
+        Hist2D[i][j][0] = new TH2F(histoName.str().c_str(),histoName.str().c_str(),bin_total,binningX,y_totalbins,y_Min,y_Max);//bin_total,binningX,y_totalbins,y_Min,y_Max);
       }
     }
 
