@@ -52,7 +52,7 @@ void SaturationFinder::dataExtractor()
   std::ostringstream filename( std::ostringstream::ate );
   filename.str("");
   filename<<DATA_LOC<<RUN_TYPE<<"/"<<ENERGY<<"GeV.root";
-  if(ENERGY == -1)
+  if(ENERGY == 0)
   {
     filename.str("");
     filename<<DATA_LOC<<RUN_TYPE<<".root";
@@ -115,7 +115,7 @@ void SaturationFinder::dataExtractor()
     //
     if(entry%1000 == 0)
     {
-      std::cout<<entry*100/Max_Entries <<"% \t has been Done.... \r";
+      std::cout<<entry*100/Max_Entries <<"% \t has been completed... \r";
       std::cout.flush();
     }
 
