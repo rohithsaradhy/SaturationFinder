@@ -19,7 +19,7 @@ Double_t binningX[10000];
 Double_t y_Max,y_Min ,y_bin,y_totalbins(0);
 
 
-void SaturationFinder::InitializeHist2D(Int_t option)
+void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
 {
   std::cout<<BOARD<<std::endl;
   switch(option)
@@ -70,6 +70,8 @@ void SaturationFinder::InitializeHist2D(Int_t option)
     }
 
     bin_total--;
+
+    if(!hist) break;
 
     for(int i=0;i<BOARD;i++)
     {
@@ -128,6 +130,8 @@ void SaturationFinder::InitializeHist2D(Int_t option)
     }
 
     bin_total--;
+
+    if(!hist) break;
 
     for(int i=0;i<BOARD;i++)
     {

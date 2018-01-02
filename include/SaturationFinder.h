@@ -41,7 +41,7 @@ class SaturationFinder
     ~SaturationFinder();
     void getInfo();
     void dataExtractor();
-    void InitializeHist2D(Int_t);
+    void InitializeHist2D(Int_t,bool);
     void SaveHistogram();
     void LoadHistogram();
 

@@ -17,7 +17,8 @@ std::ostringstream os( std::ostringstream::ate );
 
 void SaturationFinder::FitHistogram()
 {
-  gROOT->SetBatch(kTRUE); //Not displaying anything
+
+
 
   FitRangeMin[0] = 75;
   FitRangeMax[0] = 180;

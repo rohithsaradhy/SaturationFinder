@@ -8,10 +8,10 @@
  #include <vector>
 
 
-Int_t board(0),skiroc(0);
-float x(0),y(0),z(0);
 void SaturationFinder::dataExtractor()
 {
+  Int_t board(0),skiroc(0);
+  float x(0),y(0),z(0);
   std::cout<<std::endl<<std::endl<<"Starting dataExtractor"<<std::endl;
 
   //Initialising all the variables...
@@ -97,8 +97,8 @@ void SaturationFinder::dataExtractor()
 
 
 
-  InitializeHist2D(0);
-  InitializeHist2D(1);
+  InitializeHist2D(0,1);
+  InitializeHist2D(1,1);
 
 
 

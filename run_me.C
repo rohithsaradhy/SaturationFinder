@@ -3,17 +3,19 @@
 
 void run_me()
 {
+
+  // gROOT->SetBatch(kTRUE); //Not displaying anything
+
   SaturationFinder* a = new SaturationFinder(20,80,"Electron","Oct_H6");
   // SaturationFinder* b = new SaturationFinder(20);
 
   a->dataExtractor();
-  // a->SaveHistogram(80,"Electron");
-  // a->LoadHistogram(80,"Electron");
-  a->Hist2D[1][1][0]->Draw();
-
-  // b->dataExtractor(50,"Electron");
-
-  // b->Hist2D[1][1][0]->Draw();
-
+  // a->SaveHistogram();
+  // a->LoadHistogram();
+  a->FitHistogram();
+  a->FindValues();
+  // a->InitializeHist2D(0,1);
+  // a->Hist2D[1][1][0]->Draw();
+  a->CutOff(1,1,1);
   return;
 }
