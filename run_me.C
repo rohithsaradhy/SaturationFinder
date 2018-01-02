@@ -6,8 +6,8 @@ void run_me()
 
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
-  SaturationFinder* a = new SaturationFinder(20,90,"Electron","Oct_H6");
-  // SaturationFinder* b = new SaturationFinder(20);
+  SaturationFinder* a = new SaturationFinder(20,-1,"All_Electron","Oct_H6","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); //-1 implies that it is a allfile...
+
 
   a->dataExtractor();
   // a->SaveHistogram();

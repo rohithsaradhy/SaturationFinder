@@ -20,6 +20,8 @@ class SaturationFinder
     float ENERGY = 0;
     std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
     std::string FIT_NAME = ""; // Prefix to plots and datafiles....
+    std::string DATA_LOC = ""; // Prefix to plots and datafiles....
+
 
   public:
     TH2F* Hist2D[allocateMemory][4][3];
@@ -38,7 +40,7 @@ class SaturationFinder
 
 
 
-    SaturationFinder(int, float, std::string, std::string);
+    SaturationFinder(int board,float energy, std::string run_type, std::string fit_name, std::string data_loc);
     ~SaturationFinder();
     void getInfo();
     void dataExtractor();

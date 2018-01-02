@@ -1,13 +1,14 @@
 #include "SaturationFinder.h"
 
 
-SaturationFinder::SaturationFinder(int board,float energy, std::string run_type, std::string fit_name)
+SaturationFinder::SaturationFinder(int board,float energy, std::string run_type, std::string fit_name, std::string data_loc)
 {
 
   BOARD = board;
   ENERGY = energy;
   RUN_TYPE = run_type;
   FIT_NAME = fit_name;
+  DATA_LOC = data_loc;
 
 
   getInfo();
@@ -38,6 +39,7 @@ void SaturationFinder::getInfo()
     std::cout<<"Total Boards :"<<BOARD<<std::endl;
     std::cout<<"Run Type :"<<RUN_TYPE<<std::endl;
     std::cout<<"Fit Name :"<<FIT_NAME;
+    std::cout<<"Data Location Folder:"<<DATA_LOC;
     std::cout<<std::endl<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<std::endl;
 
     return ;
