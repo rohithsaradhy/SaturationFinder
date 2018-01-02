@@ -13,7 +13,7 @@ float cutoff[2];
 
 void SaturationFinder::FindValues()
 {
-  cutoff[0] =7;
+  cutoff[0] =5;
   cutoff[1] =7;
 
 
@@ -41,7 +41,7 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
   // if(fitStatus[board][skiroc][type_num]>100 && fitStatus[board][skiroc][type_num]< 10000 )
   if(fitStatus[board][skiroc][type_num]==4000)
   {
-  cout<<"fit Status ::"<<fitStatus[board][skiroc][type_num]<<std::endl;
+  // std::cout<<"fit Status ::"<<fitStatus[board][skiroc][type_num]<<std::endl;
   switch(type_num)
   {
     case 0:

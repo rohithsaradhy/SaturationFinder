@@ -21,11 +21,10 @@ Double_t y_Max,y_Min ,y_bin,y_totalbins(0);
 
 void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
 {
-  std::cout<<BOARD<<std::endl;
   switch(option)
   {
     case 0:
-    std::cout<<"Initialising HG_LG Histograms..."<<std::endl;
+    // std::cout<<"Initialising HG_LG Histograms..."<<std::endl;
     bin_start =0;
     bin_stop =3000;
     bin_change1 =200; // 160
@@ -83,11 +82,11 @@ void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
       }
     }
 
-    std::cout<<"Done with the Initialising...."<<std::endl;
+    std::cout<<"Done with the Initialising HighGaintoLowGain Histograms..."<<std::endl;
     break;
 
     case 1:
-    std::cout<<"Initialising LowGain to Slow TOT Histograms"<<std::endl;
+    // std::cout<<"Initialising LowGain to Slow TOT Histograms"<<std::endl;
 
     bin_start =0;
     bin_stop =3000;
@@ -142,7 +141,7 @@ void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
         Hist2D[i][j][1] = new TH2F(histoName.str().c_str(),histoName.str().c_str(),bin_total,binningX,y_totalbins,y_Min,y_Max);
       }
     }
-    std::cout<<"Done with the Initialising...."<<std::endl;
+    std::cout<<"Done with the Initialising LowGaintoTOTSLow Histograms..."<<std::endl;
 
     break;
   }

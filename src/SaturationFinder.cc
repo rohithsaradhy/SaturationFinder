@@ -38,7 +38,7 @@ void SaturationFinder::getInfo()
     std::cout<<"Energy :"<<ENERGY<<std::endl;
     std::cout<<"Total Boards :"<<BOARD<<std::endl;
     std::cout<<"Run Type :"<<RUN_TYPE<<std::endl;
-    std::cout<<"Fit Name :"<<FIT_NAME;
+    std::cout<<"Fit Name :"<<FIT_NAME<<std::endl;
     std::cout<<"Data Location Folder:"<<DATA_LOC;
     std::cout<<std::endl<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<std::endl;
 
