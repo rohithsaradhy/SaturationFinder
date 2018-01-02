@@ -51,7 +51,7 @@ void SaturationFinder::dataExtractor()
   //Open file and set the branch to that particular data...
   std::ostringstream filename( std::ostringstream::ate );
   filename.str("");
-  filename<<"/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_H6_NTuples/"<<RUN_TYPE<<"/"<<ENERGY<<"GeV.root";
+  filename<<"/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"<<RUN_TYPE<<"/"<<ENERGY<<"GeV.root";
   std::cout<<"Opening File "<<filename.str().c_str()<<std::endl;
   TFile *file = TFile::Open(filename.str().c_str());
   TTree *T =  (TTree*)file->Get("pulseshapeplotter/T");

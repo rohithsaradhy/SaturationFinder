@@ -22,8 +22,12 @@ void SaturationFinder::FindValues()
   {
     for(int skiroc=0;skiroc < 4; skiroc++)
     {
-      // CutOff(board,skiroc,0);
-      // CutOff(board,skiroc,1);
+
+
+      // cout<<board<<'\t'<<skiroc<<"\t"<<0<<"\t"<<fitStatus[board][skiroc][0]<<endl;
+      CutOff(board,skiroc,0);
+      // cout<<board<<'\t'<<skiroc<<"\t"<<1<<"\t"<<fitStatus[board][skiroc][1]<<endl;
+      CutOff(board,skiroc,1);
 
     }
   }
@@ -34,7 +38,10 @@ void SaturationFinder::FindValues()
 
 void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 {
-
+  // if(fitStatus[board][skiroc][type_num]>100 && fitStatus[board][skiroc][type_num]< 10000 )
+  if(fitStatus[board][skiroc][type_num]==4000)
+  {
+  cout<<"fit Status ::"<<fitStatus[board][skiroc][type_num]<<std::endl;
   switch(type_num)
   {
     case 0:
@@ -106,7 +113,6 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 
 
     u[N] = (((slope*(x[N]) + intercept)-y[N])/y[N]) *100* scaling_factor; // 40 is the magic scalling factor
-    cout<<N<<"\t"<<x[N]<<"\t"<<y[N]<<"\t"<<u[N]<<"\t"<<((slope*(x[N]) + intercept) - y[N])/y[N]<<endl;
 
     if(x[N] >= 100)// Plotting the Residue
     {
@@ -213,10 +219,16 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
   grph[2]->SetMarkerSize(1.5);
   mg->Add(grph[2],"p");
 
-  std::cout<<y_co<<"\t"<<y_err<<std::endl;
 
 
   Graph_Settings(board,skiroc,type_num);
+}
+else
+{
+  std::cout<<"Fitting status not > 0, skipping :: \t";
+  std::cout<<"Board_"<<board<<"_Skiroc_"<<skiroc<<"_type_num_"<<0<<"_FitStatus_"<<fitStatus[board][skiroc][type_num]<<endl;
+
+}
 
 }
 

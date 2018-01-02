@@ -27,6 +27,7 @@ class SaturationFinder
     TProfile* HistProfile[allocateMemory][4][3];
     TCanvas* fitCanvas[allocateMemory][4][3];
 
+    int fitStatus[allocateMemory][4][3];
     float CF[allocateMemory][4][3];
     float CF_Err[allocateMemory][4][3];
     float CF_Intercept[allocateMemory][4][3];
@@ -41,13 +42,13 @@ class SaturationFinder
     ~SaturationFinder();
     void getInfo();
     void dataExtractor();
-    void InitializeHist2D(Int_t,bool);
+    void InitializeHist2D(Int_t option,bool hist);
     void SaveHistogram();
     void LoadHistogram();
 
     void FitHistogram();
     void FindValues();
-    void CutOff(int, int, int);
+    void CutOff(int board, int skiroc, int type_num);
     int Max_Index(float* value);
     void Graph_Settings(int board, int skiroc,int type_num);
 
