@@ -4,9 +4,10 @@
 
 
 float X[10000],Y[10000],errorY[10000],errorX[10000];
+float ErrorInX_ADC;
 float ErrorInY_ADC;
 Int_t startBin,endBin,countMe;
-TGraphErrors* grph ;
+TGraphErrors* Graph;
 TF1* flo = new TF1("flo","[0]*x+[1]"); //Setting straight line fit for Lower region
 float FitRangeMax[2],FitRangeMin[2];
 int type_num;
@@ -36,8 +37,8 @@ void SaturationFinder::FitHistogram()
     {
 
       //FINDME...
-      // if(board != 2) continue;
-      // if(skiroc != 2) continue;
+      if(board != 2) continue;
+      if(skiroc != 2) continue;
 
 
       // Making sure that histogram has enough entries to be used in the fit...
@@ -58,7 +59,10 @@ void SaturationFinder::FitHistogram()
 
       // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
       // continue;
-      ErrorInY_ADC = 0;
+      ErrorInY_ADC = 0;     
+
+      ErrorInX_ADC = 5;
+
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
@@ -70,15 +74,15 @@ void SaturationFinder::FitHistogram()
         // errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2));
 
         // cout<<errorY[i]<<endl;
-        errorX[i] = 5;
+        errorX[i] = ErrorInX_ADC;
         Y[i] = HistProfile[board][skiroc][type_num]->GetBinContent(i);
         // cout<<X[i]<<"\t"<<Y[i]<<endl;
       }
 
 
 
-      grph = new TGraphErrors(countMe,X,Y,errorX,errorY);
-      FitResultPtr[board][skiroc][type_num]= grph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      Graph = new TGraphErrors(countMe,X,Y,errorX,errorY);
+      FitResultPtr[board][skiroc][type_num]= Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
 
     }
   }
@@ -93,8 +97,8 @@ void SaturationFinder::FitHistogram()
     for(int skiroc = 0 ;skiroc<4;skiroc++)
     {
       // FINDME
-      // if(board > 4) continue;
-      // if(skiroc != 2) continue;
+      if(board !=2) continue;
+      if(skiroc != 2) continue;
 
 
       // Making sure that histogram has enough entries to be used in the fit...
@@ -134,8 +138,8 @@ void SaturationFinder::FitHistogram()
 
 
 
-      grph = new TGraphErrors(countMe,X,Y,errorX,errorY);
-      FitResultPtr[board][skiroc][type_num]= grph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      Graph = new TGraphErrors(countMe,X,Y,errorX,errorY);
+      FitResultPtr[board][skiroc][type_num]= Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
 
     }
   }

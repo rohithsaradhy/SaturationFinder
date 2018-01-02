@@ -48,6 +48,11 @@ class SaturationFinder
     void FitHistogram();
     void FindValues();
     void CutOff(int, int, int);
+    int Max_Index(float* value);
+    void Graph_Settings(int board, int skiroc,int type_num);
+
+
+
 
 
 

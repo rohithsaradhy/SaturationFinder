@@ -8,6 +8,8 @@
 	gROOT->LoadMacro("src/SaveHistogram.cc");
 	gROOT->LoadMacro("src/FitHistogram.cc");
 	gROOT->LoadMacro("src/FindValues.cc");
+	gROOT->LoadMacro("src/Graph_Settings.cc");
+
 
 
 
