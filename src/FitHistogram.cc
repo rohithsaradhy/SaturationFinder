@@ -7,7 +7,7 @@
 
 Int_t startBin,endBin,countMe;
 TGraphErrors* Graph[2];
-TF1* flo = new TF1("flo","[0]*x+[1]"); //Setting straight line fit for Lower region
+TF1* flo; //Setting straight line fit for Lower region
 int type_num;
 std::string type;
 
@@ -29,6 +29,7 @@ void SaturationFinder::FitHistogram()
   //For HighGain to LowGain
   type_num =0; //for H_L
   type = "HighGaintoLowGain";
+  flo = new TF1("flo","[0]*x+[1]");
   for(int board = 0;board<BOARD;board++)
   {
     for(int skiroc = 0 ;skiroc<4;skiroc++)
@@ -90,13 +91,14 @@ void SaturationFinder::FitHistogram()
   //For Low to TOT
   type_num =1; //for L_T
   type = "LowGaintoTOTSLow";
+  flo = new TF1("flo","[0]*x+[1]");
   for(int board = 0;board<BOARD;board++)
   {
     for(int skiroc = 0 ;skiroc<4;skiroc++)
     {
       // FINDME
-      if(board !=0) continue;
-      if(skiroc != 1) continue;
+      // if(board !=0) continue;
+      // if(skiroc != 1) continue;
 
 
       // Making sure that histogram has enough entries to be used in the fit...
