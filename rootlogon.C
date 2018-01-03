@@ -5,7 +5,7 @@
 	gROOT->LoadMacro("src/SaturationFinder.cc");
 	gROOT->LoadMacro("src/InitializeHist2D.cc");
 	gROOT->LoadMacro("src/Save_Load_Hist.cc");
-	gROOT->LoadMacro("src/Store_Retrive.cc");
+	gROOT->LoadMacro("src/Store_Retrieve.cc");
 	gROOT->LoadMacro("src/FitHistogram.cc");
 	gROOT->LoadMacro("src/FindValues.cc");
 	gROOT->LoadMacro("src/Graph_Settings.cc");

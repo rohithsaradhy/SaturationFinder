@@ -85,7 +85,7 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 
   for (int i=bin_min;i<bin_max;i++)
   {
-    if(pfX->GetBinContent(i)<1) continue; // Don't record this condition...
+    if(pfX->GetBinContent(i)<10) continue; // Don't record this condition...
     x[N] = binningX[i];
     y[N] = pfX->GetBinContent(i);
     errorY[i] = sqrt(pow(pfX->GetBinError(i),2) + pow(ErrorInY_ADC,2));

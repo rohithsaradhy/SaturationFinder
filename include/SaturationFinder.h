@@ -26,35 +26,7 @@
 #include <sstream>
 #include<fstream>
 
-//For InitializeHist2D method...
-Double_t bin_start;
-Double_t bin_stop;
-Double_t bin_change1;
-Double_t bin_change2;
 
-Double_t bin_width1;
-Double_t bin_width2;
-Double_t bin_width3;
-
-Double_t current_bin_low;
-Int_t bin_total;
-Double_t binningX[10000];
-Double_t y_Max,y_Min ,y_bin,y_totalbins(0);
-// End InitializeHist2D ...
-
-// For FitHistogram
-float X[10000],Y[10000],errorY[10000],errorX[10000];
-float ErrorInX_ADC;
-float ErrorInY_ADC;
-float FitRangeMax[2],FitRangeMin[2];
-//End Fit Histogram
-
-// For FindValues
-TMultiGraph* mg;
-TGraph* grph[5];
-TGaxis* A;
-float cutoff[2];
-// End FindValues
 
 const Int_t allocateMemory = 30;
 
@@ -67,6 +39,42 @@ class SaturationFinder
     std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
     std::string FIT_NAME = ""; // Prefix to plots and datafiles....
     std::string DATA_LOC = ""; // Prefix to plots and datafiles....
+    //For InitializeHist2D method...
+    Double_t bin_start;
+    Double_t bin_stop;
+    Double_t bin_change1;
+    Double_t bin_change2;
+
+    Double_t bin_width1;
+    Double_t bin_width2;
+    Double_t bin_width3;
+
+    Double_t current_bin_low;
+    Int_t bin_total;
+    Double_t binningX[10000];
+    Double_t y_Max;
+    Double_t y_Min;
+    Double_t y_bin;
+    Double_t y_totalbins=0;
+    // End InitializeHist2D ...
+
+    // For FitHistogram
+    float X[10000];
+    float Y[10000];
+    float errorY[10000];
+    float errorX[10000];
+    float ErrorInX_ADC =0;
+    float ErrorInY_ADC =0;
+    float FitRangeMax[2];
+    float FitRangeMin[2];
+    //End Fit Histogram
+
+    // For FindValues
+    TMultiGraph* mg;
+    TGraph* grph[5];
+    TGaxis* A;
+    float cutoff[2];
+    // End FindValues
 
 
   public:

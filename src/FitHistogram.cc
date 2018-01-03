@@ -21,8 +21,8 @@ void SaturationFinder::FitHistogram()
 
   FitRangeMin[0] = 75;
   FitRangeMax[0] = 180;
-  FitRangeMin[1] = 280;
-  FitRangeMax[1] = 400;
+  FitRangeMin[1] = 200;
+  FitRangeMax[1] = 350;
 
   Int_t Hist_Entries(0);
 
@@ -57,10 +57,9 @@ void SaturationFinder::FitHistogram()
 
       // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
       // continue;
-      ErrorInY_ADC = 0;
 
+      ErrorInY_ADC = 50;
       ErrorInX_ADC = 5;
-
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
@@ -90,7 +89,7 @@ void SaturationFinder::FitHistogram()
 
 
   //For Low to TOT
-  type_num =1; //for H_L
+  type_num =1; //for L_T
   type = "LowGaintoTOTSLow";
   for(int board = 0;board<BOARD;board++)
   {
@@ -119,7 +118,8 @@ void SaturationFinder::FitHistogram()
 
       // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
       // continue;
-      ErrorInY_ADC = 0;
+      ErrorInY_ADC = 50;
+      ErrorInX_ADC = 5;
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
