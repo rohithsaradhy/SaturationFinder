@@ -88,8 +88,8 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
     if(pfX->GetBinContent(i)<10) continue; // Don't record this condition...
     x[N] = binningX[i];
     y[N] = pfX->GetBinContent(i);
-    errorY[i] = sqrt(pow(pfX->GetBinError(i),2) + pow(ErrorInY_ADC,2));
-    errorX[i] = ErrorInX_ADC;
+    errorY[i] = sqrt(pow(pfX->GetBinError(i),2) + pow(ErrorInY_ADC[type_num],2));
+    errorX[i] = ErrorInX_ADC[type_num];
 
     if(x[N]>=FitRangeMin[type_num] && x[N]<=FitRangeMax[type_num])
     {
@@ -219,7 +219,7 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 }
 else
 {
-  std::cout<<"Fitting status not > 0, skipping :: \t";
+  std::cout<<"Fitting status not = 4000, skipping :: \t";
   std::cout<<"Board_"<<board<<"_Skiroc_"<<skiroc<<"_type_num_"<<0<<"_FitStatus_"<<fitStatus[board][skiroc][type_num]<<std::endl;
 
 }

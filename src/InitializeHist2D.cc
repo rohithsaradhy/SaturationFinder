@@ -82,8 +82,8 @@ void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
     bin_change2 =715;
 
     bin_width1 =10;
-    bin_width2 =20;
-    bin_width3 =40;
+    bin_width2 =25;
+    bin_width3 =50;
 
     current_bin_low=bin_start;
     bin_total=0;
@@ -151,7 +151,18 @@ void SaturationFinder::InitializeDataArray()
         CF_Intercept_Err[board][skiroc][i]=0;
         TP[board][skiroc][i]=0;
         TP_Err[board][skiroc][i]=0;
+        fitStatus[board][skiroc][i]=0;
+
       }
     }
+  }
+
+  for(int i=0;i<10000;i++)
+  {
+    X[i] =0;
+    Y[i] =0;
+    errorY[i]=0;
+    errorX[i]=0;
+
   }
 }

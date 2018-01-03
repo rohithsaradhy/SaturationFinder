@@ -6,7 +6,7 @@
 
 
 Int_t startBin,endBin,countMe;
-TGraphErrors* Graph;
+TGraphErrors* Graph[2];
 TF1* flo = new TF1("flo","[0]*x+[1]"); //Setting straight line fit for Lower region
 int type_num;
 std::string type;
@@ -35,7 +35,7 @@ void SaturationFinder::FitHistogram()
     {
 
       //FINDME...
-      // if(board != 2) continue;
+      // if(board != 1) continue;
       // if(skiroc != 2) continue;
 
 
@@ -58,30 +58,29 @@ void SaturationFinder::FitHistogram()
       // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
       // continue;
 
-      ErrorInY_ADC = 50;
-      ErrorInX_ADC = 5;
+      ErrorInY_ADC[type_num] = 10;
+      ErrorInX_ADC[type_num] = 5;
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
         if(HistProfile[board][skiroc][type_num]->GetBinContent(i)<10) continue;
-        if(HistProfile[board][skiroc][type_num]->GetBinCenter(i)>1000) break;
-        countMe++;
-        X[i] = HistProfile[board][skiroc][type_num]->GetBinCenter(i);
-        errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2) + pow(ErrorInY_ADC,2));
+        if(HistProfile[board][skiroc][type_num]->GetBinCenter(i)>=1000) break;
+        X[countMe] = HistProfile[board][skiroc][type_num]->GetBinCenter(i);
+        errorY[countMe] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2) + pow(ErrorInY_ADC[type_num],2));
         // errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2));
 
         // cout<<errorY[i]<<endl;
-        errorX[i] = ErrorInX_ADC;
-        Y[i] = HistProfile[board][skiroc][type_num]->GetBinContent(i);
+        errorX[countMe] = ErrorInX_ADC[type_num];
+        Y[countMe] = HistProfile[board][skiroc][type_num]->GetBinContent(i);
         // cout<<X[i]<<"\t"<<Y[i]<<endl;
+        countMe++;
       }
 
 
 
-      Graph = new TGraphErrors(countMe,X,Y,errorX,errorY);
-      FitResultPtr[board][skiroc][type_num]= Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
-      fitStatus[board][skiroc][type_num] = Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
-      FitResultPtr[board][skiroc][type_num]= Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      Graph[type_num] = new TGraphErrors(countMe,X,Y,errorX,errorY);
+      FitResultPtr[board][skiroc][type_num]= Graph[type_num]->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      fitStatus[board][skiroc][type_num] = (int)FitResultPtr[board][skiroc][type_num];//Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
 
     }
   }
@@ -96,8 +95,8 @@ void SaturationFinder::FitHistogram()
     for(int skiroc = 0 ;skiroc<4;skiroc++)
     {
       // FINDME
-      // if(board !=2) continue;
-      // if(skiroc != 2) continue;
+      if(board !=0) continue;
+      if(skiroc != 1) continue;
 
 
       // Making sure that histogram has enough entries to be used in the fit...
@@ -116,32 +115,41 @@ void SaturationFinder::FitHistogram()
       endBin=HistProfile[board][skiroc][type_num]->FindLastBinAbove(1,1); //(contentThreshold,axis#) x=1;y=2;z=3
       startBin =HistProfile[board][skiroc][type_num]->FindFirstBinAbove(1,1);//(contentThreshold,axis#) x=1;y=2;z=3
 
-      // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
+      cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
       // continue;
-      ErrorInY_ADC = 50;
-      ErrorInX_ADC = 5;
+
+      ErrorInY_ADC[type_num] = 10;
+      ErrorInX_ADC[type_num] = 5;
+      cout<<ErrorInY_ADC[type_num]<<"\t"<<ErrorInX_ADC[type_num]<<endl;
+      cout<<ErrorInY_ADC[type_num]<<"\t"<<ErrorInX_ADC[type_num]<<endl;
+
+
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
         if(HistProfile[board][skiroc][type_num]->GetBinContent(i)<10) continue;
-        if(HistProfile[board][skiroc][type_num]->GetBinCenter(i)>1000) break;
-        countMe++;
-        X[i] = HistProfile[board][skiroc][type_num]->GetBinCenter(i);
-        errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2) + pow(ErrorInY_ADC,2));
+        if(HistProfile[board][skiroc][type_num]->GetBinCenter(i)>=1000) break;
+        X[countMe] = HistProfile[board][skiroc][type_num]->GetBinCenter(i);
+        Y[countMe] = HistProfile[board][skiroc][type_num]->GetBinContent(i);
+        errorY[countMe] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2) + pow(ErrorInY_ADC[type_num],2));
         // errorY[i] = sqrt(pow(HistProfile[board][skiroc][type_num]->GetBinError(i),2));
+        errorX[countMe] = ErrorInX_ADC[type_num];
 
-        // cout<<errorY[i]<<endl;
-        errorX[i] = 5;
-        Y[i] = HistProfile[board][skiroc][type_num]->GetBinContent(i);
         // cout<<X[i]<<"\t"<<Y[i]<<endl;
+        // cout<<setprecision(3)<<errorX[countMe]<<"\t"<<errorY[countMe]<<"\t"<<HistProfile[board][skiroc][type_num]->GetBinError(i)<<"\t"<<X[i]<<"\t"<<Y[i]<<endl;
+        countMe++;
       }
 
 
 
-      Graph = new TGraphErrors(countMe,X,Y,errorX,errorY);
-      fitStatus[board][skiroc][type_num] = Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
-      FitResultPtr[board][skiroc][type_num]= Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      Graph[type_num] = new TGraphErrors(countMe,X,Y,errorX,errorY);
+      FitResultPtr[board][skiroc][type_num] = Graph[type_num]->Fit("flo","SNQEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
 
+      fitStatus[board][skiroc][type_num] = (int)FitResultPtr[board][skiroc][type_num];//Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
+      // if(board == 0 && skiroc == 1)
+      // {
+      //   // std::cout<<FitResultPtr[board][skiroc][type_num].Get()->Status()<<std::endl;
+      // }
 
     }
   }
