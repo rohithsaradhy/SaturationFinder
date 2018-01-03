@@ -1,5 +1,6 @@
 void SaturationFinder::Graph_Settings(int board, int skiroc,int type_num)
 {
+  std::ostringstream os( std::ostringstream::ate );
 
   TLegend* legend;
   TPaveText* label1;

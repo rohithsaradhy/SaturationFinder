@@ -1,6 +1,8 @@
 #include<iostream>
 #include "SaturationFinder.h"
 
+
+
 void run_me()
 {
 
@@ -11,30 +13,40 @@ void run_me()
 
 
   // a->dataExtractor();
-  // a->SaveHistogram();
-  a->LoadHistogram();
+  a->LoadHistogram("./temp_data/");
+  // a->SaveHistogram("./temp_data/");
   a->FitHistogram();
   a->FindValues();
+  a->StoreValues("./temp_data/");
   // a->InitializeHist2D(0,1);
   // a->Hist2D[0][0][1]->Draw();
   // a->CutOff(2,2,1);
   // a->CutOff(2,2,0);
-  std::ostringstream os( std::ostringstream::ate );
 
-  for(int i=0 ; i< 20 ; i++)
-  {
-    for(int j =0; j<4 ;j++)
-    {
-        int type_num =0;
-        if(a->fitStatus[i][j][type_num]==4000)
-        {
-          os.str("");
-          os<<"./Graphs/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
-          a->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
-        }
-    }
+  // for(int i=0 ; i< 20 ; i++)
+  // {
+  //   for(int j =0; j<4 ;j++)
+  //   {
+  //       int type_num =0;
+  //       if(a->fitStatus[i][j][type_num]==4000)
+  //       {
+  //         os.str("");
+  //         os<<"./Graphs/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
+  //         a->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
+  //       }
+  //   }
+  //
+  // }
 
-  }
 
   return;
 }
+
+
+#ifndef MAIN
+#define MAIN
+int main()
+{
+  run_me();
+}
+#endif

@@ -2,10 +2,7 @@
 //  NTuples are event based.
 // Written by Rohith Saradhy
  #include "SaturationFinder.h"
- #include <string>
- #include "TTree.h"
- #include "TH2F.h"
- #include <vector>
+
 
 
 void SaturationFinder::dataExtractor()

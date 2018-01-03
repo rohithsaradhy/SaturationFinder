@@ -1,6 +1,6 @@
 #include "SaturationFinder.h"
-#include "TMultiGraph.h"
-#include "TGraph.h"
+
+
 
 
 TMultiGraph* mg;
@@ -15,7 +15,7 @@ void SaturationFinder::FindValues()
 {
   cutoff[0] =5;
   cutoff[1] =7;
-
+  std::string type;
 
 
   for(int board=0;board < BOARD; board++)
@@ -38,6 +38,11 @@ void SaturationFinder::FindValues()
 
 void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 {
+
+  std::string type;
+  std::ostringstream os( std::ostringstream::ate );
+
+
   // if(fitStatus[board][skiroc][type_num]>100 && fitStatus[board][skiroc][type_num]< 10000 )
   if(fitStatus[board][skiroc][type_num]==4000)
   {
@@ -226,7 +231,7 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 else
 {
   std::cout<<"Fitting status not > 0, skipping :: \t";
-  std::cout<<"Board_"<<board<<"_Skiroc_"<<skiroc<<"_type_num_"<<0<<"_FitStatus_"<<fitStatus[board][skiroc][type_num]<<endl;
+  std::cout<<"Board_"<<board<<"_Skiroc_"<<skiroc<<"_type_num_"<<0<<"_FitStatus_"<<fitStatus[board][skiroc][type_num]<<std::endl;
 
 }
 

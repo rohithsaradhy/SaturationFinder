@@ -8,6 +8,18 @@
 #include "TFile.h"
 #include "TCanvas.h"
 #include "TRandom.h"
+#include "TROOT.h"
+#include "TRint.h"
+#include <string>
+#include "TTree.h"
+#include "TH2F.h"
+#include <vector>
+#include "TMultiGraph.h"
+#include "TGraph.h"
+#include "TGaxis.h"
+#include <sstream>
+#include<fstream>
+
 
 
 const Int_t allocateMemory = 30;
@@ -43,10 +55,13 @@ class SaturationFinder
     SaturationFinder(int board,float energy, std::string run_type, std::string fit_name, std::string data_loc);
     ~SaturationFinder();
     void getInfo();
+    void InitializeDataArray();
     void dataExtractor();
     void InitializeHist2D(Int_t option,bool hist);
-    void SaveHistogram();
-    void LoadHistogram();
+    void SaveHistogram(std::string rootFolder);
+    void StoreValues(std::string rootFolder); // Storing Final Values...
+    void RetriveValues(std::string rootFolder); // Retriving Final Values...
+    void LoadHistogram(std::string rootFolder);
 
     void FitHistogram();
     void FindValues();

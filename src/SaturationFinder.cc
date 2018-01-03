@@ -13,6 +13,8 @@ SaturationFinder::SaturationFinder(int board,float energy, std::string run_type,
 
   getInfo();
 
+  InitializeDataArray();
+
 
 
 }

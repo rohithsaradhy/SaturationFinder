@@ -1,6 +1,9 @@
 //Fits the Histogram from the ProfileX and then store it is FitResultPtr[][][]
 
 #include "SaturationFinder.h"
+#include "TGraphErrors.h"
+#include "TF1.h"
+#include "TProfile.h"
 
 
 float X[10000],Y[10000],errorY[10000],errorX[10000];
@@ -12,18 +15,18 @@ TF1* flo = new TF1("flo","[0]*x+[1]"); //Setting straight line fit for Lower reg
 float FitRangeMax[2],FitRangeMin[2];
 int type_num;
 std::string type;
-std::ostringstream os( std::ostringstream::ate );
+
 
 
 
 void SaturationFinder::FitHistogram()
 {
 
-
+  std::ostringstream os( std::ostringstream::ate );
 
   FitRangeMin[0] = 75;
   FitRangeMax[0] = 180;
-  FitRangeMin[1] = 200;
+  FitRangeMin[1] = 280;
   FitRangeMax[1] = 400;
 
   Int_t Hist_Entries(0);

@@ -1,6 +1,4 @@
 #include "SaturationFinder.h"
-#include <string>
-#include <sstream>
 
 
 Double_t bin_start;
@@ -21,6 +19,9 @@ Double_t y_Max,y_Min ,y_bin,y_totalbins(0);
 
 void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
 {
+
+  std::ostringstream histoName( std::ostringstream::ate );
+
   switch(option)
   {
     case 0:
@@ -76,7 +77,7 @@ void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
     {
       for(int j=0;j <4;j++)
       {
-        std::ostringstream histoName( std::ostringstream::ate );
+        histoName.str("");
         histoName<<"Board_"<<i<<"_Ski_"<<j<<"_HighGaintoLowGain";
         Hist2D[i][j][0] = new TH2F(histoName.str().c_str(),histoName.str().c_str(),bin_total,binningX,y_totalbins,y_Min,y_Max);//bin_total,binningX,y_totalbins,y_Min,y_Max);
       }
@@ -136,7 +137,7 @@ void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
     {
       for(int j=0;j <4;j++)
       {
-        std::ostringstream histoName( std::ostringstream::ate );
+        histoName.str("");
         histoName<<"Board_"<<i<<"_Ski_"<<j<<"_LowGaintoTOTSLow";
         Hist2D[i][j][1] = new TH2F(histoName.str().c_str(),histoName.str().c_str(),bin_total,binningX,y_totalbins,y_Min,y_Max);
       }
@@ -146,4 +147,24 @@ void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
     break;
   }
   return;
+}
+
+
+void SaturationFinder::InitializeDataArray()
+{
+  for(int board =0; board<BOARD; board++)
+  {
+    for (int skiroc =0; skiroc < 4; skiroc++)
+    {
+      for(int i=0;i<3;i++)
+      {
+        CF[board][skiroc][i]=0;
+        CF_Err[board][skiroc][i]=0;
+        CF_Intercept[board][skiroc][i]=0;
+        CF_Intercept_Err[board][skiroc][i]=0;
+        TP[board][skiroc][i]=0;
+        TP_Err[board][skiroc][i]=0;
+      }
+    }
+  }
 }
