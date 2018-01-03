@@ -23,7 +23,10 @@ void SaturationFinder::FitHistogram()
   FitRangeMax[0] = 180;
   FitRangeMin[1] = 200;
   FitRangeMax[1] = 350;
-
+  ErrorInY_ADC[0] = 100;
+  ErrorInX_ADC[0] = 5;
+  ErrorInY_ADC[1] = 50;
+  ErrorInX_ADC[1] = 5;
   Int_t Hist_Entries(0);
 
   //For HighGain to LowGain
@@ -58,8 +61,7 @@ void SaturationFinder::FitHistogram()
       // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
       // continue;
 
-      ErrorInY_ADC[type_num] = 0;
-      ErrorInX_ADC[type_num] = 5;
+
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
@@ -116,15 +118,6 @@ void SaturationFinder::FitHistogram()
       endBin=HistProfile[board][skiroc][type_num]->FindLastBinAbove(1,1); //(contentThreshold,axis#) x=1;y=2;z=3
       startBin =HistProfile[board][skiroc][type_num]->FindFirstBinAbove(1,1);//(contentThreshold,axis#) x=1;y=2;z=3
 
-      // cout<<"Start and End Bin :: "<<startBin<<"\t"<<endBin<<endl;
-      // continue;
-
-      ErrorInY_ADC[type_num] = 0;
-      ErrorInX_ADC[type_num] = 5;
-      // cout<<ErrorInY_ADC[type_num]<<"\t"<<ErrorInX_ADC[type_num]<<endl;
-      // cout<<ErrorInY_ADC[type_num]<<"\t"<<ErrorInX_ADC[type_num]<<endl;
-
-
       countMe=0;
       for(int i= startBin;i<=endBin;i++)
       {
@@ -146,7 +139,7 @@ void SaturationFinder::FitHistogram()
       Graph[type_num] = new TGraphErrors(countMe,X,Y,errorX,errorY);
       FitResultPtr[board][skiroc][type_num] = Graph[type_num]->Fit("flo","SNQEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
       fitStatus[board][skiroc][type_num] = (int)FitResultPtr[board][skiroc][type_num];//Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
-  
+
 
     }
   }

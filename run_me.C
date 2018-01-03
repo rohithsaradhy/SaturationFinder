@@ -15,11 +15,8 @@ void run_me()
 
 
   // a->dataExtractor();
-  // b->dataExtractor();
-  a->LoadHistogram("./temp_data/");
-  // b->LoadHistogram("./temp_data/");
   // a->SaveHistogram("./temp_data/");
-  // b->SaveHistogram("./temp_data/");
+  a->LoadHistogram("./temp_data/");
   a->FitHistogram();
   a->FindValues();
   // a->StoreValues("./temp_data/");
@@ -29,34 +26,34 @@ void run_me()
   // a->Hist2D[0][0][1]->Draw();
   // a->CutOff(2,2,1);
   // a->CutOff(2,2,0);
-  std::cout<<a->fitStatus[0][1][1]<<std::endl;
-  a->fitCanvas[0][1][1]->SaveAs("./temp.png");
-  a->fitCanvas[0][1][0]->SaveAs("./temp1.png");
+  // std::cout<<a->fitStatus[0][1][1]<<std::endl;
+  // a->fitCanvas[0][1][1]->SaveAs("./temp.png");
+  // a->fitCanvas[0][1][0]->SaveAs("./temp1.png");
 
-  // for(int i=0 ; i< 20 ; i++)
-  // {
-  //   for(int j =0; j<4 ;j++)
-  //   {
-  //       for(int type_num=1;type_num<2;type_num++)
-  //       {
-  //         if(a->fitStatus[i][j][type_num]==4000)
-  //         {
-  //           os.str("");
-  //           os<<"./Graphs/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
-  //           a->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
-  //         }
-  //
-  //         // if(b->fitStatus[i][j][type_num]==4000)
-  //         // {
-  //         //   os.str("");
-  //         //   os<<"./Graphs/"<<b->fitCanvas[i][j][type_num]->GetName()<<".png";
-  //         //   b->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
-  //         // }
-  //
-  //       }
-  //   }
+  for(int i=0 ; i< 20 ; i++)
+  {
+    for(int j =0; j<4 ;j++)
+    {
+        for(int type_num=1;type_num<2;type_num++)
+        {
+          if(a->fitStatus[i][j][type_num]==4000)
+          {
+            os.str("");
+            os<<"./Graphs/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
+            a->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
+          }
 
-  // }
+          // if(b->fitStatus[i][j][type_num]==4000)
+          // {
+          //   os.str("");
+          //   os<<"./Graphs/"<<b->fitCanvas[i][j][type_num]->GetName()<<".png";
+          //   b->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
+          // }
+
+        }
+    }
+
+  }
 
 
   return;
