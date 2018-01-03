@@ -17,9 +17,9 @@ void SaturationFinder::StoreValues(std::string rootFolder)
     for(int skiroc=0; skiroc < 4; skiroc++)
     {
 
-      fs <<setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
+      fs <<std::setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
       <<"\t"<<CF_Intercept[board][skiroc][type_num]<<"\t"<<CF_Intercept_Err[board][skiroc][type_num]<<"\t"
-      <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<endl;
+      <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<std::endl;
     }
   }
   std::cout<<"Data Written to :"<<os.str()<<std::endl;
@@ -37,9 +37,9 @@ void SaturationFinder::StoreValues(std::string rootFolder)
     for(int skiroc=0; skiroc < 4; skiroc++)
     {
 
-      fs <<setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
+      fs <<std::setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
       <<"\t"<<CF_Intercept[board][skiroc][type_num]<<"\t"<<CF_Intercept_Err[board][skiroc][type_num]<<"\t"
-      <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<endl;
+      <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<std::endl;
     }
   }
   std::cout<<"Data Written to :"<<os.str()<<std::endl;
@@ -48,7 +48,7 @@ void SaturationFinder::StoreValues(std::string rootFolder)
 
 }
 
-void SaturationFinder::RetriveValues(std::string rootFolder)
+void SaturationFinder::RetrieveValues(std::string rootFolder)
 {
 
 

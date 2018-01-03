@@ -1,3 +1,4 @@
+#include<SaturationFinder.h>
 void SaturationFinder::Graph_Settings(int board, int skiroc,int type_num)
 {
   std::ostringstream os( std::ostringstream::ate );
@@ -53,7 +54,7 @@ void SaturationFinder::Graph_Settings(int board, int skiroc,int type_num)
     legend->AddEntry("X-Profile","<HG> vs LG","p");
     os.str("");
     os<<std::fixed;
-    os<<setprecision(1);
+    os<<std::setprecision(1);
 
     os<<"Fit = "<<CF[board][skiroc][type_num]<<"#timesLG ";
     if(CF_Intercept[board][skiroc][type_num] > 0) os<<" + "<<CF_Intercept[board][skiroc][type_num];
@@ -133,7 +134,7 @@ void SaturationFinder::Graph_Settings(int board, int skiroc,int type_num)
     legend->AddEntry("X-Profile","<LG> vs TOTSlow","p");
     os.str("");
     os<<std::fixed;
-    os<<setprecision(1);
+    os<<std::setprecision(1);
 
     os<<"Fit = "<<CF[board][skiroc][type_num]<<"#timesTOT";
     if(CF_Intercept[board][skiroc][type_num] >= 0) os<<"  + "<<CF_Intercept[board][skiroc][type_num];

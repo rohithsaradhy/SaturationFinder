@@ -1,16 +1,5 @@
 #include "SaturationFinder.h"
 
-
-
-
-TMultiGraph* mg;
-TGraph* grph[5];
-TGaxis* A;
-float cutoff[2];
-
-
-
-
 void SaturationFinder::FindValues()
 {
   cutoff[0] =5;

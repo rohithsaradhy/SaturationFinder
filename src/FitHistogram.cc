@@ -1,18 +1,13 @@
 //Fits the Histogram from the ProfileX and then store it is FitResultPtr[][][]
 
 #include "SaturationFinder.h"
-#include "TGraphErrors.h"
-#include "TF1.h"
-#include "TProfile.h"
 
 
-float X[10000],Y[10000],errorY[10000],errorX[10000];
-float ErrorInX_ADC;
-float ErrorInY_ADC;
+
+
 Int_t startBin,endBin,countMe;
 TGraphErrors* Graph;
 TF1* flo = new TF1("flo","[0]*x+[1]"); //Setting straight line fit for Lower region
-float FitRangeMax[2],FitRangeMin[2];
 int type_num;
 std::string type;
 

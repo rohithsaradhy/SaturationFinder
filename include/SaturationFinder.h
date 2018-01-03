@@ -16,11 +16,45 @@
 #include <vector>
 #include "TMultiGraph.h"
 #include "TGraph.h"
+#include "TLegend.h"
+#include "TPaveText.h"
 #include "TGaxis.h"
+#include "TFitResult.h"
+#include "TProfile.h"
+#include "TGraphErrors.h"
+#include "TF1.h"
 #include <sstream>
 #include<fstream>
 
+//For InitializeHist2D method...
+Double_t bin_start;
+Double_t bin_stop;
+Double_t bin_change1;
+Double_t bin_change2;
 
+Double_t bin_width1;
+Double_t bin_width2;
+Double_t bin_width3;
+
+Double_t current_bin_low;
+Int_t bin_total;
+Double_t binningX[10000];
+Double_t y_Max,y_Min ,y_bin,y_totalbins(0);
+// End InitializeHist2D ...
+
+// For FitHistogram
+float X[10000],Y[10000],errorY[10000],errorX[10000];
+float ErrorInX_ADC;
+float ErrorInY_ADC;
+float FitRangeMax[2],FitRangeMin[2];
+//End Fit Histogram
+
+// For FindValues
+TMultiGraph* mg;
+TGraph* grph[5];
+TGaxis* A;
+float cutoff[2];
+// End FindValues
 
 const Int_t allocateMemory = 30;
 
@@ -60,7 +94,7 @@ class SaturationFinder
     void InitializeHist2D(Int_t option,bool hist);
     void SaveHistogram(std::string rootFolder);
     void StoreValues(std::string rootFolder); // Storing Final Values...
-    void RetriveValues(std::string rootFolder); // Retriving Final Values...
+    void RetrieveValues(std::string rootFolder); // Retriving Final Values...
     void LoadHistogram(std::string rootFolder);
 
     void FitHistogram();
