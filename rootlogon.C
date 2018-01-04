@@ -9,6 +9,7 @@
 	gROOT->LoadMacro("src/FitHistogram.cc");
 	gROOT->LoadMacro("src/FindValues.cc");
 	gROOT->LoadMacro("src/Graph_Settings.cc");
+	gROOT->LoadMacro("src/FixAllValues.cc");
 
 
 

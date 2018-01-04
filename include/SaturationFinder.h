@@ -111,6 +111,8 @@ class SaturationFinder
     void CutOff(int board, int skiroc, int type_num);
     int Max_Index(float* value);
     void Graph_Settings(int board, int skiroc,int type_num);
+    void FixAllValues(int type_num);
+
 
 
 
