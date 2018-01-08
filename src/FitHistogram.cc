@@ -21,8 +21,8 @@ void SaturationFinder::FitHistogram()
 
   FitRangeMin[0] = 75;
   FitRangeMax[0] = 180;
-  FitRangeMin[1] = 200;
-  FitRangeMax[1] = 350;
+  FitRangeMin[1] = 300;
+  FitRangeMax[1] = 400;
   ErrorInY_ADC[0] = 100;
   ErrorInX_ADC[0] = 5;
   ErrorInY_ADC[1] = 50;
