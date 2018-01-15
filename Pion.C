@@ -9,6 +9,7 @@ void Pion()
 
   const int BOARD =17;
   const int Number_Energy =6;
+  std::string run_type = "Pion";
   std::ostringstream os( std::ostringstream::ate );
   // gROOT->SetBatch(kTRUE); //Not displaying anything
 
@@ -20,25 +21,27 @@ void Pion()
 
   for(int i=0;i<Number_Energy;i++)
   {
-    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],"Pion","Oct_H2","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
+    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,"Oct_H2","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
   }
 
 
+  os.str("");
+  os<<"./temp_data/"<<run_type<<"/";
   // //Extracting all the data and saving it in
   // for(int i=0;i<Number_Energy;i++)
   // {
   //   EnergyData[i]->dataExtractor();
-  //   EnergyData[i]->SaveHistogram("./temp_data/Pion/");
+  //   EnergyData[i]->SaveHistogram(os.str());
   // }
 
   //Loading all the data
   for(int i=0;i<Number_Energy;i++)
   {
-    // EnergyData[i]->LoadHistogram("./temp_data/Pion/");
+    // EnergyData[i]->LoadHistogram(os.str());
     // EnergyData[i]->FitHistogram();
     // EnergyData[i]->FindValues();
     os.str("");
-    os<<"./temp_data/Pion/"<<Energy[i]<<"_";
+    os<<"./temp_data/"<<run_type<<"/"<<Energy[i]<<"_";
     // EnergyData[i]->StoreValues(os.str());
     EnergyData[i]->RetrieveValues(os.str());
   }
@@ -54,7 +57,7 @@ void Pion()
   TGraphErrors* CF_Graph[BOARD][4][2]; // Board Skiroc Type
   TMultiGraph* CF_MG[BOARD][2];
   float CF[Number_Energy],CF_Err[Number_Energy],CF_Energy[Number_Energy];
-  int type_num=0;
+  int type_num=1;
   float StaggeringFactor=6;
 
   std::map<int,Color_t> skiColor ={
@@ -71,10 +74,10 @@ void Pion()
     switch(type_num)
     {
       case 0:
-        os<<"HGtoLG_CF_Brd_"<<board<<"_Pion";
+        os<<"HGtoLG_CF_Brd_"<<board<<"_"<<run_type;
         break;
       case 1:
-        os<<"LGtoTOT_CF_Brd_"<<board<<"_Pion";
+        os<<"LGtoTOT_CF_Brd_"<<board<<"_"<<run_type;
         break;
     }
 
@@ -178,7 +181,7 @@ void Pion()
       CF_MG[board][type_num]->GetXaxis()->SetTitleFont(62);
       CF_MG[board][type_num]->GetXaxis()->SetTitleSize(0.048);
       // CF_MG[board][type_num]->GetXaxis()->SetTitleOffset(1.5);
-      CF_MG[board][type_num]->GetYaxis()->SetRangeUser(0,6);
+      CF_MG[board][type_num]->GetYaxis()->SetRangeUser(0,8);
 
 
       legend = new TLegend(0.1391753,0.6351931,0.3004418,0.8927039,NULL,"brNDC");
