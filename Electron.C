@@ -11,6 +11,7 @@ void Electron()
   const int Number_Energy =5;
   float StaggeringFactor;
   std::string run_type = "Electron";
+  std::string rootFolder="./temp_data/";
   std::ostringstream os( std::ostringstream::ate );
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
@@ -25,7 +26,8 @@ void Electron()
     EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,"Oct_H2","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
   }
 
-
+  rootFolder += EnergyData[0]->FIT_NAME+"/";
+  cout<<rootFolder<<endl;
   os.str("");
   os<<"./temp_data/"<<run_type<<"/";
   // //Extracting all the data and saving it in
@@ -52,13 +54,13 @@ void Electron()
       EnergyData[i]->FitHistogram();
       EnergyData[i]->FindValues();
       os.str("");
-      os<<"./temp_data/"<<run_type<<"/"<<Energy[i]<<"_";
+      os<<rootFolder<<run_type<<"/"<<Energy[i]<<"_";
       EnergyData[i]->StoreValues(os.str());
     }
     else
     {
       os.str("");
-      os<<"./temp_data/"<<run_type<<"/"<<Energy[i]<<"_";
+      os<<rootFolder<<run_type<<"/"<<Energy[i]<<"_";
       EnergyData[i]->RetrieveValues(os.str());
     }
 
@@ -436,10 +438,10 @@ void Electron()
       for(int board=0;board<BOARD;board++)
       {
         os.str("");
-        os<<"./temp_data/"<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<TP_Canvas[board][type_num]->GetName()<<".png";
+        os<<rootFolder<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<TP_Canvas[board][type_num]->GetName()<<".png";
         TP_Canvas[board][type_num]->SaveAs(os.str().c_str());
         os.str("");
-        os<<"./temp_data/"<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<CF_Canvas[board][type_num]->GetName()<<".png";
+        os<<rootFolder<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<CF_Canvas[board][type_num]->GetName()<<".png";
         CF_Canvas[board][type_num]->SaveAs(os.str().c_str());
 
       }
@@ -460,7 +462,7 @@ void Electron()
             {
               if(EnergyData[energyNum]->fitStatus[board][skiroc][type_num]!=4000) continue; //For Safety
               os.str("");
-              os<<"./temp_data/"<<run_type<<"/Graphs/FitData/"<<type[type_num]<<"/"<<EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
+              os<<rootFolder<<run_type<<"/Graphs/FitData/"<<type[type_num]<<"/"<<EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
               EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->SaveAs(os.str().c_str());
             }
 
