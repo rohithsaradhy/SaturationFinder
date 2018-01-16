@@ -45,6 +45,4 @@ void SaturationFinder::getInfo()
     std::cout<<std::endl<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<std::endl;
 
     return ;
-
-
 }

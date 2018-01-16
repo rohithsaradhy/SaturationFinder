@@ -33,13 +33,15 @@ const Int_t allocateMemory = 30;
 
 class SaturationFinder
 {
-
   private:
+
+  public:
     int BOARD = 0;
     float ENERGY = 0;
     std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
     std::string FIT_NAME = ""; // Prefix to plots and datafiles....
     std::string DATA_LOC = ""; // Prefix to plots and datafiles....
+    
     //For InitializeHist2D method...
     Double_t bin_start=0;
     Double_t bin_stop=0;
@@ -77,8 +79,6 @@ class SaturationFinder
     float cutoff[2];
     // End FindValues
 
-
-  public:
     TH2F* Hist2D[allocateMemory][4][3];
     TFitResultPtr FitResultPtr[allocateMemory][4][3];
     TProfile* HistProfile[allocateMemory][4][3];
@@ -112,11 +112,6 @@ class SaturationFinder
     int Max_Index(float* value);
     void Graph_Settings(int board, int skiroc,int type_num);
     void FixAllValues(int type_num);
-
-
-
-
-
 
 
 

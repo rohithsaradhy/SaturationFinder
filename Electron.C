@@ -1,23 +1,21 @@
 // File to analyse pion data.
 #include<iostream>
 #include<string>
-// #include<sys>
 #include "SaturationFinder.h"
 using namespace std;
 
-void Pion()
+void Electron()
 {
 
   const int BOARD =17;
-  const int Number_Energy =6;
+  const int Number_Energy =5;
   float StaggeringFactor;
-  std::string run_type = "Pion";
-  std::string rootFolder="./temp_data/";
+  std::string run_type = "Electron";
   std::ostringstream os( std::ostringstream::ate );
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
 
-  float Energy[Number_Energy]={100,150,200,250,300,350};
+  float Energy[Number_Energy]={20,32,50,80,90};
 
   SaturationFinder* EnergyData[Number_Energy];
 
@@ -27,10 +25,9 @@ void Pion()
     EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,"Oct_H2","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
   }
 
-  rootFolder += EnergyData[0]->FIT_NAME+"/";
-  cout<<rootFolder<<endl;
+
   os.str("");
-  os<<rootFolder<<run_type<<"/";
+  os<<"./temp_data/"<<run_type<<"/";
   // //Extracting all the data and saving it in
   bool enableDataExtraction =0;
   if(enableDataExtraction)
@@ -43,25 +40,25 @@ void Pion()
   }
 
   //Loading all the data
-  bool enableFindValues =0;
+  bool enableFindValues =1;
   for(int i=0;i<Number_Energy;i++)
   {
 
     if(enableFindValues)
     {
       os.str("");
-      os<<rootFolder<<run_type<<"/";
-      if(!enableDataExtraction) EnergyData[i]->LoadHistogram(os.str());
+      os<<"./temp_data/"<<run_type<<"/";
+      if(!enableDataExtraction) EnergyData[i]->LoadHistogram(os.str()); //Load Data if dataExtractor not used.
       EnergyData[i]->FitHistogram();
       EnergyData[i]->FindValues();
       os.str("");
-      os<<rootFolder<<run_type<<"/"<<Energy[i]<<"_";
+      os<<"./temp_data/"<<run_type<<"/"<<Energy[i]<<"_";
       EnergyData[i]->StoreValues(os.str());
     }
     else
     {
       os.str("");
-      os<<rootFolder<<run_type<<"/"<<Energy[i]<<"_";
+      os<<"./temp_data/"<<run_type<<"/"<<Energy[i]<<"_";
       EnergyData[i]->RetrieveValues(os.str());
     }
 
@@ -326,7 +323,7 @@ void Pion()
         TP_MG[board][type_num]->GetXaxis()->SetTitleFont(62);
         TP_MG[board][type_num]->GetXaxis()->SetTitleSize(0.048);
         // TP_MG[board][type_num]->GetXaxis()->SetTitleOffset(1.5);
-        TP_MG[board][type_num]->GetYaxis()->SetRangeUser(500,4500);
+        TP_MG[board][type_num]->GetYaxis()->SetRangeUser(0,4000);
 
 
         legend = new TLegend(0.1391753,0.6351931,0.3004418,0.8927039,NULL,"brNDC");
@@ -379,7 +376,7 @@ void Pion()
         TP_MG[board][type_num]->GetXaxis()->SetTitleFont(62);
         TP_MG[board][type_num]->GetXaxis()->SetTitleSize(0.048);
         // TP_MG[board][type_num]->GetXaxis()->SetTitleOffset(1.5);
-        TP_MG[board][type_num]->GetYaxis()->SetRangeUser(-500,3500);
+        TP_MG[board][type_num]->GetYaxis()->SetRangeUser(700,2400);
 
 
         legend = new TLegend(0.7172312,0.1630901,0.8807069,0.4792561,NULL,"brNDC");
@@ -439,10 +436,10 @@ void Pion()
       for(int board=0;board<BOARD;board++)
       {
         os.str("");
-        os<<rootFolder<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<TP_Canvas[board][type_num]->GetName()<<".png";
+        os<<"./temp_data/"<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<TP_Canvas[board][type_num]->GetName()<<".png";
         TP_Canvas[board][type_num]->SaveAs(os.str().c_str());
         os.str("");
-        os<<rootFolder<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<CF_Canvas[board][type_num]->GetName()<<".png";
+        os<<"./temp_data/"<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<CF_Canvas[board][type_num]->GetName()<<".png";
         CF_Canvas[board][type_num]->SaveAs(os.str().c_str());
 
       }
@@ -463,7 +460,7 @@ void Pion()
             {
               if(EnergyData[energyNum]->fitStatus[board][skiroc][type_num]!=4000) continue; //For Safety
               os.str("");
-              os<<rootFolder<<run_type<<"/Graphs/FitData/"<<type[type_num]<<"/"<<EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
+              os<<"./temp_data/"<<run_type<<"/Graphs/FitData/"<<type[type_num]<<"/"<<EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
               EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->SaveAs(os.str().c_str());
             }
 

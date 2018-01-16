@@ -19,7 +19,7 @@ void run_me()
   a->LoadHistogram("./temp_data/");
   a->FitHistogram();
   a->FindValues();
-  a->RetrieveValues("./temp_data/");
+  // a->RetrieveValues("./temp_data/");
   a->StoreValues("./temp_data/");
   a->FixAllValues(0);
   a->FixAllValues(1);
