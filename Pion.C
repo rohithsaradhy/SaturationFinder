@@ -12,7 +12,7 @@ void Pion()
   float StaggeringFactor;
   std::string run_type = "Pion";
   std::ostringstream os( std::ostringstream::ate );
-  // gROOT->SetBatch(kTRUE); //Not displaying anything
+  gROOT->SetBatch(kTRUE); //Not displaying anything
 
 
   float Energy[Number_Energy]={100,150,200,250,300,350};
@@ -29,22 +29,39 @@ void Pion()
   os.str("");
   os<<"./temp_data/"<<run_type<<"/";
   // //Extracting all the data and saving it in
-  // for(int i=0;i<Number_Energy;i++)
-  // {
-  //   EnergyData[i]->dataExtractor();
-  //   EnergyData[i]->SaveHistogram(os.str());
-  // }
+  bool enableDataExtraction =0;
+  if(enableDataExtraction)
+  {
+    for(int i=0;i<Number_Energy;i++)
+    {
+      EnergyData[i]->dataExtractor();
+      EnergyData[i]->SaveHistogram(os.str());
+    }
+  }
 
   //Loading all the data
+  bool enableFindValues =1;
   for(int i=0;i<Number_Energy;i++)
   {
-    // EnergyData[i]->LoadHistogram(os.str());
-    // EnergyData[i]->FitHistogram();
-    // EnergyData[i]->FindValues();
-    os.str("");
-    os<<"./temp_data/"<<run_type<<"/"<<Energy[i]<<"_";
-    // EnergyData[i]->StoreValues(os.str());
-    EnergyData[i]->RetrieveValues(os.str());
+
+    if(enableFindValues)
+    {
+      os.str("");
+      os<<"./temp_data/"<<run_type<<"/";
+      EnergyData[i]->LoadHistogram(os.str());
+      EnergyData[i]->FitHistogram();
+      EnergyData[i]->FindValues();
+      os.str("");
+      os<<"./temp_data/"<<run_type<<"/"<<Energy[i]<<"_";
+      EnergyData[i]->StoreValues(os.str());
+    }
+    else
+    {
+      os.str("");
+      os<<"./temp_data/"<<run_type<<"/"<<Energy[i]<<"_";
+      EnergyData[i]->RetrieveValues(os.str());
+    }
+
   }
 
 
@@ -52,6 +69,12 @@ void Pion()
 
 
 
+  std::map<int,Color_t> skiColor ={
+    {0,kRed},
+    {1,kBlue},
+    {2,kGreen},
+    {3,kBlack}
+  };
 
   //For ConverstionFactor
   TCanvas* CF_Canvas[BOARD][2];
@@ -59,12 +82,6 @@ void Pion()
   TMultiGraph* CF_MG[BOARD][2];
   float CF[Number_Energy],CF_Err[Number_Energy],CF_Energy[Number_Energy];
   StaggeringFactor=6;
-  std::map<int,Color_t> skiColor ={
-    {0,kRed},
-    {1,kBlue},
-    {2,kGreen},
-    {3,kBlack}
-  };
   for(int type_num=0;type_num<2;type_num++)
   {
 
@@ -241,13 +258,7 @@ void Pion()
   TMultiGraph* TP_MG[BOARD][2];
   float TP[Number_Energy],TP_Err[Number_Energy],TP_Energy[Number_Energy];
   StaggeringFactor=6;
-  std::map<int,Color_t> skiColor ={
-    {0,kRed},
-    {1,kBlue},
-    {2,kGreen},
-    {3,kBlack}
-  };
-  for(int type_num=0;type_num<1;type_num++)
+  for(int type_num=0;type_num<2;type_num++)
   {
 
     for(int board=0;board<BOARD;board++)
@@ -416,6 +427,48 @@ void Pion()
 
 
 
+
+  std::string type[2]={"HG_LG","LG_TOT"};
+
+    //Saving the Analysed Plots
+    for(int type_num=0;type_num<2;type_num++)
+    {
+      for(int board=0;board<BOARD;board++)
+      {
+        os.str("");
+        os<<"./temp_data/"<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<TP_Canvas[board][type_num]->GetName()<<".png";
+        TP_Canvas[board][type_num]->SaveAs(os.str().c_str());
+        os.str("");
+        os<<"./temp_data/"<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<CF_Canvas[board][type_num]->GetName()<<".png";
+        CF_Canvas[board][type_num]->SaveAs(os.str().c_str());
+
+      }
+
+    }
+
+
+    // Saving the fit Plots... Not FIt and Find Values should be uncommented above...
+    if(enableFindValues)
+    {
+      for(int energyNum=0;energyNum<Number_Energy;energyNum++)
+      {
+        for(int board=0;board<BOARD;board++)
+        {
+          for(int skiroc=0;skiroc<4;skiroc++)
+          {
+            for(int type_num=0;type_num<2;type_num++)
+            {
+              if(EnergyData[energyNum]->fitStatus[board][skiroc][type_num]!=4000) continue; //For Safety
+              os.str("");
+              os<<"./temp_data/"<<run_type<<"/Graphs/FitData/"<<type[type_num]<<"/"<<EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
+              EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->SaveAs(os.str().c_str());
+            }
+
+          }
+
+        }
+      }
+    }
 
 
 
