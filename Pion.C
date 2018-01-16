@@ -48,7 +48,7 @@ void Pion()
     {
       os.str("");
       os<<"./temp_data/"<<run_type<<"/";
-      EnergyData[i]->LoadHistogram(os.str());
+      if(!enableDataExtraction) EnergyData[i]->LoadHistogram(os.str());
       EnergyData[i]->FitHistogram();
       EnergyData[i]->FindValues();
       os.str("");
