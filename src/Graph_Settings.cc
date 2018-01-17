@@ -85,7 +85,9 @@ void SaturationFinder::Graph_Settings(int board, int skiroc,int type_num)
     label1->SetTextAlign(12);
     label1->SetTextSize(0.059);
     label1->SetTextFont (62);
-    label1->AddText("HGCAL test beam, Sept 2017");
+    os.str("");
+    os<<"HGCAL Test Beam, "<<FIT_NAME;
+    label1->AddText(os.str().c_str());
     label1->Draw("same");
 
 
@@ -165,7 +167,9 @@ void SaturationFinder::Graph_Settings(int board, int skiroc,int type_num)
     label1->SetTextAlign(12);
     label1->SetTextSize(0.059);
     label1->SetTextFont (62);
-    label1->AddText("HGCAL test beam, Sept 2017");
+    os.str("");
+    os<<"HGCAL Test Beam, "<<FIT_NAME;
+    label1->AddText(os.str().c_str());
     label1->Draw("same");
 
 
