@@ -33,9 +33,10 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 
 
   // if(fitStatus[board][skiroc][type_num]>100 && fitStatus[board][skiroc][type_num]< 10000 )
-  if(fitStatus[board][skiroc][type_num]==4000)
+  if(fitStatus[board][skiroc][type_num] == 0 && Hist2D[board][skiroc][type_num]->GetEntries() >100)
   {
   // std::cout<<"fit Status ::"<<fitStatus[board][skiroc][type_num]<<std::endl;
+  // std::cout<<board<<"\t"<<skiroc<<"\t"<<type_num<<"\t"<<fitStatus[board][skiroc][type_num]<<std::endl;
   switch(type_num)
   {
     case 0:
@@ -219,7 +220,7 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 }
 else
 {
-  std::cout<<"Fitting status not = 4000, skipping :: \t";
+  std::cout<<"Fitting status Error, skipping :: \t";
   std::cout<<"Board_"<<board<<"_Skiroc_"<<skiroc<<"_type_num_"<<0<<"_FitStatus_"<<fitStatus[board][skiroc][type_num]<<std::endl;
 
 }

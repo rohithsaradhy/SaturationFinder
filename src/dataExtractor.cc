@@ -103,7 +103,6 @@ void SaturationFinder::dataExtractor()
   InitializeHist2D(1,1);
 
 
-
   for(int entry = 0; entry < Max_Entries ; entry++)
   {
 
@@ -125,12 +124,18 @@ void SaturationFinder::dataExtractor()
       y = Hit_Sensor_Cell_HG_Amplitude->at(i);
       // y = Hit_Sensor_Cell_HG->at(i);
       z = Hit_Sensor_Cell_ToT_Slow->at(i);
-      Hist2D[board][skiroc][0]->Fill(x,y);
-      Hist2D[board][skiroc][1]->Fill(z,x);
+
+      if(Hit_Sensor_Cell_HG_Status->at(i) == 0 && Hit_Sensor_Cell_LG_Status->at(i) == 0 ) //Fill Only if the fit was success full.
+      {
+        Hist2D[board][skiroc][0]->Fill(x,y);
+        Hist2D[board][skiroc][1]->Fill(z,x);
+      }
     }
 
 
   }
+
+
 
 
 

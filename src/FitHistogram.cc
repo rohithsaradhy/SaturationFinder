@@ -19,8 +19,8 @@ void SaturationFinder::FitHistogram()
 
   std::ostringstream os( std::ostringstream::ate );
 
-  FitRangeMin[0] = 75;
-  FitRangeMax[0] = 180;
+  FitRangeMin[0] = 110;
+  FitRangeMax[0] = 200;
   FitRangeMin[1] = 300;
   FitRangeMax[1] = 400;
   ErrorInY_ADC[0] = 100;
@@ -81,8 +81,8 @@ void SaturationFinder::FitHistogram()
 
       flo = new TF1("flo","[0]*x+[1]");
       Graph[type_num] = new TGraphErrors(countMe,X,Y,errorX,errorY);
-      FitResultPtr[board][skiroc][type_num]= Graph[type_num]->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
-      fitStatus[board][skiroc][type_num] = (int)FitResultPtr[board][skiroc][type_num];//Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
+      FitResultPtr[board][skiroc][type_num]= Graph[type_num]->Fit("flo","QSN","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      fitStatus[board][skiroc][type_num] = (int)FitResultPtr[board][skiroc][type_num];
 
     }
   }
@@ -137,7 +137,8 @@ void SaturationFinder::FitHistogram()
 
       flo = new TF1("flo","[0]*x+[1]");
       Graph[type_num] = new TGraphErrors(countMe,X,Y,errorX,errorY);
-      FitResultPtr[board][skiroc][type_num] = Graph[type_num]->Fit("flo","SNQEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      // FindFitRanges(type_num);
+      FitResultPtr[board][skiroc][type_num] = Graph[type_num]->Fit("flo","SNQ","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
       fitStatus[board][skiroc][type_num] = (int)FitResultPtr[board][skiroc][type_num];//Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
 
 
@@ -145,5 +146,31 @@ void SaturationFinder::FitHistogram()
   }
 
 
+
+}
+
+
+
+void SaturationFinder::FindFitRanges(int type_num)
+{
+  float max = FitRangeMin[type_num],min=FitRangeMax[type_num];
+  float min_width_fit = 80;
+  float fit_increment =5;
+  float Chi_Sqr(0),MinimizeMe(1000000);
+
+  for(float high=min+min_width_fit;high<max;high+=fit_increment)
+  {
+    for(float low=min;low<(high-min_width_fit); low+= fit_increment)
+    {
+      Graph[type_num]->Fit("flo","SNQEM","",low,high);
+      Chi_Sqr = (Graph[type_num]->GetFunction("flo")->GetChisquare()/Graph[type_num]->GetFunction("flo")->GetNDF());
+      if(Chi_Sqr < MinimizeMe)
+      {
+        MinimizeMe = Chi_Sqr;
+        FitRangeMin[type_num] =low;
+        FitRangeMax[type_num] =high;
+      }
+    }
+  }
 
 }

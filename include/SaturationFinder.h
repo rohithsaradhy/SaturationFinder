@@ -41,7 +41,7 @@ class SaturationFinder
     std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
     std::string FIT_NAME = ""; // Prefix to plots and datafiles....
     std::string DATA_LOC = ""; // Prefix to plots and datafiles....
-    
+
     //For InitializeHist2D method...
     Double_t bin_start=0;
     Double_t bin_stop=0;
@@ -107,6 +107,7 @@ class SaturationFinder
     void LoadHistogram(std::string rootFolder);
 
     void FitHistogram();
+    void FindFitRanges(int type_num);
     void FindValues();
     void CutOff(int board, int skiroc, int type_num);
     int Max_Index(float* value);

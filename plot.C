@@ -20,7 +20,7 @@ void plot()
 
   // Oct_H2->dataExtractor();
   // Oct_H2->SaveHistogram("./temp_data/");
-  // Oct_H2->LoadHistogram("./temp_data/");
+  Oct_H2->LoadHistogram("./temp_data/");
   // Oct_H2->FitHistogram();
   // Oct_H2->FindValues();
   // Oct_H2->StoreValues("./temp_data/");
@@ -54,6 +54,8 @@ void plot()
   TCanvas* H2_CF_Canvas = new TCanvas("H2_CF","H2_CF",1366,768);
   // TCanvas* H2_TP_Canvas = new TCanvas("H2_TP","H2_TP",1366,768);
   TMultiGraph* mg = new TMultiGraph();
+
+
 
   float X[100],Y[100],X_Err[100],Y_Err[100];
   int count=0;
@@ -158,6 +160,8 @@ void plot()
   gPad->SetGridy();
 
 
+  TCanvas* c1 = new TCanvas("Checking Stuff","Checking Stuff",1366,768);
+  Oct_H2->Hist2D[12][0][0]->Draw();
 
 
   return;
