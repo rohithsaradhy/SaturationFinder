@@ -119,10 +119,10 @@ void SaturationFinder::dataExtractor()
     {
       board = Hit_Sensor_Layer->at(i);
       skiroc  = Hit_Sensor_Skiroc->at(i);
-      x = Hit_Sensor_Cell_LG_Amplitude->at(i);
-      // x = Hit_Sensor_Cell_LG->at(i);
-      y = Hit_Sensor_Cell_HG_Amplitude->at(i);
-      // y = Hit_Sensor_Cell_HG->at(i);
+      // x = Hit_Sensor_Cell_LG_Amplitude->at(i);
+      x = Hit_Sensor_Cell_LG->at(i);
+      // y = Hit_Sensor_Cell_HG_Amplitude->at(i);
+      y = Hit_Sensor_Cell_HG->at(i);
       z = Hit_Sensor_Cell_ToT_Slow->at(i);
 
       if(Hit_Sensor_Cell_HG_Status->at(i) == 0 && Hit_Sensor_Cell_LG_Status->at(i) == 0 ) //Fill Only if the fit was success full.

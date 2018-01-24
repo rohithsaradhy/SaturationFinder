@@ -5,8 +5,6 @@
 
 void run_me()
 {
-
-
   SaturationFinder* Oct_H6 = new SaturationFinder(20,0,"All","Oct_H6","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_H6_NTuple/"); // 0implies that it is a allfile...
   SaturationFinder* Oct_H2 = new SaturationFinder(17,0,"All","Oct_H2","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
 
@@ -16,12 +14,12 @@ void run_me()
 
   std::ostringstream os( std::ostringstream::ate );
   gROOT->SetBatch(kTRUE); //Not displaying anything
-  bool enableDataExtraction =0;
+  bool enableDataExtraction =1;
   // Oct_H2->dataExtractor();
   // TCanvas* c1 = new TCanvas("Checking Stuff","Checking Stuff",1366,768);
   // Oct_H2->Hist2D[12][0][0]->Draw();
 
-  bool Fill_Type = 1;//1-> PS and 0-> TS3
+  bool Fill_Type = 0;//1-> PS and 0-> TS3
   if(true) // All the stuff...
   {
     if(Fill_Type)
@@ -86,7 +84,7 @@ void run_me()
         {
           for(int k=0;k<4;k++)
           {
-            if(a[k]->fitStatus[i][j][type_num]==4000)
+            if(a[k]->fitStatus[i][j][type_num]==99999 )
             {
               os.str("");
               if(type_num ==0 )
