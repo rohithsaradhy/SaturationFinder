@@ -42,7 +42,7 @@ void run_me()
     {
         for(int type_num=0;type_num<2;type_num++)
         {
-          if(a->fitStatus[i][j][type_num]==4000)
+          if(a->fitStatus[i][j][type_num]==99999)
           {
             os.str("");
             if(type_num ==0 )os<<"./Graphs/HG_LG/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";

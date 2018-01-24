@@ -81,7 +81,7 @@ void SaturationFinder::FitHistogram()
 
       flo = new TF1("flo","[0]*x+[1]");
       Graph[type_num] = new TGraphErrors(countMe,X,Y,errorX,errorY);
-      FitResultPtr[board][skiroc][type_num]= Graph[type_num]->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      FitResultPtr[board][skiroc][type_num]= Graph[type_num]->Fit("flo","QSN","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
       fitStatus[board][skiroc][type_num] = (int)FitResultPtr[board][skiroc][type_num];//Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
 
     }
@@ -137,7 +137,7 @@ void SaturationFinder::FitHistogram()
 
       flo = new TF1("flo","[0]*x+[1]");
       Graph[type_num] = new TGraphErrors(countMe,X,Y,errorX,errorY);
-      FitResultPtr[board][skiroc][type_num] = Graph[type_num]->Fit("flo","SNQEM","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
+      FitResultPtr[board][skiroc][type_num] = Graph[type_num]->Fit("flo","SNQ","",FitRangeMin[type_num],FitRangeMax[type_num]); //E and M added for better error estimation and fitting....
       fitStatus[board][skiroc][type_num] = (int)FitResultPtr[board][skiroc][type_num];//Graph->Fit("flo","QSNEM","",FitRangeMin[type_num],FitRangeMax[type_num]); // Fitting Status
 
 
