@@ -14,9 +14,9 @@ void run_me()
   std::ostringstream os( std::ostringstream::ate );
 
   //
-  // a->dataExtractor();
+  a->dataExtractor();
   // a->SaveHistogram("./temp_data/");
-  a->LoadHistogram("./temp_data/");
+  // a->LoadHistogram("./temp_data/");
   a->FitHistogram();
   a->FindValues();
   // a->RetrieveValues("./temp_data/");
@@ -35,25 +35,25 @@ void run_me()
   // std::cout<<a->fitStatus[0][1][1]<<std::endl;
   // a->fitCanvas[0][1][1]->SaveAs("./temp.png");
   // a->fitCanvas[0][1][0]->SaveAs("./temp1.png");
+  // //
+  // for(int i=0 ; i< 20 ; i++)
+  // {
+  //   for(int j =0; j<4 ;j++)
+  //   {
+  //       for(int type_num=0;type_num<2;type_num++)
+  //       {
+  //         if(a->fitStatus[i][j][type_num]==99999)
+  //         {
+  //           os.str("");
+  //           if(type_num ==0 )os<<"./Graphs/HG_LG/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
+  //           else os<<"./Graphs/LG_TOT/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
+  //           a->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
+  //         }
   //
-  for(int i=0 ; i< 20 ; i++)
-  {
-    for(int j =0; j<4 ;j++)
-    {
-        for(int type_num=0;type_num<2;type_num++)
-        {
-          if(a->fitStatus[i][j][type_num]==99999)
-          {
-            os.str("");
-            if(type_num ==0 )os<<"./Graphs/HG_LG/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
-            else os<<"./Graphs/LG_TOT/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
-            a->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
-          }
-
-        }
-    }
-
-  }
+  //       }
+  //   }
+  //
+  // }
 
 
   return;

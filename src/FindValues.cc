@@ -222,7 +222,7 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 else
 {
   std::cout<<"Fitting status Error, skipping :: \t";
-  std::cout<<"Board_"<<board<<"_Skiroc_"<<skiroc<<"_type_num_"<<0<<"_FitStatus_"<<fitStatus[board][skiroc][type_num]<<std::endl;
+  std::cout<<"Board_"<<board<<"_Skiroc_"<<skiroc<<"_type_num_"<<0<<"_FitStatus_"<<fitStatus[board][skiroc][type_num]<<"_EntriesIn_Hist2D="<<Hist2D[board][skiroc][type_num]->GetEntries()<<std::endl;
 
 }
 
