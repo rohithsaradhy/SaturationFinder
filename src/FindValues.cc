@@ -73,7 +73,7 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
   float interceptErr = CF_Intercept_Err[board][skiroc][type_num];
   float dmx=0;
   float y_err=0;
-  float x[10000],y[10000],z[10000],u[10000], v[10000],w[10000],zx[10000], wx[10000],r[10000],rx[10000], y_co;
+  float x[10000],y[10000],z[10000],u[10000], v[10000],w[10000],zx[10000], wx[10000],r[10000],rx[10000], y_co,der1[10000],der2[10000];
 
   int counter=0,N=0,zN=0,wN=0,rN=0;
 
@@ -83,6 +83,10 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 
   float scaling_factor=y_Max/100;
 
+  float Xprevious[4] = {0,0,0,0};
+  float Yprevious[4] = {0,0,0,0};
+  float dy,dx,d2y,d2x,d1,d2;
+
 
 
   for (int i=bin_min;i<bin_max;i++)
@@ -90,6 +94,32 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
     if(pfX->GetBinContent(i)<10) continue; // Don't record this condition...
     x[N] = binningX[i];
     y[N] = pfX->GetBinContent(i);
+
+    dx = x[N]-Xprevious[0];
+    dy = y[N]-Yprevious[0];
+    Xprevious[0] = x[N];
+    Yprevious[0] = y[N];
+
+    if(dx!=0)
+    {
+      d2y = dy/dx - Yprevious[1];
+      d2x = dx;
+      Yprevious[1] = dy/dx;
+
+      d1 = (dy/dx)*100 +2000;
+      d2 = (d2y/d2x)*500+ 2000;
+    }
+
+    der1[N] = d1;
+    der2[N] = d2;
+
+
+
+
+
+
+
+
     errorY[i] = sqrt(pow(pfX->GetBinError(i),2) + pow(ErrorInY_ADC[type_num],2));
     errorX[i] = ErrorInX_ADC[type_num];
 
@@ -174,6 +204,22 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 
 
   mg = new TMultiGraph();
+
+  // TGraph* der1Graph = new TGraph(N,x,der1);
+  // der1Graph->SetName("Derivative");
+  // der1Graph->SetMarkerStyle(20);
+  // der1Graph->SetMarkerColor(kRed);
+  // // der1Graph->SetMarkerSize(1.4);
+  // // mg->Add(der1Graph,"p");
+  //
+  // TGraph* der2Graph = new TGraph(N,x,der2);
+  // der2Graph->SetName("Derivative2");
+  // der2Graph->SetMarkerStyle(22);
+  // der2Graph->SetMarkerColor(kBlue);
+  // // der1Graph->SetMarkerSize(1.4);
+  // mg->Add(der2Graph,"lp");
+
+
   grph[0] = new TGraphErrors(N,x,y,errorX,errorY);
   grph[0]->SetName("X-Profile");
   grph[0]->SetMarkerStyle(20);

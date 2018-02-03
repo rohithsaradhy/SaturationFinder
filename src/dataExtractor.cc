@@ -120,12 +120,25 @@ void SaturationFinder::dataExtractor()
     {
       board = Hit_Sensor_Layer->at(i);
       skiroc  = Hit_Sensor_Skiroc->at(i);
-      x = Hit_Sensor_Cell_LG_Amplitude->at(i);
-      y = Hit_Sensor_Cell_HG_Amplitude->at(i);
-      // y = Hit_Sensor_Cell_HG->at(i) - Hit_Sensor_Cell_HG_Sub->at(i);
+      // x = Hit_Sensor_Cell_LG_Amplitude->at(i);
+      x = Hit_Sensor_Cell_LG->at(i);// - Hit_Sensor_Cell_LG_Sub->at(i);
+
+      // y = Hit_Sensor_Cell_HG_Amplitude->at(i);
+      y = Hit_Sensor_Cell_HG->at(i);// - Hit_Sensor_Cell_HG_Sub->at(i);
+
       z = Hit_Sensor_Cell_ToT_Slow->at(i);
       Hist2D[board][skiroc][0]->Fill(x,y);
       Hist2D[board][skiroc][1]->Fill(z,x);
+
+
+      if(0)
+      {
+        z=Hit_Sensor_Cell_X->at(i);
+        x=Hit_Sensor_Cell_Y->at(i);
+        Hist2D[board][skiroc][2]->Fill(z,x);
+      }
+
+
     }
 
 

@@ -18,13 +18,14 @@ void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
     bin_change1 =200; // 160
     bin_change2 =300;
 
-    // bin_width1 =5;
-    // bin_width2 =10;
-    // bin_width3 =20;
+    bin_width1 =5;
+    bin_width2 =10;
+    bin_width3 =20;
+    //
+    // bin_width1 =3;
+    // bin_width2 =3;
+    // bin_width3 =3;
 
-    bin_width1 =1;
-    bin_width2 =1;
-    bin_width3 =1;
 
     current_bin_low=bin_start;
     bin_total=0;
@@ -85,13 +86,13 @@ void SaturationFinder::InitializeHist2D(Int_t option, bool hist)
     bin_change1 =505; // 160
     bin_change2 =715;
 
-    // bin_width1 =10;
-    // bin_width2 =25;
-    // bin_width3 =50;
+    bin_width1 =10;
+    bin_width2 =25;
+    bin_width3 =50;
 
-    bin_width1 =1;
-    bin_width2 =1;
-    bin_width3 =1;
+    // bin_width1 =3;
+    // bin_width2 =3;
+    // bin_width3 =3;
 
     current_bin_low=bin_start;
     bin_total=0;
