@@ -389,6 +389,23 @@ void NTuplizer::ClearTreeVectors(){
   Hit_Sensor_Cell_LG_NCalls.clear();
 
 
+  Hit_Sensor_Cell_HG_Amplitude_CM.clear();
+  Hit_Sensor_Cell_HG_Tmax_CM.clear();
+  Hit_Sensor_Cell_HG_Chi2_CM.clear();
+  Hit_Sensor_Cell_HG_Amplitude_Error_CM.clear();
+  Hit_Sensor_Cell_HG_Tmax_Error_CM.clear();
+  Hit_Sensor_Cell_HG_Status_CM.clear();
+  Hit_Sensor_Cell_HG_NCalls_CM.clear();
+
+  Hit_Sensor_Cell_LG_Amplitude_CM.clear();
+  Hit_Sensor_Cell_LG_Tmax_CM.clear();
+  Hit_Sensor_Cell_LG_Chi2_CM.clear();
+  Hit_Sensor_Cell_LG_Amplitude_Error_CM.clear();
+  Hit_Sensor_Cell_LG_Tmax_Error_CM.clear();
+  Hit_Sensor_Cell_LG_Status_CM.clear();
+  Hit_Sensor_Cell_LG_NCalls_CM.clear();
+
+
 }
 
 void NTuplizer::endJob()
