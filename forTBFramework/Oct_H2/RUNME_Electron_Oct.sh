@@ -3,15 +3,15 @@
 #Written by Rohith Saradhy
 
 
-Eng20=(1809 1810 1811 1812 1813)
+Eng20=(1647 1648 1649)
 
-Eng32=(1803 1804 1805 1806 1807)
+Eng32=(1641 1642 1643 1646)
 
-Eng50=(1797 1798 1799 1800 1801)
+Eng50=(1634 1639)
 
-Eng80=(1751 1754 1756 1757 1758 1759)
+Eng80=(1632 1637)
 
-Eng90=()
+Eng90=(1651 1652)
 # Eng150=(1194)
 #
 # Eng200=(1305) #//Ign-> 113,114
@@ -20,17 +20,21 @@ Eng90=()
 
 # Eng300=(1189 1296)
 
-# unpacker configuration files
+#unpacker configuration files
 unpack="unpack2017_LaterRuns_cfg.py"
 #rawhit analyser configuration files
 # analyse="rawhitprod2017_cfg.py"
 analyse="rawhitprod2017_cfg_analyseTHEM.py"
 
 
+# unpack_rawFiles=true
 unpack_rawFiles=false
+
 
 if [ "$unpack_rawFiles" = true ] ; then
     echo -e "Unpacking is Switched On... \n"
+  else
+    echo -e "Unpacking is Switched Off... \n"
 fi
 
 mkdir ./Output/20

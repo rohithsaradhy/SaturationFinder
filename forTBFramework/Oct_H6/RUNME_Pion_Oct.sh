@@ -67,16 +67,16 @@ do
 done
 hadd ./Output/100GeV.root ./Output/100/*
 
-# for RN in "${Eng120[@]}"
-# do
-#   if [ "$unpack_rawFiles" = true ] ; then
-#       cmsRun $unpack runNumber=$RN
-#   fi
-#   cmsRun $analyse runNumber=$RN
-#   mv ./Output/*$RN.root ./Output/120/$RN.root
-# done
-# hadd ./Output/120GeV.root ./Output/120/*
-#
+for RN in "${Eng120[@]}"
+do
+  if [ "$unpack_rawFiles" = true ] ; then
+      cmsRun $unpack runNumber=$RN
+  fi
+  cmsRun $analyse runNumber=$RN
+  mv ./Output/*$RN.root ./Output/120/$RN.root
+done
+hadd ./Output/120GeV.root ./Output/120/*
+
 
 
 # for RN in "${Eng150[@]}"
