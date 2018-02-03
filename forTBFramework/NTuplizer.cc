@@ -90,6 +90,25 @@ private:
 
 
 
+  // Cell Information with PulseFit With commonModeNoise Subtraction
+  std::vector<float> Hit_Sensor_Cell_HG_Amplitude_CM;
+  std::vector<float> Hit_Sensor_Cell_HG_Amplitude_Error_CM;
+  std::vector<float> Hit_Sensor_Cell_HG_Tmax_CM;
+  std::vector<float> Hit_Sensor_Cell_HG_Chi2_CM;
+  std::vector<float> Hit_Sensor_Cell_HG_Tmax_Error_CM;
+  std::vector<int> Hit_Sensor_Cell_HG_Status_CM;
+  std::vector<int> Hit_Sensor_Cell_HG_NCalls_CM;
+ // Same thing for LG
+  std::vector<float> Hit_Sensor_Cell_LG_Amplitude_CM;
+  std::vector<float> Hit_Sensor_Cell_LG_Amplitude_Error_CM;
+  std::vector<float> Hit_Sensor_Cell_LG_Tmax_CM;
+  std::vector<float> Hit_Sensor_Cell_LG_Chi2_CM;
+  std::vector<float> Hit_Sensor_Cell_LG_Tmax_Error_CM;
+  std::vector<int> Hit_Sensor_Cell_LG_Status_CM;
+  std::vector<int> Hit_Sensor_Cell_LG_NCalls_CM;
+
+
+
 
   ////////////////////
   HGCalTBTopology IsCellValid;
@@ -142,6 +161,22 @@ NTuplizer::NTuplizer(const edm::ParameterSet& iConfig) :
   T->Branch("Hit_Sensor_Cell_LG_Chi2", &Hit_Sensor_Cell_LG_Chi2);
   T->Branch("Hit_Sensor_Cell_LG_Status", &Hit_Sensor_Cell_LG_Status);
   T->Branch("Hit_Sensor_Cell_LG_NCalls", &Hit_Sensor_Cell_LG_NCalls);
+
+  T->Branch("Hit_Sensor_Cell_HG_Amplitude_CM", &Hit_Sensor_Cell_HG_Amplitude_CM);
+  T->Branch("Hit_Sensor_Cell_HG_Amplitude_Error_CM", &Hit_Sensor_Cell_HG_Amplitude_Error_CM);
+  T->Branch("Hit_Sensor_Cell_HG_Tmax_CM", &Hit_Sensor_Cell_HG_Tmax_CM);
+  T->Branch("Hit_Sensor_Cell_HG_Tmax_Error_CM", &Hit_Sensor_Cell_HG_Tmax_Error_CM);
+  T->Branch("Hit_Sensor_Cell_HG_Chi2_CM", &Hit_Sensor_Cell_HG_Chi2_CM);
+  T->Branch("Hit_Sensor_Cell_HG_Status_CM", &Hit_Sensor_Cell_HG_Status_CM);
+  T->Branch("Hit_Sensor_Cell_HG_NCalls_CM", &Hit_Sensor_Cell_HG_NCalls_CM);
+
+  T->Branch("Hit_Sensor_Cell_LG_Amplitude_CM", &Hit_Sensor_Cell_LG_Amplitude_CM);
+  T->Branch("Hit_Sensor_Cell_LG_Amplitude_Error_CM", &Hit_Sensor_Cell_LG_Amplitude_Error_CM);
+  T->Branch("Hit_Sensor_Cell_LG_Tmax_CM", &Hit_Sensor_Cell_LG_Tmax_CM);
+  T->Branch("Hit_Sensor_Cell_LG_Tmax_Error_CM", &Hit_Sensor_Cell_LG_Tmax_Error_CM);
+  T->Branch("Hit_Sensor_Cell_LG_Chi2_CM", &Hit_Sensor_Cell_LG_Chi2_CM);
+  T->Branch("Hit_Sensor_Cell_LG_Status_CM", &Hit_Sensor_Cell_LG_Status_CM);
+  T->Branch("Hit_Sensor_Cell_LG_NCalls_CM", &Hit_Sensor_Cell_LG_NCalls_CM);
 
   std::cout << iConfig.dump() << std::endl;
 }
@@ -220,12 +255,14 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
       }
       int iboard=hit.skiroc()/HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA;
       int ichan=hit.channel();
-      std::vector<double> hg,lg,time;
+      std::vector<double> hg,lg,hg_CM,lg_CM,time;
       for( int it=0; it<NUMBER_OF_TIME_SAMPLES; it++ ){
 	highGain=hit.highGainADC(it)-subHG[it];
 	lowGain=hit.lowGainADC(it)-subLG[it];
-	hg.push_back(highGain);
-	lg.push_back(lowGain);
+  hg.push_back(hit.highGainADC(it));
+  lg.push_back(hit.lowGainADC(it));
+	hg_CM.push_back(highGain);
+  lg_CM.push_back(lowGain);
 	time.push_back(25*it+12.5);
       }
       float en2=hit.highGainADC(2)-subHG[2];
@@ -234,10 +271,15 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
       float en6=hit.highGainADC(6)-subHG[6];
       if( en2<en3 && en3>en6 && en4>en6 && en3>20 ){
 	//std::cout << iboard << " " << iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA << " " << ichan << "\t" << en2 << " " << en3 << " " << en4 << " " << en6 << std::endl;
-	PulseFitterResult fithg;
+  PulseFitterResult fithg;
+	PulseFitterResult fithg_CM;
 	fitter.run( time,hg,fithg,8. );
-	PulseFitterResult fitlg;
-	fitter.run( time,lg,fitlg,2. );
+  fitter.run( time,hg_CM,fithg_CM,8. );
+
+  PulseFitterResult fitlg;
+	PulseFitterResult fitlg_CM;
+  fitter.run( time,lg,fitlg,2. );
+	fitter.run( time,lg_CM,fitlg_CM,2. );
 
   //Cell X and Y
   // if(!m_eventPlotter||!IsCellValid.iu_iv_valid(hit.detid().layer(), hit.detid().sensorIU(), hit.detid().sensorIV(), hit.detid().iu(), hit.detid().iv(), m_sensorsize))  continue;
@@ -282,6 +324,25 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
   Hit_Sensor_Cell_LG_Tmax_Error.push_back(fitlg.errortmax);
   Hit_Sensor_Cell_LG_Status.push_back(fitlg.status);
   Hit_Sensor_Cell_LG_NCalls.push_back(fitlg.ncalls);
+
+
+
+  Hit_Sensor_Cell_HG_Amplitude_CM.push_back(fithg_CM.amplitude);
+  Hit_Sensor_Cell_HG_Tmax_CM.push_back(fithg_CM.tmax);
+  Hit_Sensor_Cell_HG_Chi2_CM.push_back(fithg_CM.chi2);
+  Hit_Sensor_Cell_HG_Amplitude_Error_CM.push_back(fithg_CM.erroramplitude);
+  Hit_Sensor_Cell_HG_Tmax_Error_CM.push_back(fithg_CM.errortmax);
+  Hit_Sensor_Cell_HG_Status_CM.push_back(fithg_CM.status);
+  Hit_Sensor_Cell_HG_NCalls_CM.push_back(fithg_CM.ncalls);
+
+
+  Hit_Sensor_Cell_LG_Amplitude_CM.push_back(fitlg_CM.amplitude);
+  Hit_Sensor_Cell_LG_Tmax_CM.push_back(fitlg_CM.tmax);
+  Hit_Sensor_Cell_LG_Chi2_CM.push_back(fitlg_CM.chi2);
+  Hit_Sensor_Cell_LG_Amplitude_Error_CM.push_back(fitlg_CM.erroramplitude);
+  Hit_Sensor_Cell_LG_Tmax_Error_CM.push_back(fitlg_CM.errortmax);
+  Hit_Sensor_Cell_LG_Status_CM.push_back(fitlg_CM.status);
+  Hit_Sensor_Cell_LG_NCalls_CM.push_back(fitlg_CM.ncalls);
 }
 
       }
