@@ -44,6 +44,22 @@ void SaturationFinder::dataExtractor()
   std::vector<int>* Hit_Sensor_Cell_LG_Status=0;
   std::vector<int>* Hit_Sensor_Cell_LG_NCalls=0;
 
+  // For CM Subtracted amplitudes
+  std::vector<float>* Hit_Sensor_Cell_HG_Amplitude_CM=0;
+  std::vector<float>* Hit_Sensor_Cell_HG_Amplitude_Error_CM=0;
+  std::vector<float>* Hit_Sensor_Cell_HG_Tmax_CM=0;
+  std::vector<float>* Hit_Sensor_Cell_HG_Chi2_CM=0;
+  std::vector<float>* Hit_Sensor_Cell_HG_Tmax_Error_CM=0;
+  std::vector<int>* Hit_Sensor_Cell_HG_Status_CM=0;
+  std::vector<int>* Hit_Sensor_Cell_HG_NCalls_CM=0;
+ // Same thing for LG
+  std::vector<float>* Hit_Sensor_Cell_LG_Amplitude_CM=0;
+  std::vector<float>* Hit_Sensor_Cell_LG_Amplitude_Error_CM=0;
+  std::vector<float>* Hit_Sensor_Cell_LG_Tmax_CM=0;
+  std::vector<float>* Hit_Sensor_Cell_LG_Chi2_CM=0;
+  std::vector<float>* Hit_Sensor_Cell_LG_Tmax_Error_CM=0;
+  std::vector<int>* Hit_Sensor_Cell_LG_Status_CM=0;
+  std::vector<int>* Hit_Sensor_Cell_LG_NCalls_CM=0;
 
   //Open file and set the branch to that particular data...
   std::ostringstream filename( std::ostringstream::ate );
@@ -92,6 +108,23 @@ void SaturationFinder::dataExtractor()
   T->SetBranchAddress("Hit_Sensor_Cell_LG_NCalls", &Hit_Sensor_Cell_LG_NCalls);
 
 
+  T->SetBranchAddress("Hit_Sensor_Cell_HG_Amplitude_CM", &Hit_Sensor_Cell_HG_Amplitude_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_HG_Amplitude_Error_CM", &Hit_Sensor_Cell_HG_Amplitude_Error_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_HG_Tmax_CM", &Hit_Sensor_Cell_HG_Tmax_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_HG_Tmax_Error_CM", &Hit_Sensor_Cell_HG_Tmax_Error_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_HG_Chi2_CM", &Hit_Sensor_Cell_HG_Chi2_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_HG_Status_CM", &Hit_Sensor_Cell_HG_Status_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_HG_NCalls_CM", &Hit_Sensor_Cell_HG_NCalls_CM);
+
+  T->SetBranchAddress("Hit_Sensor_Cell_LG_Amplitude_CM", &Hit_Sensor_Cell_LG_Amplitude_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_LG_Amplitude_Error_CM", &Hit_Sensor_Cell_LG_Amplitude_Error_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_LG_Tmax_CM", &Hit_Sensor_Cell_LG_Tmax_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_LG_Tmax_Error_CM", &Hit_Sensor_Cell_LG_Tmax_Error_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_LG_Chi2_CM", &Hit_Sensor_Cell_LG_Chi2_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_LG_Status_CM", &Hit_Sensor_Cell_LG_Status_CM);
+  T->SetBranchAddress("Hit_Sensor_Cell_LG_NCalls_CM", &Hit_Sensor_Cell_LG_NCalls_CM);
+
+
   Int_t Max_Entries = T->GetEntries();
 
   std::cout<<Max_Entries<<std::endl;
@@ -121,14 +154,18 @@ void SaturationFinder::dataExtractor()
       board = Hit_Sensor_Layer->at(i);
       skiroc  = Hit_Sensor_Skiroc->at(i);
       // x = Hit_Sensor_Cell_LG_Amplitude->at(i);
-      x = Hit_Sensor_Cell_LG->at(i);// - Hit_Sensor_Cell_LG_Sub->at(i);
+      x = Hit_Sensor_Cell_LG_Amplitude_CM->at(i);
+      // x = Hit_Sensor_Cell_LG->at(i);// - Hit_Sensor_Cell_LG_Sub->at(i);
 
       // y = Hit_Sensor_Cell_HG_Amplitude->at(i);
-      y = Hit_Sensor_Cell_HG->at(i);// - Hit_Sensor_Cell_HG_Sub->at(i);
+      y = Hit_Sensor_Cell_HG_Amplitude_CM->at(i);
+      // y = Hit_Sensor_Cell_HG->at(i);// - Hit_Sensor_Cell_HG_Sub->at(i);
 
       z = Hit_Sensor_Cell_ToT_Slow->at(i);
+
       Hist2D[board][skiroc][0]->Fill(x,y);
       Hist2D[board][skiroc][1]->Fill(z,x);
+
 
 
       if(0)
@@ -143,7 +180,6 @@ void SaturationFinder::dataExtractor()
 
 
   }
-
 
 
 

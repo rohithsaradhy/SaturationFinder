@@ -6,20 +6,23 @@
 void run_me()
 {
 
-  // gROOT->SetBatch(kTRUE); //Not displaying anything
 
   // SaturationFinder* a = new SaturationFinder(17,0,"All","Oct_H2_test_TS3","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
   // SaturationFinder* a = new SaturationFinder(17,0,"All","Oct_H2_test","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
   // SaturationFinder* a = new SaturationFinder(17,0,"All_Pion","Oct_H2_test_Pion","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
   SaturationFinder* a = new SaturationFinder(17,0,"All_Electron","Oct_H2_test_Electron","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
+  // SaturationFinder* a = new SaturationFinder(17,0,"All_Electron","Oct_H2_test_Electron","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
   // SaturationFinder* a = new SaturationFinder(20,0,"All","Oct_H6","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_H6_NTuple/"); // 0implies that it is a allfile...
 
   std::ostringstream os( std::ostringstream::ate );
 
+  gROOT->SetBatch(kTRUE); //Not displaying anything
   //
+  // a->InitializeHist2D(2,1);
   a->dataExtractor();
-  // a->Hist2D[1][2][0]->Draw();
   // a->SaveHistogram("./temp_data/");
+  // a->Hist2D[1][2][0]->Draw();
+  // a->Hist2D[1][2][1]->Draw();
   // a->LoadHistogram("./temp_data/");
 
 
@@ -61,8 +64,8 @@ void run_me()
 
           {
             os.str("");
-            if(type_num ==0 )os<<"./Graphs/HG_LG_TS3/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
-            else os<<"./Graphs/LG_TOT_TS3/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
+            if(type_num ==0 )os<<"./Graphs/HG_LG/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
+            else os<<"./Graphs/LG_TOT/"<<a->fitCanvas[i][j][type_num]->GetName()<<".png";
             a->fitCanvas[i][j][type_num]->SaveAs(os.str().c_str());
             // a->fitCanvas[i][j][0]->SaveAs(os.str().c_str());
           }
