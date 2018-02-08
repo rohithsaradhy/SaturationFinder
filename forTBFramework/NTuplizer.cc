@@ -60,6 +60,7 @@ private:
   std::vector<int> Hit_Sensor_Channel;
   std::vector<int> Hit_Sensor_Layer;
   std::vector<int> Hit_Sensor_Skiroc;
+  std::vector<int> Hit_Sensor_Cell_Type;
   // Cell Information Old
 	std::vector<float> Hit_Sensor_Cell_X;
 	std::vector<float> Hit_Sensor_Cell_Y;
@@ -135,6 +136,7 @@ NTuplizer::NTuplizer(const edm::ParameterSet& iConfig) :
   T->Branch("Hit_Sensor_Channel", &Hit_Sensor_Channel);
   T->Branch("Hit_Sensor_Layer", &Hit_Sensor_Layer);
   T->Branch("Hit_Sensor_Skiroc", &Hit_Sensor_Skiroc);
+  T->Branch("Hit_Sensor_Cell_Type", &Hit_Sensor_Cell_Type);
 
 	T->Branch("Hit_Sensor_Cell_X", &Hit_Sensor_Cell_X);
 	T->Branch("Hit_Sensor_Cell_Y", &Hit_Sensor_Cell_Y);
@@ -296,7 +298,8 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
   Hit_Sensor_Layer.push_back(iboard);
   Hit_Sensor_Channel.push_back(ichan);
   Hit_Sensor_Skiroc.push_back(iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA);
-
+  Hit_Sensor_Cell_Type.push_back(hit.detid().cellType());
+  
   Hit_Sensor_Cell_X.push_back(iux);
   Hit_Sensor_Cell_Y.push_back(iuy);
   Hit_Sensor_Cell_HG.push_back(hit.highGainADC(3));
@@ -360,6 +363,7 @@ void NTuplizer::ClearTreeVectors(){
   Hit_Sensor_Layer.clear();
   Hit_Sensor_Channel.clear();
   Hit_Sensor_Skiroc.clear();
+  Hit_Sensor_Cell_Type.clear();
 
   Hit_Sensor_Cell_X.clear();
   Hit_Sensor_Cell_Y.clear();
