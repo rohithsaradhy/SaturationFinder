@@ -5,12 +5,19 @@ import os,sys
 
 
 # Make sure you change the name of the electronics map....
-dataFolder ="/eos/cms/store/group/dpg_hgcal/tb_hgcal/october2017_h6/HGCalTBSkiroc2CMS"
-# dataFolder = "/eos/cms/store/group/dpg_hgcal/tb_hgcal/october2017/HGCalTBSkiroc2CMS"
+# dataFolder ="/eos/cms/store/group/dpg_hgcal/tb_hgcal/october2017_h6/HGCalTBSkiroc2CMS"
+dataFolder = "/eos/cms/store/group/dpg_hgcal/tb_hgcal/october2017/HGCalTBSkiroc2CMS"
 # dataFolder = "/eos/cms/store/group/dpg_hgcal/tb_hgcal/july2017/HGCalTBSkiroc2CMS"
-# noiseFolder="/eos/cms/store/group/dpg_hgcal/tb_hgcal/october2017/pedestalFiles/"
+noiseFolder="/eos/cms/store/group/dpg_hgcal/tb_hgcal/october2017/pedestalFiles/"
 # noiseFolder="/eos/cms/store/group/dpg_hgcal/tb_hgcal/july2017/pedestalFiles/"
-noiseFolder="/eos/cms/store/group/dpg_hgcal/tb_hgcal/october2017_h6/pedestalFiles"
+# noiseFolder="/eos/cms/store/group/dpg_hgcal/tb_hgcal/october2017_h6/pedestalFiles"
+
+
+
+# Electronic Map to be used....
+# e_Map = "HGCal/CondObjects/data/map_CERN_Hexaboard_September_17Sensors_7EELayers_10FHLayers_V1.txt"
+e_Map = "HGCal/CondObjects/data/map_CERN_Hexaboard_October_20Sensors_5EELayers_7FHLayers_V1.txt"
+
 
 options = VarParsing.VarParsing('standard') # avoid the options: maxEvents, files, secondaryFiles, output, secondaryOutput because they are already defined in 'standard'
 #Change the data folder appropriately to where you wish to access the files from:
@@ -33,7 +40,7 @@ options.register('outputFolder',
                  'Output folder where analysis output are stored')
 
 options.register('electronicMap',
-                 'HGCal/CondObjects/data/map_CERN_Hexaboard_October_20Sensors_5EELayers_7FHLayers_V1.txt',
+                 e_Map,
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.string,
                  'path to the electronic map')
