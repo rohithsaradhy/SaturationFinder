@@ -40,7 +40,7 @@ options.register('outputFolder',
                  'Output folder where analysis output are stored')
 
 options.register('electronicMap',
-                 'HGCal/CondObjects/data/map_CERN_Hexaboard_October_20Sensors_5EELayers_7FHLayers_V1.txt',
+                 e_Map,
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.string,
                  'path to the electronic map')
