@@ -299,7 +299,7 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
   Hit_Sensor_Channel.push_back(ichan);
   Hit_Sensor_Skiroc.push_back(iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA);
   Hit_Sensor_Cell_Type.push_back(hit.detid().cellType());
-  
+
   Hit_Sensor_Cell_X.push_back(iux);
   Hit_Sensor_Cell_Y.push_back(iuy);
   Hit_Sensor_Cell_HG.push_back(hit.highGainADC(3));
