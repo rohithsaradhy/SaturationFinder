@@ -5,45 +5,45 @@
 void SaturationFinder::StoreValues(std::string rootFolder)
 {
 
-  std::ostringstream os( std::ostringstream::ate );
-  std::ofstream fs;
-  os.str("");
-  os<<rootFolder<<FIT_NAME<<"_HG_LG_Datbase.txt";
-  fs.open(os.str().c_str());
-  fs<<std::fixed;
-  int type_num =0;
-  for(int board=0;board<BOARD;board++)
-  {
-    for(int skiroc=0; skiroc < 4; skiroc++)
+    std::ostringstream os( std::ostringstream::ate );
+    std::ofstream fs;
+    os.str("");
+    os<<rootFolder<<FIT_NAME<<"_HG_LG_Datbase.txt";
+    fs.open(os.str().c_str());
+    fs<<std::fixed;
+    int type_num =0;
+    for(int board=0; board<BOARD; board++)
     {
+        for(int skiroc=0; skiroc < 4; skiroc++)
+        {
 
-      fs <<std::setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
-      <<"\t"<<CF_Intercept[board][skiroc][type_num]<<"\t"<<CF_Intercept_Err[board][skiroc][type_num]<<"\t"
-      <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<std::endl;
+            fs <<std::setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
+               <<"\t"<<CF_Intercept[board][skiroc][type_num]<<"\t"<<CF_Intercept_Err[board][skiroc][type_num]<<"\t"
+               <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<std::endl;
+        }
     }
-  }
-  std::cout<<"Data Written to :"<<os.str()<<std::endl;
-  fs.close();
+    std::cout<<"Data Written to :"<<os.str()<<std::endl;
+    fs.close();
 
 
 
-  os.str("");
-  os<<rootFolder<<FIT_NAME<<"_LG_TOT_Datbase.txt";
-  fs.open (os.str().c_str());
-  fs<<std::fixed;
-  type_num =1;
-  for(int board=0;board<BOARD;board++)
-  {
-    for(int skiroc=0; skiroc < 4; skiroc++)
+    os.str("");
+    os<<rootFolder<<FIT_NAME<<"_LG_TOT_Datbase.txt";
+    fs.open (os.str().c_str());
+    fs<<std::fixed;
+    type_num =1;
+    for(int board=0; board<BOARD; board++)
     {
+        for(int skiroc=0; skiroc < 4; skiroc++)
+        {
 
-      fs <<std::setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
-      <<"\t"<<CF_Intercept[board][skiroc][type_num]<<"\t"<<CF_Intercept_Err[board][skiroc][type_num]<<"\t"
-      <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<std::endl;
+            fs <<std::setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
+               <<"\t"<<CF_Intercept[board][skiroc][type_num]<<"\t"<<CF_Intercept_Err[board][skiroc][type_num]<<"\t"
+               <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<std::endl;
+        }
     }
-  }
-  std::cout<<"Data Written to :"<<os.str()<<std::endl;
-  fs.close();
+    std::cout<<"Data Written to :"<<os.str()<<std::endl;
+    fs.close();
 
 
 }
@@ -64,15 +64,15 @@ void SaturationFinder::RetrieveValues(std::string rootFolder)
     while(!fs.eof())
     {
 
-      fs>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
-      // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
+        fs>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
+        // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
 
-      CF[brd][ski][type_num] = cf;
-      CF_Err[brd][ski][type_num] = cf_e;
-      CF_Intercept[brd][ski][type_num] = cf_int;
-      CF_Intercept_Err[brd][ski][type_num] = cf_int_e;
-      TP[brd][ski][type_num] = tp;
-      TP_Err[brd][ski][type_num] = tp_e;
+        CF[brd][ski][type_num] = cf;
+        CF_Err[brd][ski][type_num] = cf_e;
+        CF_Intercept[brd][ski][type_num] = cf_int;
+        CF_Intercept_Err[brd][ski][type_num] = cf_int_e;
+        TP[brd][ski][type_num] = tp;
+        TP_Err[brd][ski][type_num] = tp_e;
 
 
 
@@ -88,15 +88,15 @@ void SaturationFinder::RetrieveValues(std::string rootFolder)
     while(!fs.eof())
     {
 
-      fs>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
-      // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
+        fs>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
+        // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
 
-      CF[brd][ski][type_num] = cf;
-      CF_Err[brd][ski][type_num] = cf_e;
-      CF_Intercept[brd][ski][type_num] = cf_int;
-      CF_Intercept_Err[brd][ski][type_num] = cf_int_e;
-      TP[brd][ski][type_num] = tp;
-      TP_Err[brd][ski][type_num] = tp_e;
+        CF[brd][ski][type_num] = cf;
+        CF_Err[brd][ski][type_num] = cf_e;
+        CF_Intercept[brd][ski][type_num] = cf_int;
+        CF_Intercept_Err[brd][ski][type_num] = cf_int_e;
+        TP[brd][ski][type_num] = tp;
+        TP_Err[brd][ski][type_num] = tp_e;
 
 
 

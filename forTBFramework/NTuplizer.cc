@@ -214,8 +214,10 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
     CommonMode cm(essource_.emap_); //default is common mode per chip using the median
     cm.Evaluate( hits );
     std::map<int,commonModeNoise> cmMap=cm.CommonModeNoiseMap();
-    PulseFitter fitter(0,150);
+    PulseFitter fitter1(0,150);
+    PulseFitter fitter2(0,150);
     for( auto hit : *hits ) {
+
         HGCalTBElectronicsId eid( essource_.emap_.detId2eid(hit.detid().rawId()) );
         if( essource_.emap_.existsEId(eid) ) {
             int iski=hit.skiroc();
@@ -273,17 +275,18 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
             float en3=hit.highGainADC(3)-subHG[3];
             float en4=hit.highGainADC(4)-subHG[4];
             float en6=hit.highGainADC(6)-subHG[6];
-            if( en2<en3 && en3>en6 && en4>en6 && en3>20 ) {
+            // if( en2<en3 && en3>en6 && en4>en6 && en3>20 )
+             if(1){
                 //std::cout << iboard << " " << iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA << " " << ichan << "\t" << en2 << " " << en3 << " " << en4 << " " << en6 << std::endl;
                 PulseFitterResult fithg;
-                PulseFitterResult fithg_CM;
-                fitter.run( time,hg,fithg,8. );
-                fitter.run( time,hg_CM,fithg_CM,8. );
-
                 PulseFitterResult fitlg;
+                fitter1.run( time,hg,fithg,8. );
+                fitter2.run( time,lg,fitlg,2. );
+
+                PulseFitterResult fithg_CM;
                 PulseFitterResult fitlg_CM;
-                fitter.run( time,lg,fitlg,2. );
-                fitter.run( time,lg_CM,fitlg_CM,2. );
+                fitter2.run( time,hg_CM,fithg_CM,8. );
+                fitter2.run( time,lg_CM,fitlg_CM,2. );
 
                 //Cell X and Y
                 // if(!m_eventPlotter||!IsCellValid.iu_iv_valid(hit.detid().layer(), hit.detid().sensorIU(), hit.detid().sensorIV(), hit.detid().iu(), hit.detid().iv(), m_sensorsize))  continue;
@@ -292,9 +295,21 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
                 double iux = (CellCentreXY.first < 0 ) ? (CellCentreXY.first + HGCAL_TB_GEOMETRY::DELTA) : (CellCentreXY.first - HGCAL_TB_GEOMETRY::DELTA) ;
                 double iuy = (CellCentreXY.second < 0 ) ? (CellCentreXY.second + HGCAL_TB_GEOMETRY::DELTA) : (CellCentreXY.second - HGCAL_TB_GEOMETRY::DELTA);
                 // End Cell X and Y
-
+                // if((iux >5 &&iuy<-2))
+                // {
+                //   std::cout<<"IU::\t"<<hit.detid().sensorIU()<<std::endl<<"IV:: \t"<<hit.detid().sensorIV()<<std::endl;
+                //   std::cout<<"iu::\t"<<hit.detid().iu()<<std::endl<<"iv:: \t"<<hit.detid().iv()<<std::endl;
+                // }
                 //DataFilling
-                if(fithg.amplitude > 100)
+                // if(fithg.amplitude > 100)
+
+                // 
+                // if(iboard==2 && iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA==0 && hit.detid().cellType()==2)
+                // {
+                //   std::cout<<"Event: N/A"<<"\t Channel:"<<ichan<<"\t CM_Sub_HG="<<subHG[3]<<"\t CM_Sub_LG="<<subLG[3]<<std::endl;
+                // }
+
+                if(1)
                 {
                     Hit_Sensor_Event.push_back(m_evtID);
                     Hit_Sensor_Layer.push_back(iboard);
