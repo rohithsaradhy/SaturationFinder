@@ -16,6 +16,7 @@ void SaturationFinder::dataExtractor()
   std::vector<int>* Hit_Sensor_Channel=0;
   std::vector<int>* Hit_Sensor_Layer=0;
   std::vector<int>* Hit_Sensor_Skiroc=0;
+  std::vector<int>* Hit_Sensor_Cell_Type=0;
   // Cell Information Old
 	std::vector<float>* Hit_Sensor_Cell_X=0;
 	std::vector<float>* Hit_Sensor_Cell_Y=0;
@@ -64,6 +65,8 @@ void SaturationFinder::dataExtractor()
   T->SetBranchAddress("Hit_Sensor_Channel", &Hit_Sensor_Channel);
   T->SetBranchAddress("Hit_Sensor_Layer", &Hit_Sensor_Layer);
   T->SetBranchAddress("Hit_Sensor_Skiroc", &Hit_Sensor_Skiroc);
+  T->SetBranchAddress("Hit_Sensor_Cell_Type", &Hit_Sensor_Cell_Type);
+
 
 	T->SetBranchAddress("Hit_Sensor_Cell_X", &Hit_Sensor_Cell_X);
 	T->SetBranchAddress("Hit_Sensor_Cell_Y", &Hit_Sensor_Cell_Y);
