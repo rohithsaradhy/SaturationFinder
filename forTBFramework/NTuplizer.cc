@@ -90,23 +90,23 @@ private:
     std::vector<int> Hit_Sensor_Cell_LG_NCalls;
 
 
-
-    // Cell Information with PulseFit With commonModeNoise Subtraction
-    std::vector<float> Hit_Sensor_Cell_HG_Amplitude_CM;
-    std::vector<float> Hit_Sensor_Cell_HG_Amplitude_Error_CM;
-    std::vector<float> Hit_Sensor_Cell_HG_Tmax_CM;
-    std::vector<float> Hit_Sensor_Cell_HG_Chi2_CM;
-    std::vector<float> Hit_Sensor_Cell_HG_Tmax_Error_CM;
-    std::vector<int> Hit_Sensor_Cell_HG_Status_CM;
-    std::vector<int> Hit_Sensor_Cell_HG_NCalls_CM;
-// Same thing for LG
-    std::vector<float> Hit_Sensor_Cell_LG_Amplitude_CM;
-    std::vector<float> Hit_Sensor_Cell_LG_Amplitude_Error_CM;
-    std::vector<float> Hit_Sensor_Cell_LG_Tmax_CM;
-    std::vector<float> Hit_Sensor_Cell_LG_Chi2_CM;
-    std::vector<float> Hit_Sensor_Cell_LG_Tmax_Error_CM;
-    std::vector<int> Hit_Sensor_Cell_LG_Status_CM;
-    std::vector<int> Hit_Sensor_Cell_LG_NCalls_CM;
+//
+//     // Cell Information with PulseFit With commonModeNoise Subtraction
+//     std::vector<float> Hit_Sensor_Cell_HG_Amplitude_CM;
+//     std::vector<float> Hit_Sensor_Cell_HG_Amplitude_Error_CM;
+//     std::vector<float> Hit_Sensor_Cell_HG_Tmax_CM;
+//     std::vector<float> Hit_Sensor_Cell_HG_Chi2_CM;
+//     std::vector<float> Hit_Sensor_Cell_HG_Tmax_Error_CM;
+//     std::vector<int> Hit_Sensor_Cell_HG_Status_CM;
+//     std::vector<int> Hit_Sensor_Cell_HG_NCalls_CM;
+// // Same thing for LG
+//     std::vector<float> Hit_Sensor_Cell_LG_Amplitude_CM;
+//     std::vector<float> Hit_Sensor_Cell_LG_Amplitude_Error_CM;
+//     std::vector<float> Hit_Sensor_Cell_LG_Tmax_CM;
+//     std::vector<float> Hit_Sensor_Cell_LG_Chi2_CM;
+//     std::vector<float> Hit_Sensor_Cell_LG_Tmax_Error_CM;
+//     std::vector<int> Hit_Sensor_Cell_LG_Status_CM;
+//     std::vector<int> Hit_Sensor_Cell_LG_NCalls_CM;
 
 
 
