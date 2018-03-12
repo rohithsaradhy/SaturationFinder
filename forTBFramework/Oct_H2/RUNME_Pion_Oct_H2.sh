@@ -28,7 +28,7 @@ mkdir ./Output/350
 #unpacker configuration files
 unpack="unpack2017_LaterRuns_cfg.py"
 #rawhit analyser configuration files
-analyse="rawhitprod2017_cfg_analyseTHEM.py"
+analyse="rawhitprod_Oct_H2.py"
 # analyse="rawhitprod2017_cfg.py"
 
 

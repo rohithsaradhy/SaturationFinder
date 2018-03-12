@@ -14,7 +14,7 @@ Eng80=(1947 1948 1949 1950 1951 1952)
 unpack="unpack2017_LaterRuns_cfg.py"
 #rawhit analyser configuration files
 # analyse="rawhitprod2017_cfg.py"
-analyse="rawhitprod2017_cfg_analyseTHEM.py"
+analyse="rawhitprod_Oct_H6.py"
 
 
 unpack_rawFiles=false

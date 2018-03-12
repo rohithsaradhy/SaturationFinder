@@ -24,7 +24,7 @@ Eng90=(1651 1652)
 unpack="unpack2017_LaterRuns_cfg.py"
 #rawhit analyser configuration files
 # analyse="rawhitprod2017_cfg.py"
-analyse="rawhitprod2017_cfg_analyseTHEM.py"
+analyse="rawhitprod_Oct_H2.py"
 
 
 # unpack_rawFiles=true
