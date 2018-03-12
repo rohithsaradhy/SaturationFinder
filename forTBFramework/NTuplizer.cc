@@ -261,16 +261,16 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
             }
             int iboard=hit.skiroc()/HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA;
             int ichan=hit.channel();
-            std::vector<double> hg,lg,hg_CM,lg_CM,time;
-            for( int it=0; it<NUMBER_OF_TIME_SAMPLES; it++ ) {
-                highGain=hit.highGainADC(it)-subHG[it];
-                lowGain=hit.lowGainADC(it)-subLG[it];
-                hg.push_back(hit.highGainADC(it));
-                lg.push_back(hit.lowGainADC(it));
-                hg_CM.push_back(highGain);
-                lg_CM.push_back(lowGain);
-                time.push_back(25*it+12.5);
-            }
+            // std::vector<double> hg,lg,hg_CM,lg_CM,time;
+            // for( int it=0; it<NUMBER_OF_TIME_SAMPLES; it++ ) {
+            //     highGain=hit.highGainADC(it)-subHG[it];
+            //     lowGain=hit.lowGainADC(it)-subLG[it];
+            //     hg.push_back(hit.highGainADC(it));
+            //     lg.push_back(hit.lowGainADC(it));
+            //     hg_CM.push_back(highGain);
+            //     lg_CM.push_back(lowGain);
+            //     time.push_back(25*it+12.5);
+            // }
             float en2=hit.highGainADC(2)-subHG[2];
             float en3=hit.highGainADC(3)-subHG[3];
             float en4=hit.highGainADC(4)-subHG[4];
@@ -278,15 +278,15 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
             // if( en2<en3 && en3>en6 && en4>en6 && en3>20 )
              if(1){
                 //std::cout << iboard << " " << iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA << " " << ichan << "\t" << en2 << " " << en3 << " " << en4 << " " << en6 << std::endl;
-                PulseFitterResult fithg;
-                PulseFitterResult fitlg;
-                fitter1.run( time,hg,fithg,8. );
-                fitter2.run( time,lg,fitlg,2. );
-
-                PulseFitterResult fithg_CM;
-                PulseFitterResult fitlg_CM;
-                fitter2.run( time,hg_CM,fithg_CM,8. );
-                fitter2.run( time,lg_CM,fitlg_CM,2. );
+                // PulseFitterResult fithg;
+                // PulseFitterResult fitlg;
+                // fitter1.run( time,hg,fithg,8. );
+                // fitter2.run( time,lg,fitlg,2. );
+                //
+                // PulseFitterResult fithg_CM;
+                // PulseFitterResult fitlg_CM;
+                // fitter2.run( time,hg_CM,fithg_CM,8. );
+                // fitter2.run( time,lg_CM,fitlg_CM,2. );
 
                 //Cell X and Y
                 // if(!m_eventPlotter||!IsCellValid.iu_iv_valid(hit.detid().layer(), hit.detid().sensorIU(), hit.detid().sensorIV(), hit.detid().iu(), hit.detid().iv(), m_sensorsize))  continue;
@@ -303,10 +303,10 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
                 //DataFilling
                 // if(fithg.amplitude > 100)
 
-                // 
-                // if(iboard==2 && iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA==0 && hit.detid().cellType()==2)
+                //
+                // if(iboard==2 && iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA==0 )
                 // {
-                //   std::cout<<"Event: N/A"<<"\t Channel:"<<ichan<<"\t CM_Sub_HG="<<subHG[3]<<"\t CM_Sub_LG="<<subLG[3]<<std::endl;
+                //   std::cout<<"Cell_Type:"<<hit.detid().cellType()<<"\t Channel:"<<ichan<<"\t CM_Sub_HG="<<subHG[3]<<"\t CM_Sub_LG="<<subLG[3]<<std::endl;
                 // }
 
                 if(1)
@@ -328,41 +328,41 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
                     Hit_Sensor_Cell_ToA_Rise.push_back( hit.toaRise() );
 
 
-                    Hit_Sensor_Cell_HG_Amplitude.push_back(fithg.amplitude);
-                    Hit_Sensor_Cell_HG_Tmax.push_back(fithg.tmax);
-                    Hit_Sensor_Cell_HG_Chi2.push_back(fithg.chi2);
-                    Hit_Sensor_Cell_HG_Amplitude_Error.push_back(fithg.erroramplitude);
-                    Hit_Sensor_Cell_HG_Tmax_Error.push_back(fithg.errortmax);
-                    Hit_Sensor_Cell_HG_Status.push_back(fithg.status);
-                    Hit_Sensor_Cell_HG_NCalls.push_back(fithg.ncalls);
-
-
-                    Hit_Sensor_Cell_LG_Amplitude.push_back(fitlg.amplitude);
-                    Hit_Sensor_Cell_LG_Tmax.push_back(fitlg.tmax);
-                    Hit_Sensor_Cell_LG_Chi2.push_back(fitlg.chi2);
-                    Hit_Sensor_Cell_LG_Amplitude_Error.push_back(fitlg.erroramplitude);
-                    Hit_Sensor_Cell_LG_Tmax_Error.push_back(fitlg.errortmax);
-                    Hit_Sensor_Cell_LG_Status.push_back(fitlg.status);
-                    Hit_Sensor_Cell_LG_NCalls.push_back(fitlg.ncalls);
-
-
-
-                    Hit_Sensor_Cell_HG_Amplitude_CM.push_back(fithg_CM.amplitude);
-                    Hit_Sensor_Cell_HG_Tmax_CM.push_back(fithg_CM.tmax);
-                    Hit_Sensor_Cell_HG_Chi2_CM.push_back(fithg_CM.chi2);
-                    Hit_Sensor_Cell_HG_Amplitude_Error_CM.push_back(fithg_CM.erroramplitude);
-                    Hit_Sensor_Cell_HG_Tmax_Error_CM.push_back(fithg_CM.errortmax);
-                    Hit_Sensor_Cell_HG_Status_CM.push_back(fithg_CM.status);
-                    Hit_Sensor_Cell_HG_NCalls_CM.push_back(fithg_CM.ncalls);
-
-
-                    Hit_Sensor_Cell_LG_Amplitude_CM.push_back(fitlg_CM.amplitude);
-                    Hit_Sensor_Cell_LG_Tmax_CM.push_back(fitlg_CM.tmax);
-                    Hit_Sensor_Cell_LG_Chi2_CM.push_back(fitlg_CM.chi2);
-                    Hit_Sensor_Cell_LG_Amplitude_Error_CM.push_back(fitlg_CM.erroramplitude);
-                    Hit_Sensor_Cell_LG_Tmax_Error_CM.push_back(fitlg_CM.errortmax);
-                    Hit_Sensor_Cell_LG_Status_CM.push_back(fitlg_CM.status);
-                    Hit_Sensor_Cell_LG_NCalls_CM.push_back(fitlg_CM.ncalls);
+                    // Hit_Sensor_Cell_HG_Amplitude.push_back(fithg.amplitude);
+                    // Hit_Sensor_Cell_HG_Tmax.push_back(fithg.tmax);
+                    // Hit_Sensor_Cell_HG_Chi2.push_back(fithg.chi2);
+                    // Hit_Sensor_Cell_HG_Amplitude_Error.push_back(fithg.erroramplitude);
+                    // Hit_Sensor_Cell_HG_Tmax_Error.push_back(fithg.errortmax);
+                    // Hit_Sensor_Cell_HG_Status.push_back(fithg.status);
+                    // Hit_Sensor_Cell_HG_NCalls.push_back(fithg.ncalls);
+                    //
+                    //
+                    // Hit_Sensor_Cell_LG_Amplitude.push_back(fitlg.amplitude);
+                    // Hit_Sensor_Cell_LG_Tmax.push_back(fitlg.tmax);
+                    // Hit_Sensor_Cell_LG_Chi2.push_back(fitlg.chi2);
+                    // Hit_Sensor_Cell_LG_Amplitude_Error.push_back(fitlg.erroramplitude);
+                    // Hit_Sensor_Cell_LG_Tmax_Error.push_back(fitlg.errortmax);
+                    // Hit_Sensor_Cell_LG_Status.push_back(fitlg.status);
+                    // Hit_Sensor_Cell_LG_NCalls.push_back(fitlg.ncalls);
+                    //
+                    //
+                    //
+                    // Hit_Sensor_Cell_HG_Amplitude_CM.push_back(fithg_CM.amplitude);
+                    // Hit_Sensor_Cell_HG_Tmax_CM.push_back(fithg_CM.tmax);
+                    // Hit_Sensor_Cell_HG_Chi2_CM.push_back(fithg_CM.chi2);
+                    // Hit_Sensor_Cell_HG_Amplitude_Error_CM.push_back(fithg_CM.erroramplitude);
+                    // Hit_Sensor_Cell_HG_Tmax_Error_CM.push_back(fithg_CM.errortmax);
+                    // Hit_Sensor_Cell_HG_Status_CM.push_back(fithg_CM.status);
+                    // Hit_Sensor_Cell_HG_NCalls_CM.push_back(fithg_CM.ncalls);
+                    //
+                    //
+                    // Hit_Sensor_Cell_LG_Amplitude_CM.push_back(fitlg_CM.amplitude);
+                    // Hit_Sensor_Cell_LG_Tmax_CM.push_back(fitlg_CM.tmax);
+                    // Hit_Sensor_Cell_LG_Chi2_CM.push_back(fitlg_CM.chi2);
+                    // Hit_Sensor_Cell_LG_Amplitude_Error_CM.push_back(fitlg_CM.erroramplitude);
+                    // Hit_Sensor_Cell_LG_Tmax_Error_CM.push_back(fitlg_CM.errortmax);
+                    // Hit_Sensor_Cell_LG_Status_CM.push_back(fitlg_CM.status);
+                    // Hit_Sensor_Cell_LG_NCalls_CM.push_back(fitlg_CM.ncalls);
                 }
 
             }
