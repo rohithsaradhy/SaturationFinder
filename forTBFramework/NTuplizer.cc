@@ -277,12 +277,12 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
                 //std::cout << iboard << " " << iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA << " " << ichan << "\t" << en2 << " " << en3 << " " << en4 << " " << en6 << std::endl;
                 // PulseFitterResult fithg;
                 // fitter.run( time,hg,fithg,8. );
-                PulseFitterResult fithg_CM;
+                PulseFitterResult fithg;
                 fitter.run( time,hg_CM,fithg,8. );
 
                 // PulseFitterResult fitlg;
                 // fitter.run( time,lg,fitlg,2. );
-                PulseFitterResult fitlg_CM;
+                PulseFitterResult fitlg;
                 fitter.run( time,lg_CM,fitlg,2. );
 
                 //Cell X and Y
@@ -294,7 +294,7 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
                 // End Cell X and Y
 
                 //DataFilling
-                if(hit.highGainADC(3) > 100)
+                if(hit.highGainADC(3) > 100 && hit.detid().cellType() == 0)
                 {
                     Hit_Sensor_Event.push_back(m_evtID);
                     Hit_Sensor_Layer.push_back(iboard);

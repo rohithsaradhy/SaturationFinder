@@ -15,24 +15,23 @@ unpack="unpack2017_LaterRuns_cfg.py"
 #rawhit analyser configuration files
 # analyse="rawhitprod2017_cfg.py"
 analyse="rawhitprod_Oct_H6.py"
+output="./Output/H6/Electron" # Make sure that in the analyse file the Output is set to ./Output/H6/
+
 
 
 unpack_rawFiles=false
 
 if [ "$unpack_rawFiles" = true ] ; then
     echo -e "Unpacking is Switched On... \n"
+  else
+    echo -e "Unpacking is Switched Off... \n"
 fi
 
-mkdir ./Output/20
-mkdir ./Output/32
-mkdir ./Output/50
-mkdir ./Output/80
-# mkdir ./Output/90
+mkdir -p $output/20
+mkdir -p $output/32
+mkdir -p $output/50
+mkdir -p $output/80
 
-# mkdir ./Output/150
-# mkdir ./Output/200
-# mkdir ./Output/250
-# mkdir ./Output/300
 
 
 
@@ -42,9 +41,9 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/20/$RN.root
+  mv $output/../*$RN.root $output/20/$RN.root
 done
-hadd ./Output/20GeV.root ./Output/20/*
+hadd $output/20GeV.root $output/20/*
 
 
 
@@ -55,9 +54,9 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/32/$RN.root
+  mv $output/../*$RN.root $output/32/$RN.root
 done
-hadd ./Output/32GeV.root ./Output/32/*
+hadd $output/32GeV.root $output/32/*
 
 
 for RN in "${Eng50[@]}"
@@ -66,9 +65,9 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/50/$RN.root
+  mv $output/../*$RN.root $output/50/$RN.root
 done
-hadd ./Output/50GeV.root ./Output/50/*
+hadd $output/50GeV.root $output/50/*
 
 
 
@@ -79,21 +78,6 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/80/$RN.root
+  mv $output/../*$RN.root $output/80/$RN.root
 done
-hadd ./Output/80GeV.root ./Output/80/*
-
-
-# for RN in "${Eng90[@]}"
-# do
-#   if [ "$unpack_rawFiles" = true ] ; then
-#       cmsRun $unpack runNumber=$RN
-#   fi
-#   cmsRun $analyse runNumber=$RN
-#   mv ./Output/*$RN.root ./Output/90/$RN.root
-# done
-# hadd ./Output/90GeV.root ./Output/90/*
-
-
-mkdir./Output/Electrons
-mv  ./Output/* ./Output/Electrons
+hadd $output/80GeV.root $output/80/*

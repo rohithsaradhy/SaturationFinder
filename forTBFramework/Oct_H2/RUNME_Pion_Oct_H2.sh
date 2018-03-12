@@ -16,13 +16,6 @@ Eng350=(1500 1501 1502 1503 1504 1505 1506 1507 1508 1509 1510 1511)
 
 
 
-# Making the directories to keep the individual files...
-mkdir ./Output/100
-mkdir ./Output/150
-mkdir ./Output/200
-mkdir ./Output/250
-mkdir ./Output/300
-mkdir ./Output/350
 
 
 #unpacker configuration files
@@ -30,7 +23,15 @@ unpack="unpack2017_LaterRuns_cfg.py"
 #rawhit analyser configuration files
 analyse="rawhitprod_Oct_H2.py"
 # analyse="rawhitprod2017_cfg.py"
+output="./Output/H2/Pion" # Make sure that in the analyse file the Output is set to ./Output/H2/
 
+# Making the directories to keep the individual files...
+mkdir -p $output/100
+mkdir -p $output/150
+mkdir -p $output/200
+mkdir -p $output/250
+mkdir -p $output/300
+mkdir -p $output/350
 
 
 #unpack the files if true. Otherwise just get them through the analyser....
@@ -38,8 +39,9 @@ unpack_rawFiles=false
 
 if [ "$unpack_rawFiles" = true ] ; then
     echo -e "Unpacking is Switched On... \n"
+  else
+    echo -e "Unpacking is Switched Off... \n"
 fi
-
 
 
 for RN in "${Eng100[@]}"
@@ -48,9 +50,9 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/100/$RN.root
+  mv $output/../*$RN.root $output/100/$RN.root
 done
-hadd ./Output/100GeV.root ./Output/100/*
+hadd $output/100GeV.root $output/100/*
 
 
 for RN in "${Eng150[@]}"
@@ -59,9 +61,9 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/150/$RN.root
+  mv $output/../*$RN.root $output/150/$RN.root
 done
-hadd ./Output/150GeV.root ./Output/150/*
+hadd $output/150GeV.root $output/150/*
 
 
 for RN in "${Eng200[@]}"
@@ -70,9 +72,9 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/200/$RN.root
+  mv $output/../*$RN.root $output/200/$RN.root
 done
-hadd ./Output/200GeV.root ./Output/200/*
+hadd $output/200GeV.root $output/200/*
 
 
 for RN in "${Eng250[@]}"
@@ -81,9 +83,9 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/250/$RN.root
+  mv $output/../*$RN.root $output/250/$RN.root
 done
-hadd ./Output/250GeV.root ./Output/250/*
+hadd $output/250GeV.root $output/250/*
 
 
 
@@ -94,9 +96,9 @@ do
   fi
 
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/300/$RN.root
+  mv $output/../*$RN.root $output/300/$RN.root
 done
-hadd ./Output/300GeV.root ./Output/300/*
+hadd $output/300GeV.root $output/300/*
 
 
 
@@ -108,9 +110,9 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv ./Output/*$RN.root ./Output/350/$RN.root
+  mv $output/*$RN.root $output/350/$RN.root
 done
-hadd ./Output/350GeV.root ./Output/350/*
+hadd $output/350GeV.root $output/350/*
 
 
 # Adding all those runs together with HAdd to get the data for each energy....
