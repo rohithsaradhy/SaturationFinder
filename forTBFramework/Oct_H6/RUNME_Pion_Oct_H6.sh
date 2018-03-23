@@ -18,7 +18,7 @@ unpack="unpack2017_LaterRuns_cfg.py"
 #rawhit analyser configuration files
 # analyse="rawhitprod2017_cfg_analyseTHEM.py"
 analyse="rawhitprod_Oct_H6.py"
-output="./Output/H6/Electron" # Make sure that in the analyse file the Output is set to ./Output/H6/
+output="./Output/H6/Pion" # Make sure that in the analyse file the Output is set to ./Output/H6/
 
 
 # Making the directories to keep the individual files...
@@ -44,7 +44,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/50/$RN.root
 done
-hadd $output/50GeV.root $output/50/*
 
 
 for RN in "${Eng100[@]}"
@@ -55,7 +54,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/100/$RN.root
 done
-hadd $output/100GeV.root $output/100/*
 
 for RN in "${Eng120[@]}"
 do
@@ -65,8 +63,11 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/120/$RN.root
 done
-hadd $output/120GeV.root $output/120/*
 
 
 
 # Adding all those runs together with HAdd to get the data for each energy....
+
+hadd -f $output/50GeV.root $output/50/*
+hadd -f $output/100GeV.root $output/100/*
+hadd -f $output/120GeV.root $output/120/*

@@ -63,7 +63,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/150/$RN.root
 done
-hadd $output/150GeV.root $output/150/*
 
 
 for RN in "${Eng200[@]}"
@@ -74,7 +73,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/200/$RN.root
 done
-hadd $output/200GeV.root $output/200/*
 
 
 for RN in "${Eng250[@]}"
@@ -85,7 +83,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/250/$RN.root
 done
-hadd $output/250GeV.root $output/250/*
 
 
 
@@ -98,9 +95,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/300/$RN.root
 done
-hadd $output/300GeV.root $output/300/*
-
-
 
 
 for RN in "${Eng350[@]}"
@@ -112,7 +106,11 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/*$RN.root $output/350/$RN.root
 done
-hadd $output/350GeV.root $output/350/*
 
 
 # Adding all those runs together with HAdd to get the data for each energy....
+hadd -f $output/150GeV.root $output/150/*
+hadd -f $output/200GeV.root $output/200/*
+hadd -f $output/250GeV.root $output/250/*
+hadd -f $output/300GeV.root $output/300/*
+hadd -f $output/350GeV.root $output/350/*

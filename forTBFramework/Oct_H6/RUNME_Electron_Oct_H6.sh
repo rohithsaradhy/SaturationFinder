@@ -43,7 +43,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/20/$RN.root
 done
-hadd $output/20GeV.root $output/20/*
 
 
 
@@ -56,7 +55,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/32/$RN.root
 done
-hadd $output/32GeV.root $output/32/*
 
 
 for RN in "${Eng50[@]}"
@@ -67,7 +65,6 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/50/$RN.root
 done
-hadd $output/50GeV.root $output/50/*
 
 
 
@@ -80,4 +77,9 @@ do
   cmsRun $analyse runNumber=$RN
   mv $output/../*$RN.root $output/80/$RN.root
 done
-hadd $output/80GeV.root $output/80/*
+
+# Adding All files together...
+hadd -f $output/20GeV.root $output/20/*
+hadd -f $output/32GeV.root $output/32/*
+hadd -f $output/50GeV.root $output/50/*
+hadd -f $output/80GeV.root $output/80/*
