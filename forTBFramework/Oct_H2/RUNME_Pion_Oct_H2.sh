@@ -104,7 +104,7 @@ do
       cmsRun $unpack runNumber=$RN
   fi
   cmsRun $analyse runNumber=$RN
-  mv $output/*$RN.root $output/350/$RN.root
+  mv $output/../*$RN.root $output/350/$RN.root
 done
 
 

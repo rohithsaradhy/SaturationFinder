@@ -56,7 +56,6 @@ private:
     int m_evtID;
     void ClearTreeVectors();
     // Cell ID
-    std::vector<int> Hit_Sensor_Event;
     std::vector<int> Hit_Sensor_Channel;
     std::vector<int> Hit_Sensor_Layer;
     std::vector<int> Hit_Sensor_Skiroc;
@@ -132,7 +131,6 @@ NTuplizer::NTuplizer(const edm::ParameterSet& iConfig) :
     usesResource("TFileService");
     edm::Service<TFileService> fs;
     T=fs->make<TTree>("T","NTuples with PulseShape...");
-    T->Branch("Hit_Sensor_Event", &Hit_Sensor_Event);
     T->Branch("Hit_Sensor_Channel", &Hit_Sensor_Channel);
     T->Branch("Hit_Sensor_Layer", &Hit_Sensor_Layer);
     T->Branch("Hit_Sensor_Skiroc", &Hit_Sensor_Skiroc);
@@ -273,10 +271,13 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
             float en3=hit.highGainADC(3)-subHG[3];
             float en4=hit.highGainADC(4)-subHG[4];
             float en6=hit.highGainADC(6)-subHG[6];
+
+
             if( en2<en3 && en3>en6 && en4>en6 && en3>20 ) {
                 //std::cout << iboard << " " << iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA << " " << ichan << "\t" << en2 << " " << en3 << " " << en4 << " " << en6 << std::endl;
                 // PulseFitterResult fithg;
                 // fitter.run( time,hg,fithg,8. );
+
                 PulseFitterResult fithg;
                 fitter.run( time,hg_CM,fithg,8. );
 
@@ -294,9 +295,12 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
                 // End Cell X and Y
 
                 //DataFilling
+                if(iboard==8){
+                  std::cout<<"Found it!!!"<<std::endl;
+                }
+                
                 if(hit.highGainADC(3) > 100 && hit.detid().cellType() == 0)
                 {
-                    Hit_Sensor_Event.push_back(m_evtID);
                     Hit_Sensor_Layer.push_back(iboard);
                     Hit_Sensor_Channel.push_back(ichan);
                     Hit_Sensor_Skiroc.push_back(iski%HGCAL_TB_GEOMETRY::N_SKIROC_PER_HEXA);
@@ -342,7 +346,6 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
 
 void NTuplizer::ClearTreeVectors() {
 
-    Hit_Sensor_Event.clear();
     Hit_Sensor_Layer.clear();
     Hit_Sensor_Channel.clear();
     Hit_Sensor_Skiroc.clear();

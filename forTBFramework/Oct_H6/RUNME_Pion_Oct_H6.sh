@@ -2,7 +2,7 @@
 #Shell script to repeat the runs for Oct runs for Pion
 #Written by Rohith Saradhy
 
-Eng50=(1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 1915 1916 1917 1918 1919 1892 1893 1894 1895)
+# Eng50=(1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 1915 1916 1917 1918 1919 1892 1893 1894 1895)
 
 Eng100=(1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1877 1878 1879 1881 1882 1883 1884 1885 1886 1887 1888 1889 1890)
 
@@ -36,14 +36,14 @@ if [ "$unpack_rawFiles" = true ] ; then
     echo -e "Unpacking is Switched Off... \n"
 fi
 
-for RN in "${Eng50[@]}"
-do
-  if [ "$unpack_rawFiles" = true ] ; then
-      cmsRun $unpack runNumber=$RN
-  fi
-  cmsRun $analyse runNumber=$RN
-  mv $output/../*$RN.root $output/50/$RN.root
-done
+# for RN in "${Eng50[@]}"
+# do
+#   if [ "$unpack_rawFiles" = true ] ; then
+#       cmsRun $unpack runNumber=$RN
+#   fi
+#   cmsRun $analyse runNumber=$RN
+#   mv $output/../*$RN.root $output/50/$RN.root
+# done
 
 
 for RN in "${Eng100[@]}"

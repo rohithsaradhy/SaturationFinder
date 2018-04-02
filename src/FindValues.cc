@@ -2,7 +2,7 @@
 
 void SaturationFinder::FindValues()
 {
-  cutoff[0] =5;
+  cutoff[0] =3;
   cutoff[1] =7;
   std::string type;
 

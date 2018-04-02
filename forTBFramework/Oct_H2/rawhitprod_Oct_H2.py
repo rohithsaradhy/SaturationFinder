@@ -34,7 +34,7 @@ options.register('runNumber',
                  'Input run to process')
 
 options.register('outputFolder',
-                 '/afs/cern.ch/work/r/rsaradhy/CERN_TB_2017/CMSSW_8_0_26_patch2/src/HGCal/Output/H2',
+                 './Output/H2',
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.string,
                  'Output folder where analysis output are stored')

@@ -12,7 +12,6 @@ void SaturationFinder::dataExtractor()
   std::cout<<std::endl<<std::endl<<"Starting dataExtractor"<<std::endl;
 
   //Initialising all the variables...
-  // std::vector<int>* Hit_Sensor_Event;
   std::vector<int>* Hit_Sensor_Channel=0;
   std::vector<int>* Hit_Sensor_Layer=0;
   std::vector<int>* Hit_Sensor_Skiroc=0;
@@ -61,7 +60,6 @@ void SaturationFinder::dataExtractor()
 
 
 
-  // T->SetBranchAddress("Hit_Sensor_Event", &Hit_Sensor_Event); For some reason, this doesn't work...
   T->SetBranchAddress("Hit_Sensor_Channel", &Hit_Sensor_Channel);
   T->SetBranchAddress("Hit_Sensor_Layer", &Hit_Sensor_Layer);
   T->SetBranchAddress("Hit_Sensor_Skiroc", &Hit_Sensor_Skiroc);
@@ -106,6 +104,8 @@ void SaturationFinder::dataExtractor()
   InitializeHist2D(1,1);
 
 
+  // TH2F* HistTest = new TH2F("Board8","Board8",1000,0,1000,1000,0,3500);
+
 
   for(int entry = 0; entry < Max_Entries ; entry++)
   {
@@ -125,8 +125,11 @@ void SaturationFinder::dataExtractor()
       skiroc  = Hit_Sensor_Skiroc->at(i);
       x = Hit_Sensor_Cell_LG_Amplitude->at(i);
       y = Hit_Sensor_Cell_HG_Amplitude->at(i);
+      // x = Hit_Sensor_Cell_LG->at(i) - Hit_Sensor_Cell_LG_Sub->at(i);
       // y = Hit_Sensor_Cell_HG->at(i) - Hit_Sensor_Cell_HG_Sub->at(i);
       z = Hit_Sensor_Cell_ToT_Slow->at(i);
+      // if(board == 8)
+      // HistTest->Fill(x,y);
       Hist2D[board][skiroc][0]->Fill(x,y);
       Hist2D[board][skiroc][1]->Fill(z,x);
     }
@@ -136,6 +139,8 @@ void SaturationFinder::dataExtractor()
 
 
 
+
+    // HistTest->Draw();
 
 
 
