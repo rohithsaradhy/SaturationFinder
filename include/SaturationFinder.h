@@ -85,13 +85,16 @@ class SaturationFinder
     TProfile* HistProfile[allocateMemory][4][3];
     TCanvas* fitCanvas[allocateMemory][4][3];
 
+    int Module[allocateMemory];
     int fitStatus[allocateMemory][4][3];
+    int Touched[allocateMemory][4][3];
     float CF[allocateMemory][4][3];
     float CF_Err[allocateMemory][4][3];
     float CF_Intercept[allocateMemory][4][3];
     float CF_Intercept_Err[allocateMemory][4][3];
     float TP[allocateMemory][4][3];
     float TP_Err[allocateMemory][4][3];
+
 
 
 
@@ -103,6 +106,7 @@ class SaturationFinder
     void dataExtractor(int Options);
     void makeDir(const char *path); //Checking whether directory exists
     void CreateStructure(const char *path); // Create the prescribed structure
+    void SetModuleMaps(const char * path);
     void InitializeHist2D(Int_t option,bool hist);
     void SaveHistogram();
     void LoadHistogram();

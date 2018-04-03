@@ -141,6 +141,7 @@ void SaturationFinder::InitializeDataArray()
 {
   for(int board =0; board<BOARD; board++)
   {
+    Module[board]=0;
     for (int skiroc =0; skiroc < 4; skiroc++)
     {
       for(int i=0;i<3;i++)
@@ -152,6 +153,7 @@ void SaturationFinder::InitializeDataArray()
         TP[board][skiroc][i]=0;
         TP_Err[board][skiroc][i]=0;
         fitStatus[board][skiroc][i]=0;
+        Touched[board][skiroc][i] = 0;
 
       }
     }

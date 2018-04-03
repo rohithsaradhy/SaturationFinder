@@ -132,13 +132,16 @@ void SaturationFinder::FixAllValues(int type_num)
   std::cout<<Mean_CF<<"\t"<<Mean_CF_Intercept<<"\t"<<Mean_TP<<std::endl;
   // std::cout<<RMS_CF<<"\t"<<RMS_CF_Intercept<<"\t"<<RMS_TP<<std::endl;
 
+  int touch;
+
   for(int board =0; board<BOARD;board++)
   {
     for(int skiroc=0; skiroc < 4; skiroc++)
     {
-
+      touch =0; // reset every cycle
       if (fabs(CF[board][skiroc][type_num] - ModeValueCF) >= CF_Threshold)
       {
+        touch =1;
         CF[board][skiroc][type_num] =Mean_CF;
         CF_Err[board][skiroc][type_num] =RMS_CF;
       }
@@ -146,6 +149,7 @@ void SaturationFinder::FixAllValues(int type_num)
 
       if (fabs(CF_Intercept[board][skiroc][type_num] - ModeValueCF_Intercept) >= CF_Intercept_Threshold)
       {
+        touch=+2;
         CF_Intercept[board][skiroc][type_num] =Mean_CF_Intercept;
         CF_Intercept_Err[board][skiroc][type_num] =RMS_CF_Intercept;
       }
@@ -153,14 +157,19 @@ void SaturationFinder::FixAllValues(int type_num)
 
       if (fabs(TP[board][skiroc][type_num] - ModeValueTP) >= TP_Threshold)
       {
+        touch=+4;
         TP[board][skiroc][type_num] =Mean_TP;
         TP_Err[board][skiroc][type_num] =RMS_TP;
       }
+
+      Touched[board][skiroc][type_num] = touch;
    }
 
 
 
   }
+
+
 
 
 

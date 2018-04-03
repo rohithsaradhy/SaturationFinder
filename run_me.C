@@ -17,6 +17,7 @@ void run_me()
 
 
     //
+    a->SetModuleMaps("/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/layerGeom_oct2017_h2_17layers.txt"); // Remove all '#' from this file and empty lines
     a->CreateStructure("./Analysed_data"); // Setting the root Folder for all analysed files to be dropped off and creating the structure
     a->dataExtractor(2); //Available Options are :: 0->TS3  1->TS3withCM   2->PFA
     a->SaveHistogram(); //Save histograms for faster processing later on

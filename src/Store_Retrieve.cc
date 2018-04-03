@@ -17,7 +17,7 @@ void SaturationFinder::StoreValues(std::string prefixName)
     for(int skiroc=0; skiroc < 4; skiroc++)
     {
 
-      fs <<std::setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
+      fs <<std::setprecision(2)<<Module[board]<<"\t"<<Touched[board][skiroc][type_num]<<"\t"<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
       <<"\t"<<CF_Intercept[board][skiroc][type_num]<<"\t"<<CF_Intercept_Err[board][skiroc][type_num]<<"\t"
       <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<std::endl;
     }
@@ -37,7 +37,7 @@ void SaturationFinder::StoreValues(std::string prefixName)
     for(int skiroc=0; skiroc < 4; skiroc++)
     {
 
-      fs <<std::setprecision(2)<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
+      fs <<std::setprecision(2)<<Module[board]<<"\t"<<Touched[board][skiroc][type_num]<<"\t"<<board<<"\t"<<skiroc<<"\t"<< CF[board][skiroc][type_num]<<"\t"<<CF_Err[board][skiroc][type_num]
       <<"\t"<<CF_Intercept[board][skiroc][type_num]<<"\t"<<CF_Intercept_Err[board][skiroc][type_num]<<"\t"
       <<TP[board][skiroc][type_num]<<"\t"<<TP_Err[board][skiroc][type_num]<<std::endl;
     }
@@ -52,7 +52,7 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
 {
 
     std::ostringstream os( std::ostringstream::ate );
-    int brd,ski,type_num;
+    int module,touch,brd,ski,type_num;
     float cf,cf_e,cf_int,cf_int_e,tp,tp_e;
     std::fstream fs;
 
@@ -64,9 +64,10 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
     while(!fs.eof())
     {
 
-      fs>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
+      fs>>module>>touch>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
       // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
-
+      Module[brd]=module;
+      Touched[brd][ski][type_num]= touch;
       CF[brd][ski][type_num] = cf;
       CF_Err[brd][ski][type_num] = cf_e;
       CF_Intercept[brd][ski][type_num] = cf_int;
@@ -88,9 +89,11 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
     while(!fs.eof())
     {
 
-      fs>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
+      fs>>module>>touch>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
       // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
 
+      Module[brd]=module;
+      Touched[brd][ski][type_num]= touch;
       CF[brd][ski][type_num] = cf;
       CF_Err[brd][ski][type_num] = cf_e;
       CF_Intercept[brd][ski][type_num] = cf_int;

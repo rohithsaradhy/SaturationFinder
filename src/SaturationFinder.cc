@@ -91,3 +91,39 @@ void SaturationFinder::CreateStructure(const char * path)
   makeDir(os1.str().c_str());
 
 }
+
+void SaturationFinder::SetModuleMaps(const char * path)
+{
+
+  std::cout<<"Path Selected is :: "<<path<<std::endl;
+  std::ostringstream os( std::ostringstream::ate );
+
+
+  std::string module ="";
+  std::string a = "";
+  std::string b = "";
+  std::fstream fs;
+  int brd=0 ,iter=0;
+
+
+
+  os.str("");
+  os<<path;
+  fs.open (os.str().c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
+  std::string stuff;
+  getline(fs,stuff);
+  while(!fs.eof())
+  {
+
+    fs>>b>>a>>a>>a>>a>>module;
+    std::stringstream int_str(module);
+    int_str >> Module[brd];
+    brd++;
+
+  }
+
+  std::cout<<"No: of boards that we collected is "<<brd-1<<std::endl;
+  fs.close();
+
+
+}
