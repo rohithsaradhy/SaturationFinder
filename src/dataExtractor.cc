@@ -5,7 +5,7 @@
 
 
 
-void SaturationFinder::dataExtractor()
+void SaturationFinder::dataExtractor(int Options)
 {
   Int_t board(0),skiroc(0);
   float x(0),y(0),z(0);
@@ -104,7 +104,6 @@ void SaturationFinder::dataExtractor()
   InitializeHist2D(1,1);
 
 
-  // TH2F* HistTest = new TH2F("Board8","Board8",1000,0,1000,1000,0,3500);
 
 
   for(int entry = 0; entry < Max_Entries ; entry++)
@@ -112,7 +111,9 @@ void SaturationFinder::dataExtractor()
 
 
     T->GetEntry(entry);
-    //
+
+    // if(entry == (int)(Max_Entries/2) ) break;  // so it is faster for debugging
+
     if(entry%1000 == 0)
     {
       std::cout<<entry*100/Max_Entries <<"% \t has been completed... \r";
@@ -123,24 +124,34 @@ void SaturationFinder::dataExtractor()
     {
       board = Hit_Sensor_Layer->at(i);
       skiroc  = Hit_Sensor_Skiroc->at(i);
-      x = Hit_Sensor_Cell_LG_Amplitude->at(i);
-      y = Hit_Sensor_Cell_HG_Amplitude->at(i);
-      // x = Hit_Sensor_Cell_LG->at(i) - Hit_Sensor_Cell_LG_Sub->at(i);
-      // y = Hit_Sensor_Cell_HG->at(i) - Hit_Sensor_Cell_HG_Sub->at(i);
-      z = Hit_Sensor_Cell_ToT_Slow->at(i);
-      // if(board == 8)
-      // HistTest->Fill(x,y);
+
+      switch(Options)
+      {
+        case 0:
+        x = Hit_Sensor_Cell_LG->at(i);
+        y = Hit_Sensor_Cell_HG->at(i);
+        z = Hit_Sensor_Cell_ToT_Slow->at(i);
+        break;
+
+        case 1:
+        x = Hit_Sensor_Cell_LG->at(i) - Hit_Sensor_Cell_LG_Sub->at(i);
+        y = Hit_Sensor_Cell_HG->at(i) - Hit_Sensor_Cell_HG_Sub->at(i);
+        z = Hit_Sensor_Cell_ToT_Slow->at(i);
+        break;
+
+        case 2:
+        x = Hit_Sensor_Cell_LG_Amplitude->at(i);
+        y = Hit_Sensor_Cell_HG_Amplitude->at(i);
+        z = Hit_Sensor_Cell_ToT_Slow->at(i);
+        break;
+      }
+
       Hist2D[board][skiroc][0]->Fill(x,y);
       Hist2D[board][skiroc][1]->Fill(z,x);
     }
 
 
   }
-
-
-
-
-    // HistTest->Draw();
 
 
 

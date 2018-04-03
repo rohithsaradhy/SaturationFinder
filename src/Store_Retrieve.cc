@@ -2,13 +2,13 @@
 
 
 
-void SaturationFinder::StoreValues(std::string rootFolder)
+void SaturationFinder::StoreValues(std::string prefixName)
 {
 
   std::ostringstream os( std::ostringstream::ate );
   std::ofstream fs;
   os.str("");
-  os<<rootFolder<<FIT_NAME<<"_HG_LG_Datbase.txt";
+  os<<rootFolder<<prefixName<<FIT_NAME<<"_HG_LG_Datbase.txt";
   fs.open(os.str().c_str());
   fs<<std::fixed;
   int type_num =0;
@@ -28,7 +28,7 @@ void SaturationFinder::StoreValues(std::string rootFolder)
 
 
   os.str("");
-  os<<rootFolder<<FIT_NAME<<"_LG_TOT_Datbase.txt";
+  os<<rootFolder<<prefixName<<FIT_NAME<<"_LG_TOT_Datbase.txt";
   fs.open (os.str().c_str());
   fs<<std::fixed;
   type_num =1;
@@ -48,7 +48,7 @@ void SaturationFinder::StoreValues(std::string rootFolder)
 
 }
 
-void SaturationFinder::RetrieveValues(std::string rootFolder)
+void SaturationFinder::RetrieveValues(std::string prefixName)
 {
 
     std::ostringstream os( std::ostringstream::ate );
@@ -59,7 +59,7 @@ void SaturationFinder::RetrieveValues(std::string rootFolder)
 
     type_num =0;
     os.str("");
-    os<<rootFolder<<FIT_NAME<<"_HG_LG_Datbase.txt";
+    os<<rootFolder<<prefixName<<FIT_NAME<<"_HG_LG_Datbase.txt";
     fs.open (os.str().c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
     while(!fs.eof())
     {
@@ -83,7 +83,7 @@ void SaturationFinder::RetrieveValues(std::string rootFolder)
 
     type_num =1;
     os.str("");
-    os<<rootFolder<<FIT_NAME<<"_LG_TOT_Datbase.txt";
+    os<<rootFolder<<prefixName<<FIT_NAME<<"_LG_TOT_Datbase.txt";
     fs.open (os.str().c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
     while(!fs.eof())
     {

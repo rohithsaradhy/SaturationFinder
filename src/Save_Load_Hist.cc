@@ -2,7 +2,7 @@
 
 
 
-void SaturationFinder::SaveHistogram(std::string rootFolder)
+void SaturationFinder::SaveHistogram()
 {
   std::ostringstream filename( std::ostringstream::ate );
   std::ostringstream os( std::ostringstream::ate );
@@ -35,7 +35,7 @@ void SaturationFinder::SaveHistogram(std::string rootFolder)
 
 
 
-void SaturationFinder::LoadHistogram(std::string rootFolder)
+void SaturationFinder::LoadHistogram()
 {
   std::ostringstream filename( std::ostringstream::ate );
   std::ostringstream os( std::ostringstream::ate );

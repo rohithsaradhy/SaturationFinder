@@ -39,9 +39,10 @@ class SaturationFinder
     int BOARD = 0;
     float ENERGY = 0;
     std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
+    std::string ANALYSIS_ID = ""; // Just for creating the folder structure and additional layer of identification...
     std::string FIT_NAME = ""; // Prefix to plots and datafiles....
     std::string DATA_LOC = ""; // Prefix to plots and datafiles....
-    
+    std::string rootFolder = "";
     //For InitializeHist2D method...
     Double_t bin_start=0;
     Double_t bin_stop=0;
@@ -95,16 +96,18 @@ class SaturationFinder
 
 
 
-    SaturationFinder(int board,float energy, std::string run_type, std::string fit_name, std::string data_loc);
+    SaturationFinder(int board,float energy,std::string run_type, std::string analysis_id,std::string fit_name, std::string data_loc);
     ~SaturationFinder();
     void getInfo();
     void InitializeDataArray();
-    void dataExtractor();
+    void dataExtractor(int Options);
+    void makeDir(const char *path); //Checking whether directory exists
+    void CreateStructure(const char *path); // Create the prescribed structure
     void InitializeHist2D(Int_t option,bool hist);
-    void SaveHistogram(std::string rootFolder);
-    void StoreValues(std::string rootFolder); // Storing Final Values...
-    void RetrieveValues(std::string rootFolder); // Retriving Final Values...
-    void LoadHistogram(std::string rootFolder);
+    void SaveHistogram();
+    void LoadHistogram();
+    void StoreValues(std::string prefixName); // Storing Final Values...
+    void RetrieveValues(std::string prefixName); // Retriving Final Values...
 
     void FitHistogram();
     void FindValues();
