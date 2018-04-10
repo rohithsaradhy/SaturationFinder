@@ -78,6 +78,7 @@ class SaturationFinder
     TGraph* grph[5];
     TGaxis* A;
     float cutoff[2];
+    float lookFrom[2];
     // End FindValues
 
     TH2F* Hist2D[allocateMemory][4][3];

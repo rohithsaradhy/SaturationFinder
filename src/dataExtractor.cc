@@ -143,6 +143,7 @@ void SaturationFinder::dataExtractor(int Options)
         x = Hit_Sensor_Cell_LG_Amplitude->at(i);
         y = Hit_Sensor_Cell_HG_Amplitude->at(i);
         z = Hit_Sensor_Cell_ToT_Slow->at(i);
+        if(Hit_Sensor_Cell_HG_Status!=0 || Hit_Sensor_Cell_LG_Status !=0) continue;
         break;
       }
 

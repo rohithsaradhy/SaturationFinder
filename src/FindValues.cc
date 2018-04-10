@@ -4,6 +4,8 @@ void SaturationFinder::FindValues()
 {
   cutoff[0] =3;
   cutoff[1] =7;
+  lookFrom[0] = 190;
+  lookFrom[1] = 410;
   std::string type;
 
 
@@ -65,7 +67,6 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
 
 
   TProfile* pfX = HistProfile[board][skiroc][type_num];
-  float lookFrom = 190;
   float yE[4];
   float slope = CF[board][skiroc][type_num];
   float slopeErr = CF_Err[board][skiroc][type_num];
@@ -124,7 +125,7 @@ void SaturationFinder::CutOff(int board, int skiroc, int type_num)
     // }
 
     v[N] = cutoff[type_num]*scaling_factor; // Place to change the cutoff[type_num]; 40 is the magic scalling factor....
-    if(u[N]>cutoff[type_num]*scaling_factor && x[N] >lookFrom)
+    if(u[N]>cutoff[type_num]*scaling_factor && x[N] >lookFrom[type_num])
     {
       counter++;
       if(counter==1)
