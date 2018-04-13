@@ -294,12 +294,8 @@ void NTuplizer::analyze(const edm::Event& event, const edm::EventSetup& setup)
                 double iuy = (CellCentreXY.second < 0 ) ? (CellCentreXY.second + HGCAL_TB_GEOMETRY::DELTA) : (CellCentreXY.second - HGCAL_TB_GEOMETRY::DELTA);
                 // End Cell X and Y
 
-                //DataFilling
-                if(iboard==8){
-                  std::cout<<"Found it!!!"<<std::endl;
-                }
-                
-                if(hit.highGainADC(3) > 100 && hit.detid().cellType() == 0)
+
+                if(hit.highGainADC(3) > 100)
                 {
                     Hit_Sensor_Layer.push_back(iboard);
                     Hit_Sensor_Channel.push_back(ichan);

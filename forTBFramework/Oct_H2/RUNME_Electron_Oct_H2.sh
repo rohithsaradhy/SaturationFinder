@@ -12,13 +12,7 @@ Eng50=(1634 1639)
 Eng80=(1632 1637)
 
 Eng90=(1651 1652)
-# Eng150=(1194)
-#
-# Eng200=(1305) #//Ign-> 113,114
 
-# Eng250=(1187 1188 1297)
-
-# Eng300=(1189 1296)
 
 #unpacker configuration files
 unpack="unpack2017_LaterRuns_cfg.py"
