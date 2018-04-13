@@ -26,6 +26,16 @@ SaturationFinder::SaturationFinder(int board,float energy,std::string run_type, 
 
   DATA_LOC = data_loc;
 
+  //Default values
+  FitRangeMin[0] = 75;
+  FitRangeMax[0] = 180;
+  FitRangeMin[1] = 300;
+  FitRangeMax[1] = 400;
+
+  cutoff[0] =3;
+  cutoff[1] =7;
+  lookFrom[0] = 190;
+  lookFrom[1] = 410;
 
   getInfo();
 

@@ -178,7 +178,7 @@ void plot_ModuleStability_CF()
   mg->GetXaxis()->SetTitleSize(0.048);
   // mg->GetXaxis()->SetRangeUser(-10,53);
   mg->GetXaxis()->SetRangeUser(-10,1000);
-  mg->GetXaxis()->SetTitle("Module#*100 + 25*Skiroc");
+  mg->GetXaxis()->SetTitle("ModuleMap + 4* Skiroc");
   mg->GetYaxis()->SetTitle("Conversion Factor (LG #rightarrow HG)");
   // mg->GetYaxis()->SetTitle("Transition Point (HG #rightarrow LG)");
   gPad->Update();
@@ -239,7 +239,7 @@ void plot_ModuleStability_CF()
   mg1->GetXaxis()->SetTitleSize(0.048);
   // mg->GetXaxis()->SetRangeUser(-10,53);
   mg1->GetXaxis()->SetRangeUser(-10,1000);
-  mg1->GetXaxis()->SetTitle("Module#*100 + 25*Skiroc");
+  mg1->GetXaxis()->SetTitle("ModuleMap + 4* Skiroc");
   mg1->GetYaxis()->SetTitle("Conversion Factor (LG #rightarrow HG)");
   // mg->GetYaxis()->SetTitle("Transition Point (HG #rightarrow LG)");
   gPad->Update();
@@ -300,7 +300,7 @@ void plot_ModuleStability_CF()
   mg2->GetXaxis()->SetTitleSize(0.048);
   // mg->GetXaxis()->SetRangeUser(-10,53);
   mg2->GetXaxis()->SetRangeUser(-10,1000);
-  mg2->GetXaxis()->SetTitle("Module#*100 + 20*Skiroc");
+  mg2->GetXaxis()->SetTitle("ModuleMap + 4* Skiroc");
   mg2->GetYaxis()->SetTitle("Conversion Factor (LG #rightarrow HG)");
   // mg->GetYaxis()->SetTitle("Transition Point (HG #rightarrow LG)");
   gPad->Update();

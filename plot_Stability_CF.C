@@ -31,7 +31,7 @@ void plot_Stability_CF()
 
   std::ostringstream graphHeader( std::ostringstream::ate );
   std::ostringstream outputFile( std::ostringstream::ate );
-  
+
   a=Oct_H2_TS3_CM; //post CM
   b=Oct_H2_PFA; // Pulse Fit
   c=Oct_H2_TS3; //pre CM
