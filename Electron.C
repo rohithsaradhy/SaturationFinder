@@ -6,19 +6,31 @@ using namespace std;
 
 void Electron()
 {
-
-  const int BOARD =17;
-  const int Number_Energy =5;
-  float StaggeringFactor;
   std::string run_type = "Electron";
   std::ostringstream os( std::ostringstream::ate );
+  SaturationFinder* EnergyData[Number_Energy];
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
 
-  float Energy[Number_Energy]={20,32,50,80,90};
+  switch (0)
+  {
+    case 0:
+    const int BOARD =17;
+    const int Number_Energy =5;
+    float StaggeringFactor=2;
+    float Energy[Number_Energy]={20,32,50,80,90};
+    string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
+    break;
+    case 1;
+    const int BOARD =17;
+    const int Number_Energy =4;
+    float StaggeringFactor=2;
+    float Energy[Number_Energy]={20,32,50,80};
+    string Fit_Name[3]  = {"Oct_H6_TS3","Oct_H6_TS3_CM","Oct_H6_PFA"};
+    break;
+  }
 
-  SaturationFinder* EnergyData[Number_Energy];
-  string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
+
 
   for (int iter = 0; iter <3 ; iter++) //running through different
   {
@@ -77,7 +89,6 @@ void Electron()
     TGraphErrors* CF_Graph[BOARD][4][2]; // Board Skiroc Type
     TMultiGraph* CF_MG[BOARD][2];
     float CF[Number_Energy],CF_Err[Number_Energy],CF_Energy[Number_Energy];
-    StaggeringFactor=2;
     for(int type_num=0; type_num<2; type_num++)
     {
 
@@ -253,7 +264,6 @@ void Electron()
     TGraphErrors* TP_Graph[BOARD][4][2]; // Board Skiroc Type
     TMultiGraph* TP_MG[BOARD][2];
     float TP[Number_Energy],TP_Err[Number_Energy],TP_Energy[Number_Energy];
-    StaggeringFactor=2;
     for(int type_num=0; type_num<2; type_num++)
     {
 

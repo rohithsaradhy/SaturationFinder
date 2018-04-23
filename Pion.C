@@ -8,18 +8,28 @@ using namespace std;
 void Pion()
 {
 
-  const int BOARD =17;
-  const int Number_Energy =5;
-  float StaggeringFactor;
   std::string run_type = "Pion";
+  SaturationFinder* EnergyData[Number_Energy];
   std::ostringstream os( std::ostringstream::ate );
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
-
-  float Energy[Number_Energy]={100,150,200,250,300};
-
-  SaturationFinder* EnergyData[Number_Energy];
-  string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
+  switch (0)
+  {
+    case 0:
+    const int BOARD =17;
+    const int Number_Energy =5;
+    float StaggeringFactor=6;
+    float Energy[Number_Energy]={100,150,200,250,300};
+    string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
+    break;
+    case 1;
+    const int BOARD =20;
+    const int Number_Energy =3;
+    float StaggeringFactor=6;
+    float Energy[Number_Energy]={50,100,120};
+    string Fit_Name[3]  = {"Oct_H6_TS3","Oct_H6_TS3_CM","Oct_H6_PFA"};
+    break;
+  }
 
   for (int iter = 0; iter <3 ; iter++) //running through different
   {
@@ -79,7 +89,6 @@ void Pion()
   TGraphErrors* CF_Graph[BOARD][4][2]; // Board Skiroc Type
   TMultiGraph* CF_MG[BOARD][2];
   float CF[Number_Energy],CF_Err[Number_Energy],CF_Energy[Number_Energy];
-  StaggeringFactor=6;
   for(int type_num=0;type_num<2;type_num++)
   {
 
@@ -255,7 +264,6 @@ void Pion()
   TGraphErrors* TP_Graph[BOARD][4][2]; // Board Skiroc Type
   TMultiGraph* TP_MG[BOARD][2];
   float TP[Number_Energy],TP_Err[Number_Energy],TP_Energy[Number_Energy];
-  StaggeringFactor=6;
   for(int type_num=0;type_num<2;type_num++)
   {
 
