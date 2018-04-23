@@ -44,45 +44,45 @@ if [ "$unpack_rawFiles" = true ] ; then
 fi
 
 
-for RN in "${Eng100[@]}"
-do
-  if [ "$unpack_rawFiles" = true ] ; then
-      cmsRun $unpack runNumber=$RN
-  fi
-  cmsRun $analyse runNumber=$RN
-  mv $output/../*$RN.root $output/100/$RN.root
-done
-hadd $output/100GeV.root $output/100/*
-
-
-for RN in "${Eng150[@]}"
-do
-  if [ "$unpack_rawFiles" = true ] ; then
-      cmsRun $unpack runNumber=$RN
-  fi
-  cmsRun $analyse runNumber=$RN
-  mv $output/../*$RN.root $output/150/$RN.root
-done
-
-
-for RN in "${Eng200[@]}"
-do
-  if [ "$unpack_rawFiles" = true ] ; then
-      cmsRun $unpack runNumber=$RN
-  fi
-  cmsRun $analyse runNumber=$RN
-  mv $output/../*$RN.root $output/200/$RN.root
-done
-
-
-for RN in "${Eng250[@]}"
-do
-  if [ "$unpack_rawFiles" = true ] ; then
-      cmsRun $unpack runNumber=$RN
-  fi
-  cmsRun $analyse runNumber=$RN
-  mv $output/../*$RN.root $output/250/$RN.root
-done
+# for RN in "${Eng100[@]}"
+# do
+#   if [ "$unpack_rawFiles" = true ] ; then
+#       cmsRun $unpack runNumber=$RN
+#   fi
+#   cmsRun $analyse runNumber=$RN
+#   mv $output/../*$RN.root $output/100/$RN.root
+# done
+# hadd $output/100GeV.root $output/100/*
+#
+#
+# for RN in "${Eng150[@]}"
+# do
+#   if [ "$unpack_rawFiles" = true ] ; then
+#       cmsRun $unpack runNumber=$RN
+#   fi
+#   cmsRun $analyse runNumber=$RN
+#   mv $output/../*$RN.root $output/150/$RN.root
+# done
+#
+#
+# for RN in "${Eng200[@]}"
+# do
+#   if [ "$unpack_rawFiles" = true ] ; then
+#       cmsRun $unpack runNumber=$RN
+#   fi
+#   cmsRun $analyse runNumber=$RN
+#   mv $output/../*$RN.root $output/200/$RN.root
+# done
+#
+#
+# for RN in "${Eng250[@]}"
+# do
+#   if [ "$unpack_rawFiles" = true ] ; then
+#       cmsRun $unpack runNumber=$RN
+#   fi
+#   cmsRun $analyse runNumber=$RN
+#   mv $output/../*$RN.root $output/250/$RN.root
+# done
 
 
 

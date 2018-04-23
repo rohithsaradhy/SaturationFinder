@@ -103,6 +103,21 @@ void SaturationFinder::dataExtractor(int Options)
   InitializeHist2D(0,1);
   InitializeHist2D(1,1);
 
+  switch(Options)
+  {
+    case 0:
+      std::cout<<" Histograms filled using TS3 without CM sub\n";
+    break;
+
+    case 1:
+    std::cout<<" Histograms filled using TS3 with CM sub \n";
+    break;
+
+    case 2:
+    std::cout<<" Histograms filled using TS3 with PFA\n";
+    break;
+  }
+
 
 
 
