@@ -9,66 +9,61 @@ void Pion()
 {
 
   const int BOARD =17;
-  const int Number_Energy =6;
+  const int Number_Energy =5;
   float StaggeringFactor;
   std::string run_type = "Pion";
-  std::string rootFolder="./temp_data/";
   std::ostringstream os( std::ostringstream::ate );
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
 
-  float Energy[Number_Energy]={100,150,200,250,300,350};
+  float Energy[Number_Energy]={100,150,200,250,300};
 
   SaturationFinder* EnergyData[Number_Energy];
+  string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
+
+  for (int iter = 0; iter <3 ; iter++) //running through different
+  {
+
+
 
 
   for(int i=0;i<Number_Energy;i++)
   {
-    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,"Oct_H2","/home/rsaradhy/Work/Output/TransitionH_L/New_Data/Oct_NTuple/"); // 0i mplies that it is a allfile...
+    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,"April_24",Fit_Name[iter],"/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/"); // 0i mplies that it is a allfile...
+    EnergyData[i]->CreateStructure("./Analysed_data");
   }
 
-  rootFolder += EnergyData[0]->FIT_NAME+"/";
-  cout<<rootFolder<<endl;
-  os.str("");
-  os<<rootFolder<<run_type<<"/";
+
   // //Extracting all the data and saving it in
-  bool enableDataExtraction =0;
+  bool enableDataExtraction =1;
   if(enableDataExtraction)
   {
     for(int i=0;i<Number_Energy;i++)
     {
-      EnergyData[i]->dataExtractor();
-      EnergyData[i]->SaveHistogram(os.str());
+      EnergyData[i]->dataExtractor(iter); //Available Options are :: 0->TS3  1->TS3withCM   2->PFA
+      EnergyData[i]->SaveHistogram();
     }
   }
 
   //Loading all the data
-  bool enableFindValues =0;
+  bool enableFindValues =1;
   for(int i=0;i<Number_Energy;i++)
   {
 
     if(enableFindValues)
     {
-      os.str("");
-      os<<rootFolder<<run_type<<"/";
-      if(!enableDataExtraction) EnergyData[i]->LoadHistogram(os.str());
+      if(!enableDataExtraction) EnergyData[i]->LoadHistogram();
       EnergyData[i]->FitHistogram();
       EnergyData[i]->FindValues();
-      os.str("");
-      os<<rootFolder<<run_type<<"/"<<Energy[i]<<"_";
-      EnergyData[i]->StoreValues(os.str());
+      EnergyData[i]->StoreValues(""); //Store those values with a name prefix given as the argument
+
     }
     else
     {
-      os.str("");
-      os<<rootFolder<<run_type<<"/"<<Energy[i]<<"_";
-      EnergyData[i]->RetrieveValues(os.str());
+      EnergyData[i]->RetrieveValues("");  //Store those values with a name prefix given as the argument
     }
 
   }
-
-
-
 
 
 
@@ -439,10 +434,10 @@ void Pion()
       for(int board=0;board<BOARD;board++)
       {
         os.str("");
-        os<<rootFolder<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<TP_Canvas[board][type_num]->GetName()<<".png";
+        os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<TP_Canvas[board][type_num]->GetName()<<".png";
         TP_Canvas[board][type_num]->SaveAs(os.str().c_str());
         os.str("");
-        os<<rootFolder<<run_type<<"/Graphs/Analysed/"<<type[type_num]<<"/"<<CF_Canvas[board][type_num]->GetName()<<".png";
+        os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<CF_Canvas[board][type_num]->GetName()<<".png";
         CF_Canvas[board][type_num]->SaveAs(os.str().c_str());
 
       }
@@ -450,30 +445,29 @@ void Pion()
     }
 
 
-    // Saving the fit Plots... Not FIt and Find Values should be uncommented above...
-    if(enableFindValues)
-    {
-      for(int energyNum=0;energyNum<Number_Energy;energyNum++)
-      {
-        for(int board=0;board<BOARD;board++)
-        {
-          for(int skiroc=0;skiroc<4;skiroc++)
-          {
-            for(int type_num=0;type_num<2;type_num++)
-            {
-              if(EnergyData[energyNum]->fitStatus[board][skiroc][type_num]!=4000) continue; //For Safety
-              os.str("");
-              os<<rootFolder<<run_type<<"/Graphs/FitData/"<<type[type_num]<<"/"<<EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
-              EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->SaveAs(os.str().c_str());
-            }
+    //
+    // // Saving the fit Plots... Not FIt and Find Values should be uncommented above...
+    // if(enableFindValues)
+    // {
+    //   for(int energyNum=0;energyNum<Number_Energy;energyNum++)
+    //   {
+    //     for(int board=0;board<BOARD;board++)
+    //     {
+    //       for(int skiroc=0;skiroc<4;skiroc++)
+    //       {
+    //         for(int type_num=0;type_num<2;type_num++)
+    //         {
+    //           if(EnergyData[energyNum]->fitStatus[board][skiroc][type_num]!=4000) continue; //For Safety
+    //           os.str("");
+    //           os<<rootFolder<<run_type<<"/Graphs/FitData/"<<type[type_num]<<"/"<<EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
+    //           EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->SaveAs(os.str().c_str());
+    //         }
+    //
+    //       }
+    //
+    //     }
+    //   }
+    // }
 
-          }
-
-        }
-      }
-    }
-
-
-
-
+}
 }
