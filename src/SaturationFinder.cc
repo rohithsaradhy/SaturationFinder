@@ -87,18 +87,57 @@ void SaturationFinder::CreateStructure(const char * path)
 {
   std::ostringstream os( std::ostringstream::ate );
   std::ostringstream os1( std::ostringstream::ate );
-  os.str("");
-  makeDir(path);
-  os<<path<<"/"<<ANALYSIS_ID;
-  makeDir(os.str().c_str());
-  os<<"/"<<FIT_NAME<<"/";
-  rootFolder = os.str();
-  makeDir(os.str().c_str());
-  os1<<os.str();
-  os<<"HG_LG/";
-  makeDir(os.str().c_str());
-  os1<<"LG_TOT/";
-  makeDir(os1.str().c_str());
+  std::ostringstream os2( std::ostringstream::ate );
+
+  if(RUN_TYPE == "All" && ENERGY == 0)
+  {
+    os.str("");
+    makeDir(path);
+    os<<path<<"/"<<ANALYSIS_ID;
+    makeDir(os.str().c_str());
+    os<<"/"<<FIT_NAME<<"/";
+    rootFolder = os.str();
+    makeDir(os.str().c_str());
+    os1<<os.str();
+    os<<"HG_LG/";
+    makeDir(os.str().c_str());
+    os1<<"LG_TOT/";
+    makeDir(os1.str().c_str());
+  }
+  else if(ENERGY != 0)
+  {
+    os.str("");
+    makeDir(path);
+    os<<path<<"/"<<ANALYSIS_ID;
+    makeDir(os.str().c_str());
+    os<<"/"<<FIT_NAME<<"/";
+    makeDir(os.str().c_str());
+    os<<"ParticleWise/";
+    makeDir(os.str().c_str());
+    os<<""<<RUN_TYPE<<"/";
+    makeDir(os.str().c_str());
+    os1.str("");
+    os1<<os.str();
+    os1<<"Stability/";
+    makeDir(os1.str().c_str());
+    os2<<os1.str();
+    os1<<"HG_LG/";
+    makeDir(os1.str().c_str());
+    os2<<"LG_TOT/";
+    makeDir(os2.str().c_str());
+
+
+    os1.str("");
+    os<<""<<ENERGY<<"/";
+    rootFolder = os.str();
+    makeDir(os.str().c_str());
+    os1<<os.str();
+    os<<"HG_LG/";
+    makeDir(os.str().c_str());
+    os1<<"LG_TOT/";
+    makeDir(os1.str().c_str());
+
+  }
 
 }
 
