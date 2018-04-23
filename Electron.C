@@ -253,7 +253,7 @@ void Electron()
     TGraphErrors* TP_Graph[BOARD][4][2]; // Board Skiroc Type
     TMultiGraph* TP_MG[BOARD][2];
     float TP[Number_Energy],TP_Err[Number_Energy],TP_Energy[Number_Energy];
-    StaggeringFactor=6;
+    StaggeringFactor=2;
     for(int type_num=0; type_num<2; type_num++)
     {
 
