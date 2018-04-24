@@ -12,23 +12,25 @@ void Electron()
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
 
-  switch (0)
-  {
-    case 0:
+
+
     const int BOARD =17;
     const int Number_Energy =5;
     float StaggeringFactor=2;
+    SaturationFinder* EnergyData[Number_Energy];
     float Energy[Number_Energy]={20,32,50,80,90};
     string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
-    break;
-    case 1;
-    const int BOARD =17;
-    const int Number_Energy =4;
-    float StaggeringFactor=2;
-    float Energy[Number_Energy]={20,32,50,80};
-    string Fit_Name[3]  = {"Oct_H6_TS3","Oct_H6_TS3_CM","Oct_H6_PFA"};
-    break;
-  }
+    std::string dataFolder = "/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/";
+
+
+    // const int BOARD =20;
+    // const int Number_Energy =4;
+    // float StaggeringFactor=2;
+    // SaturationFinder* EnergyData[Number_Energy];
+    // float Energy[Number_Energy]={20,32,50,80};
+    // string Fit_Name[3]  = {"Oct_H6_TS3","Oct_H6_TS3_CM","Oct_H6_PFA"};
+    // std::string dataFolder = "/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H6/";
+
 
 
 
@@ -40,7 +42,7 @@ void Electron()
 
   for(int i=0;i<Number_Energy;i++)
   {
-    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,"April_24",Fit_Name[iter],"/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/"); // 0i mplies that it is a allfile...
+    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,"April_24",Fit_Name[iter],dataFolder); // 0i mplies that it is a allfile...
     EnergyData[i]->CreateStructure("./Analysed_data");
   }
 
