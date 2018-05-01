@@ -8,28 +8,29 @@ void Electron()
 {
   std::string run_type = "Electron";
   std::ostringstream os( std::ostringstream::ate );
-  SaturationFinder* EnergyData[Number_Energy];
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
 
 
 
-    const int BOARD =17;
-    const int Number_Energy =5;
-    float StaggeringFactor=2;
-    SaturationFinder* EnergyData[Number_Energy];
-    float Energy[Number_Energy]={20,32,50,80,90};
-    string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
-    std::string dataFolder = "/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/";
-
-
-    // const int BOARD =20;
-    // const int Number_Energy =4;
+    // const int BOARD =17;
+    // const int Number_Energy =5;
     // float StaggeringFactor=2;
+    // std::string Analysis_ID = "April_24";
     // SaturationFinder* EnergyData[Number_Energy];
-    // float Energy[Number_Energy]={20,32,50,80};
-    // string Fit_Name[3]  = {"Oct_H6_TS3","Oct_H6_TS3_CM","Oct_H6_PFA"};
-    // std::string dataFolder = "/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H6/";
+    // float Energy[Number_Energy]={20,32,50,80,90};
+    // string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
+    // std::string dataFolder = "/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/";
+    //
+
+    const int BOARD =20;
+    const int Number_Energy =4;
+    float StaggeringFactor=2;
+    std::string Analysis_ID = "April_24";
+    SaturationFinder* EnergyData[Number_Energy];
+    float Energy[Number_Energy]={20,32,50,80};
+    string Fit_Name[3]  = {"Oct_H6_TS3","Oct_H6_TS3_CM","Oct_H6_PFA"};
+    std::string dataFolder = "/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H6/";
 
 
 
@@ -42,7 +43,7 @@ void Electron()
 
   for(int i=0;i<Number_Energy;i++)
   {
-    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,"April_24",Fit_Name[iter],dataFolder); // 0i mplies that it is a allfile...
+    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,Analysis_ID,Fit_Name[iter],dataFolder); // 0i mplies that it is a allfile...
     EnergyData[i]->CreateStructure("./Analysed_data");
   }
 
@@ -171,7 +172,7 @@ void Electron()
                 legend->Draw();
                 //Setting the Labels and texts
 
-                tex = new TLatex(100.6221,1.063305,"Results at the same energy are staggered");
+                tex = new TLatex(20.6221,2,"Results at the same energy are staggered");
                 tex->SetLineWidth(2);
                 tex->Draw();
 
@@ -181,7 +182,7 @@ void Electron()
                 label1->SetTextAlign(12);
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
-                label1->AddText("HGCAL test beam, Sept 2017");
+                label1->AddText("HGCAL test beam, Oct 2017");
                 label1->Draw("same");
 
                 label2  = new TPaveText(0.09278351,0.9077253,0.3048601,0.9663805,"brNDC");
@@ -224,7 +225,7 @@ void Electron()
                 legend->Draw();
                 //Setting the Labels and texts
 
-                tex = new TLatex(150.6221,0.93305,"Results at the same energy are staggered");
+                tex = new TLatex(20.6221,1,"Results at the same energy are staggered");
                 tex->SetLineWidth(2);
                 tex->Draw();
 
@@ -234,7 +235,7 @@ void Electron()
                 label1->SetTextAlign(12);
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
-                label1->AddText("HGCAL test beam, Sept 2017");
+                label1->AddText("HGCAL test beam, Oct 2017");
                 label1->Draw("same");
 
                 label2  = new TPaveText(0.09278351,0.9077253,0.3048601,0.9663805,"brNDC");
@@ -346,7 +347,7 @@ void Electron()
                 legend->Draw();
                 //Setting the Labels and texts
 
-                tex = new TLatex(99.5683,1013.43,"Results at the same energy are staggered");
+                tex = new TLatex(20.5683,500.43,"Results at the same energy are staggered");
                 tex->SetLineWidth(2);
                 tex->Draw();
 
@@ -356,7 +357,7 @@ void Electron()
                 label1->SetTextAlign(12);
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
-                label1->AddText("HGCAL test beam, Sept 2017");
+                label1->AddText("HGCAL test beam, Oct 2017");
                 label1->Draw("same");
 
                 label2  = new TPaveText(0.09278351,0.9077253,0.3048601,0.9663805,"brNDC");
@@ -399,7 +400,7 @@ void Electron()
                 legend->Draw();
                 //Setting the Labels and texts
 
-                tex = new TLatex(99.5683,1013.43,"Results at the same energy are staggered");
+                tex = new TLatex(20.5683,1000.43,"Results at the same energy are staggered");
                 tex->SetLineWidth(2);
                 tex->Draw();
 
@@ -409,7 +410,7 @@ void Electron()
                 label1->SetTextAlign(12);
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
-                label1->AddText("HGCAL test beam, Sept 2017");
+                label1->AddText("HGCAL test beam, Oct 2017");
                 label1->Draw("same");
 
                 label2  = new TPaveText(0.09278351,0.9077253,0.3048601,0.9663805,"brNDC");
@@ -444,10 +445,10 @@ void Electron()
         for(int board=0;board<BOARD;board++)
         {
           os.str("");
-          os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<TP_Canvas[board][type_num]->GetName()<<".png";
+          os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<Fit_Name[iter]<<"_"<<TP_Canvas[board][type_num]->GetName()<<".png";
           TP_Canvas[board][type_num]->SaveAs(os.str().c_str());
           os.str("");
-          os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<CF_Canvas[board][type_num]->GetName()<<".png";
+          os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<Fit_Name[iter]<<"_"<<CF_Canvas[board][type_num]->GetName()<<".png";
           CF_Canvas[board][type_num]->SaveAs(os.str().c_str());
 
         }
@@ -455,29 +456,42 @@ void Electron()
       }
 
 
-    //
-    // // Saving the fit Plots... Not FIt and Find Values should be uncommented above...
-    // if(enableFindValues)
-    // {
-    //     for(int energyNum=0; energyNum<Number_Energy; energyNum++)
-    //     {
-    //         for(int board=0; board<BOARD; board++)
-    //         {
-    //             for(int skiroc=0; skiroc<4; skiroc++)
-    //             {
-    //                 for(int type_num=0; type_num<2; type_num++)
-    //                 {
-    //                     if(EnergyData[energyNum]->fitStatus[board][skiroc][type_num]!=4000) continue; //For Safety
-    //                     os.str("");
-    //                     os<<rootFolder<<run_type<<"/Graphs/FitData/"<<type[type_num]<<"/"<<EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
-    //                     EnergyData[energyNum]->fitCanvas[board][skiroc][type_num]->SaveAs(os.str().c_str());
-    //                 }
-    //
-    //             }
-    //
-    //         }
-    //     }
-    // }
+
+    // Saving the fit Plots... Not FIt and Find Values should be uncommented above...
+    // Saving the fit Plots... Not FIt and Find Values should be uncommented above...
+    if(enableFindValues)
+    {
+      SaturationFinder* a;
+        for(int energyNum=0; energyNum<Number_Energy; energyNum++)
+        {
+          a = EnergyData[energyNum];
+            for(int board=0; board<BOARD; board++)
+            {
+                for(int skiroc=0; skiroc<4; skiroc++)
+                {
+                    for(int type_num=0; type_num<2; type_num++)
+                    {
+                      if(a->fitStatus[board][skiroc][type_num]==99999)
+                      {
+
+                          os.str("");
+                          if(type_num ==0 )os<<a->rootFolder<<"HG_LG/";
+                          else os<<a->rootFolder<<"LG_TOT/";
+
+
+                          os<<a->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
+                          a->fitCanvas[board][skiroc][type_num]->SaveAs(os.str().c_str());
+
+
+                      }
+                    }
+
+                }
+
+            }
+        }
+     }
+
 
 
 

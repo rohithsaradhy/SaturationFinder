@@ -19,17 +19,24 @@ void run_me()
     std::ostringstream os( std::ostringstream::ate );
 
 
-    string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
-    SaturationFinder* Oct_H2;
+    // string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
+    // SaturationFinder* Oct_H2;
+
+    string Fit_Name[3]  = {"Oct_H6_TS3","Oct_H6_TS3_CM","Oct_H6_PFA"};
+    SaturationFinder* Oct_H6;
 
 
 
     for(int iter = 0;iter<3;iter++)
     {
 
-      Oct_H2 = new SaturationFinder(17,0,"All","April_24",Fit_Name[iter],"/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/"); // 0 implies that it is a allfile which is kept in the root directory...
-      Oct_H2->SetModuleMaps("/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/layerGeom_oct2017_h2_17layers.txt"); // Remove all '#' from this file and empty lines
-      a = Oct_H2;
+      // Oct_H2 = new SaturationFinder(17,0,"All","April_24",Fit_Name[iter],"/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/"); // 0 implies that it is a allfile which is kept in the root directory...
+      // Oct_H2->SetModuleMaps("/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/layerGeom_oct2017_h2_17layers.txt"); // Remove all '#' from this file and empty lines
+      // a = Oct_H2;
+
+      Oct_H6 = new SaturationFinder(20,0,"All","April_24",Fit_Name[iter],"/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H6/"); // 0 implies that it is a allfile which is kept in the root directory...
+      Oct_H6->SetModuleMaps("/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H6/layerGeom_oct2017_h6_20layers.txt"); // Remove all '#' from this file and empty lines
+      a = Oct_H6;
 
       a->CreateStructure("./Analysed_data"); // Setting the root Folder for all analysed files to be dropped off and creating the structure
       // if(a->FIT_NAME == "Oct_H6_PFA" || a->FIT_NAME == "Oct_H2_PFA" ) a->cutoff[0] = 5;
@@ -70,7 +77,7 @@ void run_me()
       }
 
 
-      
+
     }
 
     //
