@@ -56,6 +56,14 @@ void SaturationFinder::dataExtractor()
   }
 
 
+  //Overiding previous settings...
+  if(CollectFromNTuples_Run)
+  {
+    filename.str("");
+    filename<<DATA_LOC<<"ntuple_"<<Run_No<<".root";
+  }
+
+
 
   std::cout<<"Opening File "<<filename.str().c_str()<<std::endl;
   TFile *file = TFile::Open(filename.str().c_str());
@@ -96,16 +104,6 @@ void SaturationFinder::dataExtractor()
   Int_t Max_Entries = T->GetEntries();
 
   std::cout<<"This is the Max entries in this ntuples :: "<<Max_Entries<<std::endl;
-
-
-
-
-  InitializeHist2D(0,1);
-  InitializeHist2D(1,1);
-
-
-
-
 
 
 

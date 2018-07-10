@@ -41,6 +41,9 @@ SaturationFinder::SaturationFinder(int board,float energy,std::string run_type, 
 
   InitializeDataArray();
 
+  InitializeHist2D(0,1);
+  InitializeHist2D(1,1);
+
 
 
 }

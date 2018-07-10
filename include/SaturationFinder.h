@@ -39,6 +39,9 @@ class SaturationFinder
     int BOARD = 0;
     const int SKIROC = 4;
     float ENERGY = 0;
+
+    bool CollectFromNTuples_Run=false;
+    Int_t Run_No=0;
     std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
     std::string ANALYSIS_ID = ""; // Just for creating the folder structure and additional layer of identification...
     std::string FIT_NAME = ""; // Prefix to plots and datafiles....
@@ -105,6 +108,7 @@ class SaturationFinder
     ~SaturationFinder();
     void getInfo();
     void InitializeDataArray();
+    void CollectFromNTuples(std::string);
     void dataExtractor();
     void makeDir(const char *path); //Checking whether directory exists
     void CreateStructure(const char *path); // Create the prescribed structure; Need to run this successfully for setting the current path for saving and restoring the histograms...
