@@ -106,11 +106,13 @@ class SaturationFinder
 
     SaturationFinder(int board,float energy,std::string run_type, std::string analysis_id,std::string fit_name, std::string data_loc);
     ~SaturationFinder();
+
     void getInfo();
     void InitializeDataArray();
     void CollectFromNTuples(std::string);
     void dataExtractor();
-    void makeDir(const char *path); //Checking whether directory exists
+    bool dirExists(const char *path) //checks for directory or file
+    void makeDir(const char *path); //Checking whether directory exists and makes it ...
     void CreateStructure(const char *path); // Create the prescribed structure; Need to run this successfully for setting the current path for saving and restoring the histograms...
     void SetModuleMaps(const char * path);
     void SaveGraphs(); //This function is in SaturationFinder.cc;

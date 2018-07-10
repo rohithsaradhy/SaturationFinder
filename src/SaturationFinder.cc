@@ -1,7 +1,7 @@
 #include "SaturationFinder.h"
 #include <sys/stat.h>
 
-bool dirExists(const char *path)
+bool SaturationFinder::dirExists(const char *path)
 {
     struct stat info;
 

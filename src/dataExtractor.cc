@@ -59,88 +59,99 @@ void SaturationFinder::dataExtractor()
   //Overiding previous settings...
   if(CollectFromNTuples_Run)
   {
+
     filename.str("");
     filename<<DATA_LOC<<"/ntuple_"<<Run_No<<".root";
+
   }
 
 
-
-  std::cout<<"Opening File "<<filename.str().c_str()<<std::endl;
-  TFile *file = TFile::Open(filename.str().c_str());
-  TTree *T =  (TTree*)file->Get("rechitntupler/hits");
-
-
-
-  T->SetBranchAddress("rechit_detid", &Hit_Sensor_detid);
-  T->SetBranchAddress("rechit_module", &Hit_Sensor_module);
-  T->SetBranchAddress("rechit_layer", &Hit_Sensor_layer);
-  T->SetBranchAddress("rechit_chip", &Hit_Sensor_chip);
-  T->SetBranchAddress("rechit_channel", &Hit_Sensor_channel);
-
-  T->SetBranchAddress("rechit_x", &Hit_Sensor_x);
-  T->SetBranchAddress("rechit_y", &Hit_Sensor_y);
-  T->SetBranchAddress("rechit_z", &Hit_Sensor_z);
-  T->SetBranchAddress("rechit_iu", &Hit_Sensor_iu);
-  T->SetBranchAddress("rechit_iv", &Hit_Sensor_iv);
-  T->SetBranchAddress("rechit_energy", &Hit_Sensor_energy);
-  T->SetBranchAddress("rechit_maxTS2TS3Hig", &Hit_Sensor_maxTS2TS3High);
-  T->SetBranchAddress("rechit_maxTS2TS3Low", &Hit_Sensor_maxTS2TS3Low);
-
-  T->SetBranchAddress("rechit_amplitudeHigh", &Hit_Sensor_amplitudeHigh);
-  T->SetBranchAddress("rechit_amplitudeLow", &Hit_Sensor_amplitudeLow);
-  T->SetBranchAddress("rechit_Tot", &Hit_Sensor_Tot);
-
-  T->SetBranchAddress("rechit_time", &Hit_Sensor_time);
-  T->SetBranchAddress("rechit_timeMaxHG", &Hit_Sensor_timeMaxHG);
-  T->SetBranchAddress("rechit_timeMaxLG", &Hit_Sensor_timeMaxLG);
-  T->SetBranchAddress("rechit_toaRise", &Hit_Sensor_toaRise);
-  T->SetBranchAddress("rechit_toaFall", &Hit_Sensor_toaFall);
-
-
-
-
-
-
-  Int_t Max_Entries = T->GetEntries();
-
-  std::cout<<"This is the Max entries in this ntuples :: "<<Max_Entries<<std::endl;
-
-
-
-
-  for(int entry = 0; entry < Max_Entries ; entry++)
+  if (dirExists(filename.str().c_str()))
   {
+    std::cout<<"Opening File "<<filename.str().c_str()<<std::endl;
+    TFile *file = TFile::Open(filename.str().c_str());
+    TTree *T =  (TTree*)file->Get("rechitntupler/hits");
 
-    T->GetEntry(entry);
-    if(entry == (int)(Max_Entries/2) ) break;  // so it is faster for debugging
 
-    if(entry%1000 == 0)
+
+    T->SetBranchAddress("rechit_detid", &Hit_Sensor_detid);
+    T->SetBranchAddress("rechit_module", &Hit_Sensor_module);
+    T->SetBranchAddress("rechit_layer", &Hit_Sensor_layer);
+    T->SetBranchAddress("rechit_chip", &Hit_Sensor_chip);
+    T->SetBranchAddress("rechit_channel", &Hit_Sensor_channel);
+
+    T->SetBranchAddress("rechit_x", &Hit_Sensor_x);
+    T->SetBranchAddress("rechit_y", &Hit_Sensor_y);
+    T->SetBranchAddress("rechit_z", &Hit_Sensor_z);
+    T->SetBranchAddress("rechit_iu", &Hit_Sensor_iu);
+    T->SetBranchAddress("rechit_iv", &Hit_Sensor_iv);
+    T->SetBranchAddress("rechit_energy", &Hit_Sensor_energy);
+    T->SetBranchAddress("rechit_maxTS2TS3High", &Hit_Sensor_maxTS2TS3High);
+    T->SetBranchAddress("rechit_maxTS2TS3Low", &Hit_Sensor_maxTS2TS3Low);
+
+    T->SetBranchAddress("rechit_amplitudeHigh", &Hit_Sensor_amplitudeHigh);
+    T->SetBranchAddress("rechit_amplitudeLow", &Hit_Sensor_amplitudeLow);
+    T->SetBranchAddress("rechit_Tot", &Hit_Sensor_Tot);
+
+    T->SetBranchAddress("rechit_time", &Hit_Sensor_time);
+    T->SetBranchAddress("rechit_timeMaxHG", &Hit_Sensor_timeMaxHG);
+    T->SetBranchAddress("rechit_timeMaxLG", &Hit_Sensor_timeMaxLG);
+    T->SetBranchAddress("rechit_toaRise", &Hit_Sensor_toaRise);
+    T->SetBranchAddress("rechit_toaFall", &Hit_Sensor_toaFall);
+
+
+
+
+
+
+    Int_t Max_Entries = T->GetEntries();
+
+    std::cout<<"This is the Max entries in this ntuples :: "<<Max_Entries<<std::endl;
+
+
+
+
+    for(int entry = 0; entry < Max_Entries ; entry++)
     {
-      std::cout<<entry*100/Max_Entries <<"% \t has been completed... \r";
-      std::cout.flush();
+
+      T->GetEntry(entry);
+      // if(entry == (int)(Max_Entries/2) ) break;  // so it is faster for debugging
+
+      if(entry%1000 == 0)
+      {
+        std::cout<<entry*100/Max_Entries <<"% \t has been completed... \r";
+        std::cout.flush();
+      }
+
+      for(int i = 0; i < Hit_Sensor_layer->size();i++ )
+      {
+
+        board = Hit_Sensor_layer->at(i);
+        skiroc  = Hit_Sensor_chip->at(i);
+        x = Hit_Sensor_amplitudeLow->at(i);
+        y = Hit_Sensor_amplitudeHigh->at(i);
+        z = Hit_Sensor_Tot->at(i);
+
+
+        Hist2D[board][skiroc][0]->Fill(x,y);
+        Hist2D[board][skiroc][1]->Fill(z,x);
+      }
+
+
+
     }
 
-    for(int i = 0; i < Hit_Sensor_layer->size();i++ )
-    {
-      board = Hit_Sensor_layer->at(i);
-      skiroc  = Hit_Sensor_chip->at(i);
-      x = Hit_Sensor_amplitudeLow->at(i);
-      y = Hit_Sensor_amplitudeHigh->at(i);
-      z = Hit_Sensor_Tot->at(i);
 
-
-      Hist2D[board][skiroc][0]->Fill(x,y);
-      Hist2D[board][skiroc][1]->Fill(z,x);
-    }
-
-
+  }
+  else
+  {
+    std::cout<<"Did not find the file or folder... Check Path and try again!"<<std::endl;
   }
 
 
 
 
-
-  std::cout<<"Exiting dataExtractor"<<std::endl;
+  std::cout<<std::endl<<"Exiting dataExtractor"<<std::endl;
 
   return;
 }
