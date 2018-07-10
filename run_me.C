@@ -1,4 +1,4 @@
-#Written by Rohith Saradhy
+//Written by Rohith Saradhy
 #include<iostream>
 #include "SaturationFinder.h"
 
@@ -55,7 +55,7 @@ void run_me()
 
       for(int type_num=0; type_num<2; type_num++)
       {
-        for(int i=0 ; i< 20 ; i++)
+        for(int i=0 ; i< a->BOARD ; i++)
           {
             for(int j =0; j<4 ; j++)
               {

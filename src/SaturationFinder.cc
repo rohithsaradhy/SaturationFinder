@@ -20,9 +20,9 @@ SaturationFinder::SaturationFinder(int board,float energy,std::string run_type, 
 
   BOARD = board;
   ENERGY = energy;
-  RUN_TYPE = run_type;
-  ANALYSIS_ID =analysis_id;
-  FIT_NAME = fit_name;
+  RUN_TYPE = run_type; //All, Electron, Pion
+  ANALYSIS_ID =analysis_id; // Prefix for analysis
+  FIT_NAME = fit_name; // The name that will Appear on the graphs
 
   DATA_LOC = data_loc;
 
@@ -89,7 +89,7 @@ void SaturationFinder::CreateStructure(const char * path)
   std::ostringstream os1( std::ostringstream::ate );
   std::ostringstream os2( std::ostringstream::ate );
 
-  if(RUN_TYPE == "All" && ENERGY == 0)
+  if((RUN_TYPE == "All" || RUN_TYPE == "other") && ENERGY == 0)
   {
     os.str("");
     makeDir(path);
@@ -136,7 +136,6 @@ void SaturationFinder::CreateStructure(const char * path)
     makeDir(os.str().c_str());
     os1<<"LG_TOT/";
     makeDir(os1.str().c_str());
-
   }
 
 }
@@ -175,4 +174,40 @@ void SaturationFinder::SetModuleMaps(const char * path)
   fs.close();
 
 
+}
+
+
+
+void SaturationFinder::SaveGraphs()
+{
+  std::ostringstream os( std::ostringstream::ate );
+
+
+  std::cout<<std::endl<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<std::endl;
+  std::cout<<"Saving the Files to: "<<rootFolder<<std::endl;
+  std::cout<<std::endl<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<std::endl;
+
+  for(int type_num=0; type_num<2; type_num++) //type_num is for HG_LG and LG_TOT
+  {
+    for(int brd=0 ; brd< BOARD ; brd++)
+      {
+        for(int ski =0; ski<SKIROC ; ski++)
+          {
+              if(fitStatus[brd][ski][type_num]==99999)
+              {
+
+                  os.str("");
+                  if(type_num ==0 )os<<rootFolder<<"HG_LG/";
+                  else os<<rootFolder<<"LG_TOT/";
+
+
+                  os<<fitCanvas[brd][ski][type_num]->GetName()<<".png";
+                  fitCanvas[brd][ski][type_num]->SaveAs(os.str().c_str());
+
+
+              }
+          }
+      }
+
+  }
 }

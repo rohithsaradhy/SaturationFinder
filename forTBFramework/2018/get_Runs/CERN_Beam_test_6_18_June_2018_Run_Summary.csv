@@ -1,0 +1,477 @@
+,,,,,,,,,,,,Reference bias currents(uA)@ 240V 8 June 2018:,5,30,538,309,,,,,
+https://twiki.cern.ch/twiki/bin/view/CMS/CernTests,,,,,,,,,,,,,Bias Currents (uA),,,,,,,,
+Date,Run #,#events,Start time,Stop time,Pedestal/Beam,Beam file,Particle,,"Energy, GeV",#ev/spill (~),DQM observations,Comments,Channel 0,Channel 1,Channel 3,Channel 4,Humidity (RH DP 4),Temperature (TCassette07),Table Position (y),Humidity (Air),Temperature (Air)
+08/06,21,5994,19:15,19:32,Beam,H2B.CMS-HGCAL.012,electron,,80,,"See clear, centered beam",Beam still being tuned,,,,,,,,,
+08/06,22,4000,19:37,19:46,Beam,H2B.CMS-HGCAL.012,electron,,80,,,New configuration string for timing hexboard,,,,,,,,,
+08/06,23,9619,19:46,20:49,Beam,H2B.CMS-HGCAL.009,electron,,50,,Two channels are swapped,Beam energy changing - switched to 80,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+START OF DATA TAKING,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+08/06,24,10000,20:55,22:08,Beam,H2B.CMS-HGCAL.013,electron,,100,,See beam through most of the layers,,8,57,479,322,,32,,,
+08/06,25,10000,22:09,22:34,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,6,55,458,316,36.3,31.8,,,
+08/06,26,10000,22:35,22:52,Beam,H2B.CMS-HGCAL.013,electron,,100,,Event displays looked OK,"DWCs, DataCollector, CMS-HGCal producers all dead at end of run. Online monitor plots don't show any occupancies.",,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+08/06,28,6789,23:02,23:51,Beam,H2B.CMS-HGCAL.013,electron,,100,,events looked ok,Killed run due to lack of beam.,8,60,468,314,39.8,30.3,,,
+08/06,29,3111,23:54,0:07,Beam,H2B.CMS-HGCAL.013,electron,,100,,events looked ok,Killed run due to lack of beam.,14,80,490,315,40.8,29.8,,,
+08/06,30,10000,0:14,1:16,Beam,H2B.CMS-HGCAL.013,electron,,100,,beam comes back around 00:50,,8,61,480,307,40.4,30.1,,,
+,31,0,,,,,,,,,run number skipped,,,,,,,,,,
+09/06,32,10000,1:20,1:38,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,8,56,476,290,40,30.3,,,
+09/06,33,10015,1:38,1:57,Beam,H2B.CMS-HGCAL.013,electron,,100,,,"producers in eudaq died in the end of run, but data seems ok",7,47,478,285,36.7,31.8,,,
+,34,0,,,,,,,,,run number skipped,,,,,,,,,,
+09/06,35,10013,1:58,2:14,Beam,H2B.CMS-HGCAL.013,electron,,100,,,"producers in eudaq died in the end of run, but data seems ok",9,63,478,281,,,,,
+,36,0,,,,,,,,,run number skipped,,,,,,,,,,
+09/06,37,10000,2:17,2:35,Beam,H2B.CMS-HGCAL.013,electron,,100,,,"producers in eudaq died in the end of run, but data seems ok(maybe didn't end exactly at 10000)",10,69,485,282,41.1,29.7,,,
+,38,0,,,,,,,,,,,,,,,,,,,
+09/06,39,10000,2:35,2:54,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,7,45,478,280,37.2,31.3,,,
+09/06,40,10000,2:55,3:13,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,8,52,485,278,37.7,31,,,
+09/06,41,10002,3:15,3:35,Beam,H2B.CMS-HGCAL.013,electron,,100,,,current in ch3 seems to be a little higher,15,81,521,276,41.5,29.3,,,
+09/06,42,10000,3:35,3:53,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,7,44,496,270,38.1,30.8,,,
+09/06,43,10000,3:53,4:11,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,7,42,497,269,35.3,32.1,,,
+09/06,44,10000,4:12,4:29,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,14,80,513,273,40.5,29.5,,,
+,45,0,,,,,,,,,,failed to start automatically again,,,,,,,,,
+09/06,46,10009,4:30,4:48,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,8,49,507,269,39,30.2,,,
+09/06,47,10004,4:48,5:06,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,7,40,498,266,35.6,31.7,,,
+09/06,48,10002,5:06,5:23,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,8,56,524,263,38,30.4,,,
+09/06,49,10002,5:24,5:41,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,9,65,530,265,40.1,29.6,,,
+,50,0,,,,,,,,,run number skipped,,,,,,,,,,
+,51,0,,,,,,,,,run number skipped,,,,,,,,,,
+,52,0,,,,,,,,,run number skipped,,,,,,,,,,
+09/06,53,10006,5:55,6:13,Beam,H2B.CMS-HGCAL.013,electron,,100,,we power cycled the fpga and reset the RDOUT and SYNC Boards at start of this run.,,7,38,526,259,34.4,31.9,,,
+,54,0,,,,,,,,,run number skipped,,,,,,,,,,
+09/06,55,10000,6:15,6:33,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,10,63,537,262,39.9,29.7,,,
+09/06,56,10006,6:34,6:52,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,8,43,534,258,38.2,30.3,,,
+09/06,57,10012,6:52,7:10,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,6,36,534,249,35,31.7,,,
+09/06,58,10009,7:10,7:28,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,8,53,543,238,37.8,30.3,,,
+09/06,59,10000,7:28,7:50,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,9,54,550,236,39.1,29.9,,,
+09/06,60,10000,7:50,8:06,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,7,34,546,235,35.4,31.5,,,
+09/06,61,10000,8:07,8:25,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,7,45,552,235,37.1,30.7,,,
+09/06,62,0,8.26,,,,,,,,,DWC and HGCAL Producers died in eudaq,,,,,37.1,30.7,,,
+09/06,63,9954,8:28,8:48,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,8,48,555,230,,,,,
+09/06,64,10000,8:50,9:08,Beam,H2B.CMS-HGCAL.013,electron,,100,,,Updated DWC Configuration. DWC 0 is still flipped up-down. Missed that im the config file. The rootfile from DQM did not contain any data. But the raw data is there! (UPD: fixed afterwards via re-run of DQM),,,,,,,,,
+09/06,65,0,,,,,,,,,,"Auto-started, but killed to update DQM code",,,,,,,,,
+09/06,66,9200,9:10,,Beam,H2B.CMS-HGCAL.013,electron,,100,,,"Changed DWC Config again, swapping top-bottom in DWC 0. Now they are all consistent. Masked a few hot channels.",,,,,,,,,
+09/06,67,9300,9:27,9:44,Beam,H2B.CMS-HGCAL.013,electron,,100,,,"Masked more hot channels in other modules, but unmasked (0, 22) to see if it's still noisy. Indeed it is, but not in all modules.",,,,,,,,,
+09/06,68,982,9:45,,Beam,H2B.CMS-HGCAL.013,electron,,100,,,"Masked (0, 22) again in all modules. Updated TOA correlation plots to supress entries at zero. DAQ stuck. Ran through power cycle procedure",,,,,,,,,
+09/06,69,10000,10:02,10:20,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,7,33,557,224,34.9,31.7,,,
+09/06,70,10000,10:21,10:39,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,,,,,,,,,
+09/06,71,10000,10:39,11:00,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,,,,,,,,,
+09/06,72,10014,11:00,11:17,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,8,37,565,219,36,31.4,,,
+09/06,73,9370,11:17,11:34,Beam,H2B.CMS-HGCAL.013,electron,,100,,,Stopped to change the mapping,10,55,569,218,36,31.4,,,
+09/06,74,10009,11:37,11:56,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,9,53,568,217,36,39.5,,,
+09/06,75,7592,11:56,12:28,Beam,H2B.CMS-HGCAL.013,electron,,100,,,"Down to 1 spill, Stopped by Andrey for updates",7,33,564,212,36,31.6,,,
+09/06,76,8553,12:30,13:08,Beam,H2B.CMS-HGCAL.013,electron,,100,,,Changed selection for timing module based on TOA to avoid noisy channels. Run stopped for updates by Andrey,12,66,577,208,40.5,29.4,,,
+09/06,77,10000,13:09,13:56,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,,,,,,,,,
+09/06,78,2280,13:57,14:07,Beam,H2B.CMS-HGCAL.013,electron,,100,,,Stopped for another small update in DQM,,,,,,,,,
+09/06,79,3204,14:07,14:24,Beam,H2B.CMS-HGCAL.013,electron,,100,,,Stopped for Ryan's updates,,,,,,,,,
+09/06,80,10000,14:24,15:07,Beam,H2B.CMS-HGCAL.013,electron,,100,,,"DAQ died at this point when it tried to auto-start a new run (so run 81 is bad). DQM plots are not saved in the root file. (UPD, Andrey: remade the plots afterwards )",,,,,,,,,
+09/06,82,10000,15:11,15:30,Beam,H2B.CMS-HGCAL.013,electron,,100,,,Noted at this point: back to 2 spills (DAQ again killed at the auto-start of run 83),8,40,574,179,35.3,32.2,,,
+09/06,84,10000,15:30,15:52,Beam,H2B.CMS-HGCAL.013,electron,,100,,,DAQ killed at the autosart of run 85,,,,,,,,,
+09/06,86,10000,15:52,16:00,Beam,H2B.CMS-HGCAL.013,electron,,100,,,,,,,,,,,,
+09/06,87,4638,16:00,16:23,Beam,H2B.CMS-HGCAL.013,electron,,100,,,Stopped run to switch to Muon beam,,,,,,,,,
+Total 100 GeV,,445076,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+SWITCHING TO MUONS(to ensure that we see MIPs),,,,,,,,,,,,,,,,,,,,,
+,88,,,16:38,Beam,,"muon",,120,,,STOPPED the run at 3191 events(asked for access),,,,,,,,,
+,89,,16:39,,,,,,,,,killed at ~300 events,,,,,,,,,
+,90,5384,,17:00,Beam,,muon,,120,,,killed at ~5300 events (with access),,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+SWITCHING BACK TO ELECTRONS @ 80 GeV,,,,,,,,,,,,,,,,,,,,,
+09/06,91,10000,,18:03,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,92,10011,18:04,18:27,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,8,48,582,167,39.1,30.2,20.3,,
+,93,10003,18:27,16:45,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,94,10015,18:46,19:05,Beam,H2B.CMS-HGCAL.012,electron ,,80,,,,,,,,,,,,
+,95,10007,19:05,19:23,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,96,10010,19:23,20:00,Beam,H2B.CMS-HGCAL.012,electron,,80,,,beam off at ev 1908 (19:29) back 19:45 H4 access issue (?),,,,,,,,,
+,97,10001,20:00,20:19,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,98,10008,20:19,20:38,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,11,56,590,165,39.5,30,20.3,,
+,99,10011,20:38,21:00,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,100,10013,21:00,21:23,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,8,49,589,166,31.9,31.6,,,
+,101,198,21:24,21:31,Beam,H2B.CMS-HGCAL.012,electron,,80,,,DAQ hung after event 186. Terminate run. Power cycle,,,,,,,,,
+,102,10000,21:37,22:00,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,103,10015,22:00,20:20,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,104,10005,20:20,20:41,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,105,10012,20:41,23:02,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,106,10000,23:02,23:23,Beam,H2B.CMS-HGCAL.012,electron,,80,,,Unable to log back into DCS/DSS. Wait Ozgun to come in at midnight,,,,,,,,,
+,107,0,,,Beam,H2B.CMS-HGCAL.012,electron,,80,,,Did not restart automatically. terminated EUDAQ and restrated.Ignore this run.,,,,,,,,,
+,110,10000,23:40,23:58,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,13,69,605,159,43.6,29.4,20.3,,
+,111,10000,23:58,0:19,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+10/06,112,10000,0:19,0:41,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,113,10000,0:41,1:12,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,9,69,603,153,42.6,29.3,20.3,,
+,114,10000,1:11,1:33,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,115,10000,1:33,1:54,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,116,10000,1:55,2:16,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,10,80,607,152,41.9,27.5,20.3,,
+,117,10008,2:16,2:57,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,118,10000,2:57,3:21,Beam,H2B.CMS-HGCAL.012,electron,,80,,,a bit long data taking ,,,,,,,,,
+,119,10000,3:21,3:48,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,11,77,606,150,38.1,30.8,20.3,,
+,120,10000,3:48,4:10,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,7,77,607,149,36.5,31.1,20.2,,
+,121,10000,4:10,4:39,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,,,,,,,,,
+,122,10000,4:40,5:01,Beam,H2B.CMS-HGCAL.012,electron,,80,,,,8,82,610,141,37.4,30.5,20.2,,
+,123,13902,5:01,5:30,Beam,H2B.CMS-HGCAL.012,electron,,80,,,EUDAQ disconnect. Closed and open a new one ,,,,,,,,,
+,124,2634,5:33,5:39,Beam,H2B.CMS-HGCAL.012,electron,,80,,,"EUDAQ disconnect again. Re-login svhgcal01, started the data taking from scratch",,,,,,,,,
+,125,10009,5:43,6:04,Beam,H2B.CMS-HGCAL.012,electron,,80,,,Warning : Event number mismatch ,,,,,,,,,
+,126,10000,6:04,6:40,Beam,H2B.CMS-HGCAL.012,electron,,80,,,single spill from middle of this run,7,84,611,146,36.3,30.8,,,
+,127,10000,6:40,7:26,Beam,H2B.CMS-HGCAL.013,electron,,80,,,,,,,,,,,,
+,128,10000,7:26,7:28,Beam,H2B.CMS-HGCAL.014,electron,,80,,,"ERROR: run number mismatch at Event 0, start a new run",,,,,,,,,
+,129,10000,7:29,7:56,Beam,H2B.CMS-HGCAL.015,electron,,80,,,"Like yesterday, DAQ was killed at the auto-start of Run 130 - screenshot on DAQ PC on the desktop",,,,,,,,,
+,131,10000,8:00,8:20,Beam,H2B.CMS-HGCAL.015,electron,,80,,,At this point stopped DAQ to change to muon beam. ,,,,,,,,,
+Total @80GeV,,356862,,,,,,,,,,,,,,,,,,,
+,Muons,,,,,,,,,,,,,,,,,,,,
+,132,10000,8:51,9:06,Beam,H2B.CMS-HGCAL.014,Muons,,-,,WITH THE DOOR OPEN (OPEN ACCESS),"Stopped the run to move the scintillator up by ~2 cm, data file contains only ~100 Events ",7,121,593,146,36.6,30.5,,,
+,136,10000,9:15,9:25,Beam,H2B.CMS-HGCAL.014,Muons,,-,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,137,10000,9:25,9:38,Beam,H2B.CMS-HGCAL.014,Muons,,-,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,20.3,,
+,138,10000,9:38,9:55,Beam,H2B.CMS-HGCAL.014,Muons,,-,,WITH THE DOOR OPEN (OPEN ACCESS),"Same as run 129, DAQ crashed. Terminal with the HGCal producer crashes whenever this happens",6,107,584,144,35.9,31.2,,,
+,140,10000,10,10:15,Beam,H2B.CMS-HGCAL.014,Muons,,-,,WITH THE DOOR OPEN (OPEN ACCESS),"Same as run 129, DAQ crashed. Terminal with the HGCal producer crashes whenever this happens",,,,,,,,,
+,142,10000,10:20,10:34,Beam,H2B.CMS-HGCAL.014,Muons,,-,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,143,10000,10:34,10:50,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),"Same as run 129, DAQ crashed. Terminal with the HGCal producer crashes whenever this happens",,,,,,,,,
+,145,10000,10:55,11:10,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,8,113,579,127,37.5,30.4,,,
+,146,10000,11:10,11:24,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,147,10000,11:24,11:38,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,148,10000,11:40,11:55,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,149,10000,11:55,12:17,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,7,115,584,119,37,30.9,,,
+,150,10000,12:17,12:30,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,151,10000,12:30,12:45,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,152,10000,12:45,13:00,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,153,10000,13:00,13:15,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),,,,,,,,,,
+,154,10000,13:15,13:35,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),"Same as run 129, DAQ crashed. Terminal with the HGCal producer crashes whenever this happens.",,,,,,,,,
+,155,10000,13:35,13:50,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE DOOR OPEN (OPEN ACCESS),Nikos has control to tune the muon beam.,,,,,,,,,
+,,,,,,,,,,,,"EUDAQ, wouldn't restart after terminate(~eudaq_shift/Check_Error.txt). Restart from a fresh ssh session to svhgcal01",,,,,,,,,
+,156,10000,13:55,14:05,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE ACCESS CLOSED - FROM ACTUAL MUON BEAM,,,,,,,,,,
+,157,10000,14:05,14:39,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE ACCESS CLOSED - FROM ACTUAL MUON BEAM,"REDUCED to 1 spill at this moment. Also in between the run, the beam was made to be wider so that all the cells can be calibrated",,,,,,,,,
+,158,~500,14:39,14:42,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE ACCESS CLOSED - FROM ACTUAL MUON BEAM,DAQ seems to take data but no events appear in DQM! DAQ terminated and restarted,8,120,587,124,34.3,32.2,,,
+,159,10000,14:42,15:35,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE ACCESS CLOSED - FROM ACTUAL MUON BEAM,,,,,,,,,,
+,160,10000,15:35,,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE ACCESS CLOSED - FROM ACTUAL MUON BEAM,,,,,,,,,,
+,161,150,,,Beam,H2B.CMS-HGCAL.014,Muons,,,,WITH THE ACCESS CLOSED - FROM ACTUAL MUON BEAM,Total Muons,,220000,,,,,,,
+Total Muons,,220150,,,,,,,,,,,,,,,,,,,
+,162,,,,Beam,H2B.CMS-HGCAL.009,,,50,,,Short run without DWCs,,,,,,,,,
+,163,6394,16:40,,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,EUDAQ crashed in middle of run,7,127,593,119,34.3,31.8,-20.32,,
+,166,3873,17:25,18:00,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,Stop run as rate is ~5 Hz.,,,,,,,,,
+,168,,18:35,,,,,,,,,Stop run as rate is ~5 Hz.,7,132,598,114,37.6,29.6,,,
+,169-176,,,,,,,,,,,Test runs to check the rate,,,,,,,,,
+,177,10000,21:00,21:55,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,~100 events per spill,7,133,604,110,37.5,29.6,,,
+,178,10000,21:55,22:27,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,6,130,606,110,36.1,30.5,-20.75,,
+,180,10000,22:30,23:10,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,7,133,604,107,37.1,29.8,,,
+,182,10000,23:15,23:53,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,,,,,,,,,
+,183,10003,23:53,0:25,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,EUDAQ crash in the end of run,6,124,608,109,34.3,31.5,-21.315,,
+11/06,185,10006,0:30,1:03,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,,,,,,,,,
+,186,10000,1:04,1:37,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,EUDAQ crash in the end of run,6,124,606,107,34.7,31.3,-21.515,,
+,188,10007,1:39,2:12,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,6,124,606,107,34.8,31.4,,,
+,189,10001,2:12,2:45,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,,,,,,,,,
+,190,10000,2:46,3:17,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,EUDAQ crash in the end of run,7,127,606,105,36.1,30.6,-21.78,,
+,192,10000,3:20,3:50,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,,,,,,,,,
+,193,10000,3:50,4:21,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,EUDAQ crash in the end of run,9,139,611,109,38.4,29.7,-21.86,,
+,195,10007,4:23,4:53,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,7,126,605,104,36.3,30.6,-21.985,,
+,196,10001,4:53,5:25,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,,,,,,,,,
+,197,10005,5:25,6:04,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,EUDAQ crash in the end of run,8,124,608,104,35.4,30.9,-22.115,,
+,199,10000,6:06,6:38,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,,,,,,,,,
+,200,10010,6:38,7:08,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,7,123,627,105,35.5,31.1,-22.185,,
+,201,10013,7:08,7:40,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,,,,,,,,,
+,202,10000,7:40,8:12,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,7,124,627,103,36.3,30.8,-22.285,,
+,203,10000,8:13,8:47,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,,,,,,,,,,
+,204,9003,8:47,9:30,Beam,H2B.CMS-HGCAL.009,Electrons,,50,,,"80ev/spill. DAQ got stuck. Unsticking did not help. HGCAL producer continues running after pressing ""stop""",7,118,632,103,34.6,31.4,,,
+Total 50 GeV electrons,,219323,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+MUONS,,,,,,,,,,,,,,,,,,,,,
+,Total:,79079,,,,,,,,,,,,,,,,,,,
+With new Lauda chiller - stable temperature @ 28 degrees,,,,,,,,,,,,,,,,,,,,,
+Muons (different Sci position wrt the previous muon runs!),,,,,,,,,,,,,,,,,,,,,
+,205,,9:40,10:00,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Moving to muons. Access. Tuning the position,,,,,,Exchange chiller,,,
+,206,3313,10:00,10:17,Beam,H2B.CMS-HGCAL.014,,,120,,,,,,,,,,,,
+,207,10005,10:18,11:10,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,120ev/spill during LHC filling,12,137,638,108,41.8,29.1,,,
+,208,760,11:10,11:15,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Plane mismatch for every event. DQM not being filled,,,,,,,,,
+,209,,11:16,11:18,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Same. Also run number mismatch - problem in event type,,,,,,,,,
+,210,2000,11:19,11:28,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Restarted EUDAQ. No errors and DQM is working again. Stopped for access,,,,,,,,,
+,211,,11:28,11:29,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Run during access. Run number mismatch again. restart EUDAQ,,,,,,,,Extra sensor installed: read out next to table,
+,212,10000,11:31,11:58,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,115ev/spill during access,,,,,,,,53.6,23.5
+,213,10000,11:59,12:18,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,,9,128,640,107,42.7,29.1,-22.595,57,22.5
+,214,3025,12:19,12:36,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Move table up by 4cm to cover other parts of the modules,,,,,,,,,
+,215,,12:40,12:40,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Producers and data collector died. Restart EUDAQ,,,,,,,17.225,,
+,216,10014,12:41,12:59,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,,,,,,,,,,
+,217,10008,12:59,13:17,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,EUDAQ crash in the end of run,10,123,644,111,45,29.1,17,60,22.4
+,219,9954,13:25,13:44,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Run stopped manually. Arnaud modified the config to not throw the first event and reconfigured. Afterwards DAQ stuck. Power cycled everything,,,,,,,,,
+,223,10000,13:50,14:38,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,140ev/spill. Single splill cycle,,,,,,,,,
+,224,10000,14:38,15:27,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,,8,119,636,100,43.6,29.1,16.2,58.5,22.7
+,225,4192,15:28,16:19,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,HGCAL Producer stuck but then continues when clicking the terminal window,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Total muons,,93271,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+SWITCH TO 100GEV ELECTRONS,,,,,,,,,,,,,,,,,,,,,
+,226,303,16:30,16:35,,,,,,,,New frontend DAQ testing.,,,,,,,,,
+,227,,16:45,16:55,Beam,XXX,Electrons,,XXX,,,Beam being tuned,,,,,,,,,
+,228,,17:00,17:15,Beam,XXX,Electrons,,XXX,,,More DAQ testing,,,,,,,,,
+,229,,17:19,,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,Stable 100 GeV beams from now on,9,101,631,93,42.6,29.2,-22.055,56.4,23.1
+,230,,17:41,,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,More DAQ testing,,,,,,,,,
+,231,,,17:53,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,More DAQ testing,,,,,,,,,
+,232,,17:54,,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,More DAQ testing,,,,,,,,,
+,233,,18:01,18:03,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,More DAQ testing,,,,,,,,,
+,234,,18:04,18:05,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,More DAQ testing,,,,,,,,,
+,,,,,,,,,,,,Move to previous DAQ method,,,,,,,,,
+,235,9949,18:15,19:16,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,Back to previous DAQ (EUDAQ sends RDOUT_DONE with IPBus).,8,95,632,96,44,29.1,-22.31,57.7,23.1
+,236,4812,19:18,19:50,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,Run ended early due to lack of beam.,9,97,615,94,43.1,29.2,-22.525,56.8,23.2
+,237,9974,19:55,20:52,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,9,101,614,94,43.4,29.2,-22.635,56.8,23.2
+,238,9968,20:53,21:48,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,9,100,615,96,43.9,29.2,-22.73,58.4,23.1
+,239,2044,21:51,22:10,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,Run ended early due to lack of beam.,10,101,615,99,44,29.2,-22.79,59.4,23
+,240,10000,22:50,23:42,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,DQM quit at end of run.,"Beam is back, ~140 events per spill",9,105,614,99,45.7,29.1,-22.945,59.4,22.7
+,241,,,,,,,,,,,Skipped to restart EUDAQ and fix DQM,,,,,,,,,
+12/06,242,10008,23:45,0:43,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,12,108,615,96,42.9,29.1,-23.05,57.3,22.6
+,243,10013,0:44,1:45,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,10,105,618,92,42.3,29.1,-23.275,57.4,22.4
+,244,10000,1:45,2:18,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,10,104,632,92,42.2,29.1,-23.44,57.6,22.3
+,245,10009,2:18,2:42,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,EUDAQ crash in the end of run,,,,,,,,,
+,247,10009,2:43,3:06,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,9,101,633,91,42.6,29.1,-23.6,57.7,22.2
+,248,10002,3:06,3:27,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,,,,,,,,,
+,249,10006,3:28,3:54,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,Lost the beam a few minutes in taking the data,,,,,,,,,
+,250,10003,3:54,4:18,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,9,98,634,89,42.1,29.1,-23.785,57.4,22.1
+,251,10005,4:18,4:40,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,,,,,,,,,
+,252,10000,4:40,5:02,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,9,97,636,88,41.8,29.1,-23.81,57.5,22
+,253,10008,5:03,5:25,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,,,,,,,,,
+,254,10003,5:25,5:47,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,,,,,,,,,
+,255,10010,5:47,6:10,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,9,96,617,89,42,29.1,-24.01,57.5,22
+,256,10005,6:10,6:32,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,EUDAQ crash in the end of run,,,,,,,,,
+,258,10012,6:34,6:55,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,,,,,,,,,
+,259,10009,6:56,7:17,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,9,96,619,88,42,29,-24.1,57.6,21.9
+,260,10008,7:17,8:07,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,No beam for a few minutes. DAQ crashed at the autostart of run 261,10,96,607,86,42.3,29,-24.2,58.2,21.9
+,262,10000,8:10,8:35,Beam,H2B.CMS-HGCAL.013,Electrons,,100,, ,We have two spills now,,,,,,,,,
+,263,10000,8:35,9:01,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,Stopped for access to move to muons,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+total 100 GeV electrons,,236857,,,,,,,,,,,,,,,,,,,
+,Muons,,,,,,,,,,,,,,,,,,,,
+,265,6500,9:30,10:00,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,Y of the table was moved to align with the beam so that the muons now hit in the calibration pads. New reading of the table is 19.4 and it should stay like this. No beam,9,94,615,87,42.3,29.1,19.4,57.3,22
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,12,122,513,100,43.6,29.1,-20.77,59.7,22.6
+Switch to 30GeV electrons,,,,,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,,11,120,504,100,44.2,29.1,-20.84,59,22.6
+,,,,,,,,,,,,,10,111,529,89,42,29.1,,,
+,,,No beam during the evening shift,,,,,,,,,,9,104,502,86,41.8,29.1,-21.015,59.2,22
+,,,The night shift is cancelled,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,266,,7:54,-,Beam,Multiple,Electrons,,"100, 30",,,"Setting up beam line, 100 GeV electrons, then 30 GeV electrons",,,,,,,,,
+Switch to 30GeV electrons,268,9100,8:22,8:53,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,Looks awesome,ssh connection to server crashed: broken pipe,12,121,518,105,42,29,-21.755,59.8,21.4
+June 13,269,2980,8:56,,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,"Last few hundred events are from after SPS recovery and the rate was very low. Someone made an access without telling us, so those events are not electrons",,,,,,,,,
+,271,7000,9:43,,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,ssh connection to server crashed: broken pipe,17,125,521,98,42.4,29,-21.875,63.8,20.3
+,272,648,10:17,10:20,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,Stopped to move table in opposite direction,,,,,,,-11.8,,
+,274,1045,10:21,10:26,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,,,,,,,,-31,,
+,275,418,10:55,11:02,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,Table position was reset. See elog. Very low event rate,,,,,,,0,,
+,277,880,11:35,12:00,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,After access to check low rate; rate seems ok,,,,,,,,,
+,279,10000,12:50,,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,"Yay: 160 ev/spill!, DQM: orientation of DWC ext. & A corrected for in the configuration (T.Q.)",9,97,515,80,39.5,29,-0.01,56.4,21.3
+,280,10000,~13:10,~13:30,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,Run ended after ~10K events. EUDAQ crashed at the end of the run. DQM root file was not generated.,,,,,,,,,
+,281,10000,~13:35,14:30,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,,8,88,506,73,38.1,29,-0.015,54.8,21.3
+,282,10000,14:30,15:30,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,,,,,,,,,,
+,283,10000,15:30,16:30,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,Run ended after ~10K events. EUDAQ crashed at the end of the run. ,7,78,510,72,37.2,29,-0.02,52.9,21.3
+,285,10000,16:37,18:09,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,No beam for 20 mins,7,74,506,75,37,29,-0.02,53.3,21.5
+,286,10000,18:09,19:06,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,,6,74,505,73,37.3,29,-0.02,53,21.7
+,287,9560,19:06,20:03,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,Back with 2 splills per cycle - but only ~10ev/spill. Stop manually for investigation.,7,73,506,71,37.5,29.1,-0.02,52.5,21.7
+,288,327,20:03,20:14,Beam,H2B.CMS-HGCAL.015,Electrons,,30,,,,,,,,,,,,
+,289,10000,20:15,21:23,Beam,H2B.CMS-HGCAL.015,Electrons,,30,120,,"Back to 1 spill/cycle, and back to ~120 ev/spill.
+ADD EV/SPILL COLUMN!",,,,,,,,,
+,290,5155,21:24,21:51,Beam,H2B.CMS-HGCAL.015,Electrons,,30,120,,,7,68,504,68,37,29.1,-0.02,52.3,21.7
+,292,1467,22:17,22:24,Beam,H2B.CMS-HGCAL.015,Electrons,,30,120,,,7,65,515,67,36.2,29.1,-0.02,51.7,21.8
+,293,924,23:48,23:54,Beam,H2B.CMS-HGCAL.015,Electrons,,30,100,,,,,,,,,,,
+ ,,,,,,,,,,,,Changed PMT-C from CFD to normal discriminator. PMT-A TTL output to timing board,,,,,,,,,
+14/06,294,2318,0:10,0:17,Beam,H2B.CMS-HGCAL.015,Electrons,,30,195,,"stop to check the trigger rate, then EUDAQ crash when we try to keep on running",,,,,,,,,
+,297,10019,0:20,0:53,Beam,H2B.CMS-HGCAL.015,Electrons,,30,190,,,7,62,530,64,35.5,29,-0.065,50.9,21.5
+,298,198,0:53,0:55,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,,,DAQ stuck. Error message is : 14-06-18 00:56:19.701254 [7f46dcd48700] ERROR - ControlHub error code is: 1  --- 14-06-18 00:56:19.701294 [7f46c61fc700] WARNING - Closing Socket since exception detected. --- 14-06-18 00:56:20.260170 [7f46cffff700] ERROR - The ControlHub did not receive any response from the target with URI: chtcp-2.0://localhost:10203?target=192.168.222.203:50001 --- 14-06-18 00:56:20.260191 [7f46cffff700] ERROR - ControlHub error code is: 4 --- 14-06-18 00:56:20.260269 [7f46c61fc700] WARNING - Closing Socket since exception detected.,,,,,,,,,
+,,,,,,,,,,,,ssh: connect to host 192.168.222.2 port 22: No route to host,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,302,10012,2:18,2:30,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,190,,,,,,,,,,,
+,303,10009,2:31,2:45,Beam,H2B.CMS-HGCAL.015,Electrons,190,30,198,,"now we have 2 spills per cycle ,  EUDAQ crash in the end of run",7,59,534,61,34.7,29,-0.065,49.9,21.3
+,305,10009,2:46,2:58,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,198,,,,,,,,,,,
+,306,10011,2:58,3:12,Beam,H2B.CMS-HGCAL.015,Electrons,,30,180,,,,,,,,,,,
+,307,10005,3:12,3:24,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,198,,,,,,,,,,,
+,308,10011,3:24,3:38,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,170,,,6,56,538,60,34,29,-0.065,49.7,21.2
+,309,10010,3:38,4:01,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,195,,We have one spill per cycle now,6,53,538,61,33.6,29,-0.065,49.3,21.1
+,310,10012,4:01,4:34,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,195,,EUDAQ crash in the end of run,,,,,,,,,
+,312,10013,4:37,5:15,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,195,,,,,,,,,,,
+,313,10005,5:16,5:37,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,195,,2 spills per cycle now,6,54,539,54,33.1,29,-0.065,49.7,21.2
+,314,10011,5:38,5:56,Beam,H2B.CMS-HGCAL.015,Electrons,30,30,195,,,,,,,,,,,
+,315,10007,5:56,6:08,Beam,H2B.CMS-HGCAL.015,Electrons,,30,197,,,,,,,,,,,
+,316,10003,6:08,6:21,Beam,H2B.CMS-HGCAL.015,Electrons,,30,197,,,,,,,,,,,
+,317,0,,,,,,,,,,"EUDAQ crash at begining of the run, Error in <UnknownClass::InitInterpreter()>: LLVM SYMBOLS ARE EXPOSED TO CLING! This will cause problems; please hide them or dlopen() them after the call to TROOT::InitInterpreter()!
+",,,,,,,,,
+,318,10003,6:23,6:36,Beam,H2B.CMS-HGCAL.015,Electrons,,30,210,,,7,51,537,56,32.5,29,-0.075,48.2,20.9
+,319,10018,6:36,6:49,Beam,H2B.CMS-HGCAL.015,Electrons,,30,200,,,,,,,,,,,
+,320,10011,6:49,7:01,Beam,H2B.CMS-HGCAL.015,Electrons,,30,200,,,,,,,,,,,
+,321,10002,7:02,7:16,Beam,H2B.CMS-HGCAL.015,Electrons,,30,180,,EUDAQ crash in the end of run,,,,,,,,,
+,323,10000,7:18,7:35,Beam,H2B.CMS-HGCAL.015,Electrons,,30,~180,,,,,,,,,,,
+Total 30 GeV electrons,,312191,,,,,,,,,,,,,,,,,,,
+Switch to 10 GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,326,10000,7:39,7:55,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,EUDAQ crash in the end of the run,9,50,537,56,33.2,29,-0.15,48.6,21
+,328,10000,7:56,8:10,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,EUDAQ crash in the end of the run,,,,,,,,,
+,330,10000,8:11,8:28,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,,,,,,,,,,
+,331,10018,8:28,8:40,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,,9,49,535,53,33.4,29,-0.18,48.6,21
+,332,9465,8:40,8:55,Beam,H2B.CMS-HGCAL.017,Electrons,,10,190,,DAQ stuck ,,,,,,,,,
+,333,10000,8:58,9:23,Beam,H2B.CMS-HGCAL.017,Electrons,,10,190,,EUDAQ crash in the end of the run,,,,,,,,,
+,335,10000,9:25,10:00,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,,,,,,,,,,
+,336,10000,10:00,10:52,Beam,H2B.CMS-HGCAL.017,Electrons,,10,170,,EUDAQ crash in the end of the run,,,,,,,,,
+,338,10014,10:55,11:18,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,,9,51,527,53,33.4,29,-0.285,49.2,21.1
+,339,10000,11:18,11:33,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,,,,,,,,,,
+,340,10006,11:33,11:50,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,EUDAQ crash in start of new run,,,,,,,,,
+,342,10009,11:52,12:07,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,,6,51,525,56,33.4,29,,,
+,343,10001,12:07,12:25,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,,,,,,,,,,
+,344,10014,12:25,12:42,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,EUDAQ crash in start of new run,6,53,521,51,33.4,29,-0.3,48.2,21.3
+,346,10007,12:44,13:00,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,,,,,,,,,,
+,347,10014,13:01,13:15,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,EUDAQ crash in start of new run,,,,,,,,,
+,349,10007,13:17,13:31,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,,,,,,,,,,
+,350,10005,13:31,13:49,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,,7,51,514,52,33.4,29,-0.305,47.1,21.7
+,351,10001,13:50,14:07,Beam,H2B.CMS-HGCAL.017,Electrons,,10,185,,EUDAQ got stuck. In piS it shows that no rdoutdone were received by syncboard. Running unsticking script resolved the problem. EUDAQ crash in start of new run,,,,,,,,,
+,353,6448,14:10,14:32,Beam,H2B.CMS-HGCAL.017,Electrons,,10,160,,Run manually stopped,,,,,,,,,
+,355,611,14:35,,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,DAQ stop/start tests during one-spill-only period,,,,,,,,,
+,356,396,14:37,14:38,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,DAQ stop/start tests during one-spill-only period,,,,,,,,,
+,360,179,14:40,,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,DAQ stop/start tests during one-spill-only period,,,,,,,,,
+,361,900,14:42,,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,DAQ stop/start tests during one-spill-only period,,,,,,,,,
+,363,3549,14:46,,Beam,H2B.CMS-HGCAL.017,Electrons,,10,180,,Back to two spills,,,,,,,,,
+Total 10 GeV electrons,,201644,,,,,,,,,,,,,,,,,,,
+Switch to 80 GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,365,35255,14:56,16:09,Beam,H2B.CMS-HGCAL.012,Electrons,,80,175,,,6,49,511,53,33.4,29,-0.305,46.4,21.9
+,366,50000,16:10,18:50,Beam,H2B.CMS-HGCAL.012,Electrons,,80,~200,,no beam from CPS from events 31130 - 31140 triggers could be from cosmics,7,50,508,52,no updates,no updates ,-0.3,46.9,22.1
+,,,,,,,,,,,,,6,51,510,51,34.6,29.1,-0.295,46.3,22.4
+,367,50000,18:50,21:22,Beam,H2B.CMS-HGCAL.012,Electrons,,80,~200,"running smooth, even seeing DWC-HGCal correlations",one spill per cycle,6,52,514,54,34.8,29.1,-0.27,46.5,22.5
+,369,50000,21:24,23:40,Beam,H2B.CMS-HGCAL.012,Electrons,,80,~200,,run 368: EUDAQ crashed at the beginning,6,52,519,50,35,29.1,-0.295,46.3,22.4
+,,,,,,,,,,,,,6,52,519,50,34.6,29.1,-0.16,46,22.5
+,,,,,,,,,,,,,6,49,552,50,34.3,29.1,-0.105,45.8,22.4
+,371,20165,23:47,0:13,Beam,H2B.CMS-HGCAL.012,Electrons,,80,~200,,run 370: EUDAQ crashed at the beginning,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Total 80 GeV electrons,,205420,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+15/06,,,,,,,,,,,,,,,,,,,,,
+Switch to 50 GeV electrons,372,50003,0:36,2:00,Beam,H2B.CMS-HGCAL.009,Electrons,,50,200,,difficuties with qradrupole and collimator positions see elog,6,49,544,49,34.2,29.1,-0.05,46,22.3
+,373,50020,2:01,3:29,Beam,H2B.CMS-HGCAL.009,Electrons,,50,195,,2 spills after 12k evts,6,48,549,49,34,29.1,-0.03,46.5,22.1
+,374,50008,3:29,4:30,Beam,H2B.CMS-HGCAL.009,Electrons,,50,200,,,5,48,552,48,34,29.1,-0.03,47.1,22
+,375,50008,4:31,5:36,Beam,H2B.CMS-HGCAL.009,Electrons,,50,175,,,6,48,556,50,34.1,29.1,-0.03,47.4,21.9
+,376,50013,5:31,6:45,Beam,H2B.CMS-HGCAL.009,Electrons,,50,190,,,8,47,560,50,34.1,29.1,-0.025,47.8,21.8
+Total 50 GeV electrons,,250052,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 100 GeV electrons,378,15000,6:47,8:14,Beam,H2B.CMS-HGCAL.013,Electrons,,100,190,,"Down to 1 spill after 5k evts, 2 spills after 17k evts. Unable to lock mutex message in the logger",6,47,563,48,34.1,29.1,-0.025,48.2,21.7
+Switch to 150 GeV electrons,380,7500,8:16,8:36,Beam,H2B.CMS-HGCAL.018,Electrons,,150,140,DQM crashed after 3000 events,,,,,,,,,,
+,381,10700,8:38,9:02,Beam,H2B.CMS-HGCAL.018,Electrons,,150,145,,Beam shut down for 1h.,8,49,565,51,34.3,29.1,-0.025,48.7,21.8
+,,,,,,,,,,,,,,,,,,,,,
+Pedestal run,382,10700,9:25,9:32,Pedestal,-,-,,-,100 Hz,,,,,,,,,,,
+,383,772,9:32,9:32,Pedestal,-,-,,-,100 Hz,,,,,,,,,,,
+,384,52000,9:33,,Pedestal,-,-,,-,100 Hz,changed to Pedestal dqm,"launched eudaq with Pedestal config, main eudaq GUI crashed and the events number exceeded the setup limit",,,,,,,,,
+,385,0,10:02,,Pedestal,-,-,,-,100 Hz,,no triggers were coming and we stopped it but the producer was still running,7,47,532,48,34.3,29,0.01,47.4,21.8
+MUONS,,,,,,,,,,,,,,,,,,,,,
+,387,50059,10:22,12:31,Beam,H2B.CMS-HGCAL.014,Muons,,120,150,,"DAQ stuck around 2500, continued after focusing on Producer terminal window",,,,,,,,,
+,388,1060,12:32,12:34,Beam,H2B.CMS-HGCAL.014,Muons,,120,,,(slight pion contamination in muons),,,,,,,,,
+,389,38500,12:35,14:04,Beam,H2B.CMS-HGCAL.014,Muons,,120,153,,increased the table height to 30.3 ,7,49,518,48,34.9,29.1,30.3,47.1,22.2
+,390,20200,14:18,15:06,Beam,H2B.CMS-HGCAL.014,Muons,120,120,150,,moved the scintillator to Jura 3cm from nominal position and also moved the table down to 20mm,6,46,517,46,33.3,29.1,20,44.3,22.5
+,391,1500,15:06,15:09,Beam,H2B.CMS-HGCAL.014,Muons,120,120,160,,move table down to -0.265mm during beginning of the run,,,,,,,,,
+,392,25000,15:09,16:25,Beam,H2B.CMS-HGCAL.014,Muons,120,120,160,,stop the run to switch to electrons,,,,,,,-0.265,49.8,22.6
+,,,,,,,,,,,0:1,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Total muons,111319,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 100GeV electron,393,50000,16:52,18:52,Beam,H2B.CMS-HGCAL.013,Electrons,,100,170,,start run 393 for 100GeV electrons,6,45,516,45,33.6,29.2,-0.34,43,22.9
+,394,50000,18:52,20:20,Beam,H2B.CMS-HGCAL.013,Electrons,,100,170,,,,,,,,,,,
+,395,50000,20:21,21:32,Beam,H2B.CMS-HGCAL.013,Electrons,,100,190,,"DQM crashed at 21:31, it's at the end of run",,,,,,,,,
+,396,50000,21:33,22:45,Beam,H2B.CMS-HGCAL.013,Electrons,,100,190,,EUDAQ crashed when starting the new run,6,50,530,46,35.7,29.2,-0.33,46.4,22.9
+,398,20000,22:48,23:39,Beam,H2B.CMS-HGCAL.013,Electrons,,100,190,,"HGCAL & DWC producers crashed, EuDAQ started smothly",6,49,531,46,35,29.1,-0.245,46,22.8
+,399,50000,23:39,2:23,Beam,H2B.CMS-HGCAL.013,Electrons,,100,190,,,7,48,533,46,35.1,29.1,-0.245,45.8,22.7
+16/06,400,11500,2:23,3:46,Beam,H2B.CMS-HGCAL.013,Electrons,100,100,190,,"EuDAQ got stuck, Restarting EuDAQ",6,47,542,45,34.7,29.1,-0.315,47,22.3
+,402,31208,3:48,5:30,Beam,H2B.CMS-HGCAL.013,Electrons,100,100,190,,"EuDAQ got stuck again, Restarting EuDAQ",6,46,547,44,34.3,29.1,-0.315,47,22.3
+,404,50006,5:32,7:12,Beam,H2B.CMS-HGCAL.013,Electrons,100,100,190,,,7,44,563,44,33.9,29.1,-0.325,47.1,21.8
+,405,31769,7:12,7:55,Beam,H2B.CMS-HGCAL.013,Electrons,100,100,196,,,6,43,560,42,33.7,29.1,-0.455,47.2,21.8
+,,,,,,,,,,,,,,,,,,,,,
+Total electrons 100 GeV,,394483,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 150GeV electron,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,407,23538,8:05,9:05,Beam,H2B.CMS-HGCAL.018,Electrons,,150,190,,EUDAQ crash at beginning of run 406. Run stopped for offline analysis,6,43,560,45,34.1,29.1,-0.52,47.6,21.8
+,409,50006,9:06,10:42,Beam,H2B.CMS-HGCAL.018,Electrons,,150,190,,"EUDAQ crash at beginning of run 408, also crash when stopped the run 409",6,44,558,44,34.5,29.1,-0.57,47.9,21.9
+,411,50000,10:44,11:52,Beam,H2B.CMS-HGCAL.018,Electrons,150,150,190,,,7,51,522,47,37.1,29.1,-0.65,50.3,22.1
+,412,49923,11:55,13:25,Beam,H2B.CMS-HGCAL.018,Electrons,150,150,190,,run stopped a bit early to move the table up for run 414,7,50,550,45,37,29.1,-0.655,49.1,22.4
+,414,50000,13:29,14:33,Beam,H2B.CMS-HGCAL.018,Electrons,150,150,190,,"EUDAQ crash at the beginning of run 413, also crash when the run 414 stopped",8,49,560,45,36.3,29.1,0.15,47.8,22.6
+,416,50000,14:34,14:37,Beam,H2B.CMS-HGCAL.018,Electrons,150,150,190,,,6,44,550,41,33,29.1,-0.25,42.8,22.9
+,417,10590,14:39,16:11,Beam,H2B.CMS-HGCAL.018,Electrons,150,150,190,,no EUDAQ crash,6,45,518,42,34.6,29.2,-0.56,45,23
+,418,32547,16:11,16:44,Beam,H2B.CMS-HGCAL.018,Electrons,,150,180,,"EUDAQ hung, stop last run 417 and start this new run 418. Artur stop it to set the new configuration",,,,,,,,,
+Total electrons 150 GeV,,302257,,,,,,,,,,,,,,,,,,,
+CHANGED SKIROC preamplifier gain,,,,,,,,,,,,,,,,,,,,,
+,419,3000,16:59,17:03,Beam,H2B.CMS-HGCAL.018,Electrons,,150,180,,This is checking run. Stop it soon and switch to Muons,6,49,526,43,36.2,29.2,-0.825,46.2,23.2
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 120GeV muon ,,,,,,,,,,,,,,,,,,,,,
+,421,50000,17:08,18:37,Beam,H2B.CMS-HGCAL.014,Muons,,120,140,,,7,52,533,44,37,29.2,-0.945,47,23.3
+,,,,,,,,,,,,,,,,,,,,,
+Total muons 120 GeV,,50000,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 100GeV Electrons,,,,,,,,,,,,,,,,,,,,,
+,423,50011,18:44,19:58,Beam,H2B.CMS-HGCAL.013,Electrons,,100,160,,EuDAQ crashed after run 423 finished. ,8,55,536,45,37.1,29.2,-0.96,47.4,23.3
+,425,50000,20:01,21:07,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,EuDAQ crashed after run 425 finished,7,53,538,46,37,29.2,-0.965,47.1,23.3
+,,,,,,,,,,,,,,,,,,,,,
+Total electrons 100GeV,,100011,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 50GeV Electrons,,,,,,,,,,,,,,,,,,,,,
+,427,50010,21:14,22:17,Beam,H2B.CMS-HGCAL.009,Electrons,,50,180,,,8,49,537,46,35.9,29.2,-0.99,45.5,23.2
+,,,,,,,,,,,,,,,,,,,,,
+Total electrons 50GeV,,50010,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 80GeV Electrons,,,,,,,,,,,,,,,,,,,,,
+,429,21000,22:21,22:49,Beam,H2B.CMS-HGCAL.012,Electrons,,80,180,,Main EuDAQ window crashed. Kill it (betwen the spills) and started new run,7,48,542,44,35.6,29.2,-1.02,45.7,23.2
+,430,27660,22:52,23:30,Beam,H2B.CMS-HGCAL.012,Electrons,,80,180,,EuDAQ crashed. ,,,,,,,,,
+,431,50062,23:33,0:42,Beam,H2B.CMS-HGCAL.012,Electrons,,80,180,,,,,,,,,,,
+,432,0,,,,,,,,,empty run,,,,,,,,,,
+Total electrons 80GeV,,98722,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 30GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,433,42000,0:51,2:57,Beam,H2B.CMS-HGCAL.015,Electrons,,30,180,,EuDAQ crashed ,8,49,550,46,36.9,29.2,-1.15,47.8,23
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 100GeV electrons ,,,,,,,,,,,,,,,,,,,,,
+,434,50002,3:03,5:00,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,,6,51,557,49,37.5,29.1,-1.245,49.3,22.8
+,435,34000,5:00,5:47,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,EuDAQ crashed ,6,51,540,50,38,29.1,-1.41,50.5,22.5
+,437,16027,5:48,6:10,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,,6,51,565,50,38.1,29.1,,,
+,436,0,,,,,,,,,empty run,,,,,,,,,,
+Total 100 GeV electrons,,100029,,,,,,,,,,,,,,,,,,,
+Switch to 50 GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,439,50003,6:15,7:17,Beam,H2B.CMS-HGCAL.009,Electrons,,50,180,,,7,51,564,50,37.9,29.1,-1.505,50.8,22.4
+,438,0,,,,,,,,,empty run,,,,,,,,,,
+,440,0,,,,,,,,,empty run,,,,,,,,,,
+Total electrons 50GeV,,50003,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 80 GeV electrons ,,,,,,,,,,,,,,,,,,,,,
+,441,50009,7:20,8:30,Beam,H2B.CMS-HGCAL.012,Electrons,,80,180,,EUDAQ crashed when run 441 stopped,6,52,568,50,38.6,29.1,-1.625,51.5,22.4
+,442,0,,,,,,,,,,,,,,,,,,,
+,443,50000,8:32,9:39,Beam,H2B.CMS-HGCAL.012,Electrons,80,80,180,,EUDAQ crashed when run 443 stopped,6,53,571,51,39,29.1,-1.71,51.8,22.5
+Total electrons 80GeV,,100009,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 30GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,445,50000,9:44,10:46,Beam,H2B.CMS-HGCAL.015,Electrons,,30,190,,,7,53,566,51,38.8,29.1,-1.8,51.3,22.6
+Switch to 100GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,448,50000,10:50,,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,,7,52,566,50,38.3,29.1,-1.825,50,22.7
+,449,50000,11:59,13:26,Beam,H2B.CMS-HGCAL.013,Electrons,,100,190,,,7,51,561,50,38.1,29.1,-1.835,49.4,22.8
+,450,80,13:26,13:26,Beam,H2B.CMS-HGCAL.013,Electrons,100,100,,,,,,,,,,,,
+Total electrons 100GeV,,100080,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Switch to 50 GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,451,49800,13:30,14:31,Beam,H2B.CMS-HGCAL.009,Electrons,100,50,190,,Stopped before it does it automatiucally. Terminated eudaq to start from scratch (DWC producer re-compiled),6,50,555,49,37.6,29.2,-1.835,48.5,23
+Switch to 80 GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,452,50000,14:35,15:45,Beam,H2B.CMS-HGCAL.012,Electrons,100,80,190,,Try slight modification in DWC producer. daq crashed at the auto-start,6,50,557,49,37.5,29.2,-1.84,47.9,23.1
+,454,380,15:47,,Beam,H2B.CMS-HGCAL.012,Electrons,,80,,,Too low rate. Stopped the run.,,,,,,,,,
+,455,84,15:55,16:00,Beam,H2B.CMS-HGCAL.012,Electrons,,80,,,Beam still bad,,,,,,,,,
+CHANGED TO DEFAULT SKIROC PREAMPLIFIER GAIN,,,,,,,,,,,,,,,,,,,,,
+Changed temperature of chiller to 26 degrees C (from 28 degrees C),,,,,,,,,,,,,,,,,,,,,
+Switch to 100GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,456,50014,16:50,18:45,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,,7,58,549,49,41.8,27.4,-1.835,47.1,23.4
+,457,50008,18:45,19:53,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,EUDAQ crashed at end of run.,9,57,546,48,41.8,27.3,-1.835,46.7,23.5
+,459,46000,19:59,21:09,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,Online monitor died at end of run. EUDAQ stopped early to restart.,7,52,543,47,41.1,27.3,-1.835,45.9,23.4
+,460,47805,21:11,22:35,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,,,6,52,544,46,41.1,27.3,-1.835,46.1,23.3
+total 100 GeV e+ @ 26 degrees,,193827,,,,,,,,,,,,,,,,,,,
+Switch to muons for 10k,,,,,,,,,,,,,,,,,,,,,
+,461,9940,22:49,23:32,Beam,H2B.CMS-HGCAL.014,Muons,,120,140,Couldn't really see scintillators like previous muon runs.,,6,49,546,46,40.7,27.3,-1.835,46.3,23.1
+Back to 100GeV electrons,,,,,,,,,,,,,,,,,,,,,
+,462,1972,23:43,23:50,Beam,H2B.CMS-HGCAL.013,Electrons,,100,,"EUDAQ crashed when started with 30' chiller temperature. so, no data for run 463",,6,47,554,49,33.2,30.8,-1.835,46.8,23
+Chiller changed to 30 degrees,,,,,,,,,,,,,,,,,,,,,
+,464,50019,0:20,1:48,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,,8,41,563,45,32.1,31,-1.835,46.9,22.8
+,465,50007,1:48,2:59,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,,,,,,,,,,
+,466,48259,2:59,5:14,Beam,H2B.CMS-HGCAL.013,Electrons,,100,175,,Beam unstable since 5:03 and finally back @ 5:27am,7,37,566,42,32,31,-1.835,47.1,22.7
+switch to 120 GeV muon,,,,,,,,,,,,,,,,,,,,,
+,467,19957,5:28,6:00,Beam,H2B.CMS-HGCAL.014,Muons,,120,150,,,7,33,567,41,31.6,30.9,-2,47.1,22.4
+Back to 100 GeV electron,,,,,,,,,,,EUDAQ crashed at the begining of run(468) ,,,,,,,,,,
+,469,50003,6:18,7:26,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,,6,32,546,42,31.7,30.9,-2.04,47.4,22.4
+,470,3008,7:26,7:34,Beam,H2B.CMS-HGCAL.013,Electrons,,100,180,,,,,,,,,,,
+total 100 GeV e+ @ 30 degrees,,198288,,,,,,,,,,,,,,,,,,,

@@ -1,6 +1,11 @@
 Code to Study Gain Switching in HGCal detector.
 
-Create NTuples using the HGCalTB Framework ( by utilizing the Analyser provided in the folder  ./forTBFramework )
+Create NTuples using the HGCalTB Framework ( by using the ntuples created by HGCalTB framework here:https://github.com/CMS-HGCAL/TestBeam/blob/CERN_TestBeam_2017_Ipbus/Reco/plugins/RecHitsNtuplizer.cc )
+
+
+---------------
+Old Notes... Readme needs to be updated!
+---------------
 
 Once you have them, hadd the NTuples to create All.root file with energy file of both Electron and Pion runs.
 

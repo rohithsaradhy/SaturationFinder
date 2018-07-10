@@ -37,6 +37,7 @@ class SaturationFinder
 
   public:
     int BOARD = 0;
+    const int SKIROC = 4;
     float ENERGY = 0;
     std::string RUN_TYPE = ""; // options :: {Electron,Pion,All,All_Electron,All_Pion}
     std::string ANALYSIS_ID = ""; // Just for creating the folder structure and additional layer of identification...
@@ -104,10 +105,11 @@ class SaturationFinder
     ~SaturationFinder();
     void getInfo();
     void InitializeDataArray();
-    void dataExtractor(int Options);
+    void dataExtractor();
     void makeDir(const char *path); //Checking whether directory exists
-    void CreateStructure(const char *path); // Create the prescribed structure
+    void CreateStructure(const char *path); // Create the prescribed structure; Need to run this successfully for setting the current path for saving and restoring the histograms...
     void SetModuleMaps(const char * path);
+    void SaveGraphs(); //This function is in SaturationFinder.cc;
     void InitializeHist2D(Int_t option,bool hist);
     void SaveHistogram();
     void LoadHistogram();
