@@ -14,9 +14,9 @@ bool SaturationFinder::dirExists(const char *path)
 }
 
 
-bool SaturationFinder::DoesFileExist(const char *fileName)
+bool SaturationFinder::DoesFileExist(std::string pathToFile)
 {
-    std::ifstream infile(fileName);
+    std::ifstream infile(pathToFile);
     return infile.good();
 }
 

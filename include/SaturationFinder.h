@@ -112,8 +112,8 @@ class SaturationFinder
     void CollectFromNTuples(std::string);
     void dataExtractor();
     bool dirExists(const char *path); //checks for directory
-    bool DoesFileExist(const char *fileName); // checks if the file exists...
     void makeDir(const char *path); //Checking whether directory exists and makes it ...
+    bool DoesFileExist(std::string); // checks if the file exists... for some reason it won't take const char*
     void CreateStructure(const char *path); // Create the prescribed structure; Need to run this successfully for setting the current path for saving and restoring the histograms...
     void SetModuleMaps(const char * path);
     void SaveGraphs(); //This function is in SaturationFinder.cc;
