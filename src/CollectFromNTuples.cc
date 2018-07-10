@@ -7,26 +7,27 @@ void SaturationFinder::CollectFromNTuples(std::string runInfoFolder)
   CollectFromNTuples_Run=true;
   std::ostringstream os( std::ostringstream::ate );
 
-cout<<"Hello World"<<runInfoFolder<<endl;
 
 
-std::vector<std::string> FileNames;
+std::cout<<"Run files are taken from the following folder:"<<runInfoFolder<<std::endl;
+
+// std::vector<std::string> FileNames;
 //Getting all files inside a directory...
-TSystemDirectory* dir = new TSystemDirectory(runInfoFolder.c_str(), runInfoFolder.c_str());
- TList *files = dir->GetListOfFiles();
- if (files)
-{
-  TSystemFile *file; TString fname; TIter next(files);
- while ((file=(TSystemFile*)next()))
-  {
-     fname = file->GetName();
-     if (!file->IsDirectory() && fname.EndsWith("run"))
-      {
-         FileNames.push_back( fname.Data());
-      }
-  }
- }
 
+// TSystemDirectory* dir = new TSystemDirectory(runInfoFolder.c_str(), runInfoFolder.c_str());
+//  TList *files = dir->GetListOfFiles();
+//  if (files)
+// {
+//   TSystemFile *file; TString fname; TIter next(files);
+//  while ((file=(TSystemFile*)next()))
+//   {
+//      fname = file->GetName();
+//      if (!file->IsDirectory() && fname.EndsWith("run"))
+//       {
+//          FileNames.push_back( fname.Data());
+//       }
+//   }
+//  }
 
 // For all files in that folder
 // for(int i=0; i< FileNames.size(); i++)
