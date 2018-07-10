@@ -65,10 +65,10 @@ void SaturationFinder::dataExtractor()
 
   }
 
+  std::cout<<"Opening File "<<filename.str().c_str()<<std::endl;
 
-  if (dirExists(filename.str().c_str()))
+  if (is_file_exist(filename.str().c_str()))
   {
-    std::cout<<"Opening File "<<filename.str().c_str()<<std::endl;
     TFile *file = TFile::Open(filename.str().c_str());
     TTree *T =  (TTree*)file->Get("rechitntupler/hits");
 

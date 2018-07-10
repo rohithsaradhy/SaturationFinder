@@ -14,6 +14,12 @@ bool SaturationFinder::dirExists(const char *path)
 }
 
 
+bool SaturationFinder::is_file_exist(const char *fileName)
+{
+    std::ifstream infile(fileName);
+    return infile.good();
+}
+
 
 SaturationFinder::SaturationFinder(int board,float energy,std::string run_type, std::string analysis_id,std::string fit_name, std::string data_loc)
 {
