@@ -60,7 +60,7 @@ void SaturationFinder::dataExtractor()
   if(CollectFromNTuples_Run)
   {
     filename.str("");
-    filename<<DATA_LOC<<"ntuple_"<<Run_No<<".root";
+    filename<<DATA_LOC<<"/ntuple_"<<Run_No<<".root";
   }
 
 
