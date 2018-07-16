@@ -16,8 +16,8 @@ void June_2018_TB()
   SaturationFinder* a = new SaturationFinder(30,10,"Electrons","June_2018_TB","June_2018","/eos/cms/store/group/dpg_hgcal/tb_hgcal/2018/cern_h2_june/offline_analysis/ntuples/v6");
   a->CreateStructure("/eos/user/r/rsaradhy/www/June2018/"); // Setting the root Folder for all analysed files to be dropped off and creating the structure ;
   a->CollectFromNTuples(runFileFolder);
+  a->SaveHistogram(); //Save histograms for faster processing later on
   // a->dataExtractor(); //Already done in CollectFromNTuples
-  // a->SaveHistogram(); //Save histograms for faster processing later on
   // // a->LoadHistogram(); // Load the saved histograms...
   // a->FitHistogram(); // Fit those histograms Make sure that "gROOT->SetBatch(kTRUE); //Not displaying anything" is not commented
   // a->FindValues(); //Find the saturation values that we are interested in ...

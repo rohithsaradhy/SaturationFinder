@@ -36,7 +36,7 @@ class SaturationFinder
   private:
 
   public:
-    int BOARD = 0;
+    int BOARD = 0; //Should be initialised by the constructor
     const int SKIROC = 4;
     float ENERGY = 0;
 
