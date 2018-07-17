@@ -14,7 +14,7 @@ void June_2018_TB()
   std::cout<<"Hello World"<<std::endl;
 
   SaturationFinder* a;
-  int numOfEnergy = 6;
+  const int numOfEnergy = 6;
   int Energy[numOfEnergy] = {150,100,80,50,30,10};
   for (int i=0;i<numOfEnergy;i++)
   {

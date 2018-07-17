@@ -6,62 +6,32 @@ using namespace std;
 
 void Electron()
 {
-  std::string run_type = "Electron";
   std::ostringstream os( std::ostringstream::ate );
   gROOT->SetBatch(kTRUE); //Not displaying anything
 
 
 
 
-    // const int BOARD =17;
-    // const int Number_Energy =5;
-    // float StaggeringFactor=2;
-    // std::string Analysis_ID = "April_24";
-    // SaturationFinder* EnergyData[Number_Energy];
-    // float Energy[Number_Energy]={20,32,50,80,90};
-    // string Fit_Name[3]  = {"Oct_H2_TS3","Oct_H2_TS3_CM","Oct_H2_PFA"};
-    // std::string dataFolder = "/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H2/";
-    //
-
-    const int BOARD =20;
-    const int Number_Energy =4;
+    const int BOARD =30;
+    const int Number_Energy =6;
     float StaggeringFactor=2;
-    std::string Analysis_ID = "April_24";
     SaturationFinder* EnergyData[Number_Energy];
-    float Energy[Number_Energy]={20,32,50,80};
-    string Fit_Name[3]  = {"Oct_H6_TS3","Oct_H6_TS3_CM","Oct_H6_PFA"};
-    std::string dataFolder = "/home/rsaradhy/Work/Output/TransitionH_L/Data/data_27_3_2018/H6/";
+    float Energy[Number_Energy]={150,100,80,50,30,10};
 
 
-
-
-  for (int iter = 0; iter <3 ; iter++) //running through different
-  {
 
 
 
 
   for(int i=0;i<Number_Energy;i++)
   {
-    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],run_type,Analysis_ID,Fit_Name[iter],dataFolder); // 0i mplies that it is a allfile...
-    EnergyData[i]->CreateStructure("./Analysed_data");
+    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],"Electrons","June_2018_TB","June_2018","/eos/cms/store/group/dpg_hgcal/tb_hgcal/2018/cern_h2_june/offline_analysis/ntuples/v6"); // 0i mplies that it is a allfile...
+    EnergyData[i]->CreateStructure("/eos/user/r/rsaradhy/www/June2018/");
   }
 
-
-
-  // //Extracting all the data and saving it in
-  bool enableDataExtraction =1;
-  if(enableDataExtraction)
-  {
-    for(int i=0;i<Number_Energy;i++)
-    {
-      EnergyData[i]->dataExtractor(iter); //Available Options are :: 0->TS3  1->TS3withCM   2->PFA
-      EnergyData[i]->SaveHistogram();
-    }
-  }
 
   //Loading all the data
-  bool enableFindValues =1;
+  bool enableFindValues =0;
   for(int i=0;i<Number_Energy;i++)
   {
 
@@ -455,45 +425,4 @@ void Electron()
 
       }
 
-
-
-    // Saving the fit Plots... Not FIt and Find Values should be uncommented above...
-    // Saving the fit Plots... Not FIt and Find Values should be uncommented above...
-    if(enableFindValues)
-    {
-      SaturationFinder* a;
-        for(int energyNum=0; energyNum<Number_Energy; energyNum++)
-        {
-          a = EnergyData[energyNum];
-            for(int board=0; board<BOARD; board++)
-            {
-                for(int skiroc=0; skiroc<4; skiroc++)
-                {
-                    for(int type_num=0; type_num<2; type_num++)
-                    {
-                      if(a->fitStatus[board][skiroc][type_num]==99999)
-                      {
-
-                          os.str("");
-                          if(type_num ==0 )os<<a->rootFolder<<"HG_LG/";
-                          else os<<a->rootFolder<<"LG_TOT/";
-
-
-                          os<<a->fitCanvas[board][skiroc][type_num]->GetName()<<".png";
-                          a->fitCanvas[board][skiroc][type_num]->SaveAs(os.str().c_str());
-
-
-                      }
-                    }
-
-                }
-
-            }
-        }
-     }
-
-
-
-
-}
 }
