@@ -13,7 +13,7 @@ void Electron()
 
 
 
-    const int BOARD =30;
+    const int BOARD =28;
     const int Number_Energy =6;
     float StaggeringFactor=2;
     SaturationFinder* EnergyData[Number_Energy];
@@ -153,7 +153,7 @@ void Electron()
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
                 os.str("");
-                os<<"HGCAL test beam, "<<EnergyData[i]->FIT_NAME;
+                os<<"HGCAL test beam, "<<EnergyData[0]->FIT_NAME;
                 label1->AddText(os.str().c_str());
                 label1->Draw("same");
 
@@ -208,7 +208,7 @@ void Electron()
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
                 os.str("");
-                os<<"HGCAL test beam, "<<EnergyData[i]->FIT_NAME;
+                os<<"HGCAL test beam, "<<EnergyData[0]->FIT_NAME;
                 label1->AddText(os.str().c_str());
                 label1->Draw("same");
 
@@ -332,7 +332,7 @@ void Electron()
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
                 os.str("");
-                os<<"HGCAL test beam, "<<EnergyData[i]->FIT_NAME;
+                os<<"HGCAL test beam, "<<EnergyData[0]->FIT_NAME;
                 label1->AddText(os.str().c_str());
                 label1->Draw("same");
 
@@ -387,7 +387,7 @@ void Electron()
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
                 os.str("");
-                os<<"HGCAL test beam, "<<EnergyData[i]->FIT_NAME;
+                os<<"HGCAL test beam, "<<EnergyData[0]->FIT_NAME;
                 label1->AddText(os.str().c_str());
                 label1->Draw("same");
 

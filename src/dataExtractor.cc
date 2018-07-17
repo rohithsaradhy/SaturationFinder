@@ -128,7 +128,7 @@ void SaturationFinder::dataExtractor()
       for(int i = 0; i < Hit_Sensor_layer->size();i++ )
       {
 
-        board = Hit_Sensor_layer->at(i);
+        board = Hit_Sensor_layer->at(i)-1; //-1 when using layer...
         skiroc  = Hit_Sensor_chip->at(i);
         x = Hit_Sensor_amplitudeLow->at(i);
         y = Hit_Sensor_amplitudeHigh->at(i);

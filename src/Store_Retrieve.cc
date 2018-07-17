@@ -11,6 +11,7 @@ void SaturationFinder::StoreValues(std::string prefixName)
   os<<rootFolder<<prefixName<<FIT_NAME<<"_HG_LG_Datbase.txt";
   fs.open(os.str().c_str());
   fs<<std::fixed;
+  fs<<"Module \t Edit \t Brd \t Skiroc \t CF \t CF_Err \t CF_Intercept \t CF_Intercept_Err \t TP \t TP_Err"<<std::endl;
   int type_num =0;
   for(int board=0;board<BOARD;board++)
   {
@@ -31,6 +32,7 @@ void SaturationFinder::StoreValues(std::string prefixName)
   os<<rootFolder<<prefixName<<FIT_NAME<<"_LG_TOT_Datbase.txt";
   fs.open (os.str().c_str());
   fs<<std::fixed;
+  fs<<"Module \t Edit \t Brd \t Skiroc \t CF \t CF_Err \t CF_Intercept \t CF_Intercept_Err \t TP \t TP_Err"<<std::endl;
   type_num =1;
   for(int board=0;board<BOARD;board++)
   {
@@ -61,19 +63,29 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
     os.str("");
     os<<rootFolder<<prefixName<<FIT_NAME<<"_HG_LG_Datbase.txt";
     fs.open (os.str().c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
+    int i = 0;
     while(!fs.eof())
     {
 
       fs>>module>>touch>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
-      // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
-      Module[brd]=module;
-      Touched[brd][ski][type_num]= touch;
-      CF[brd][ski][type_num] = cf;
-      CF_Err[brd][ski][type_num] = cf_e;
-      CF_Intercept[brd][ski][type_num] = cf_int;
-      CF_Intercept_Err[brd][ski][type_num] = cf_int_e;
-      TP[brd][ski][type_num] = tp;
-      TP_Err[brd][ski][type_num] = tp_e;
+      if(i==0)
+      {
+        i++;
+      }
+      else
+      {
+        // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
+        Module[brd]=module;
+        Touched[brd][ski][type_num]= touch;
+        CF[brd][ski][type_num] = cf;
+        CF_Err[brd][ski][type_num] = cf_e;
+        CF_Intercept[brd][ski][type_num] = cf_int;
+        CF_Intercept_Err[brd][ski][type_num] = cf_int_e;
+        TP[brd][ski][type_num] = tp;
+        TP_Err[brd][ski][type_num] = tp_e;
+      }
+
+
 
 
 
@@ -81,7 +93,7 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
     std::cout<<"Values have been retrieved into the arrays for HG_LG"<<std::endl;
     fs.close();
 
-
+    i=0;
     type_num =1;
     os.str("");
     os<<rootFolder<<prefixName<<FIT_NAME<<"_LG_TOT_Datbase.txt";
@@ -90,18 +102,22 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
     {
 
       fs>>module>>touch>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
-      // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
-
-      Module[brd]=module;
-      Touched[brd][ski][type_num]= touch;
-      CF[brd][ski][type_num] = cf;
-      CF_Err[brd][ski][type_num] = cf_e;
-      CF_Intercept[brd][ski][type_num] = cf_int;
-      CF_Intercept_Err[brd][ski][type_num] = cf_int_e;
-      TP[brd][ski][type_num] = tp;
-      TP_Err[brd][ski][type_num] = tp_e;
-
-
+      if(i==0)
+      {
+        i++;
+      }
+      else
+      {
+        // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
+        Module[brd]=module;
+        Touched[brd][ski][type_num]= touch;
+        CF[brd][ski][type_num] = cf;
+        CF_Err[brd][ski][type_num] = cf_e;
+        CF_Intercept[brd][ski][type_num] = cf_int;
+        CF_Intercept_Err[brd][ski][type_num] = cf_int_e;
+        TP[brd][ski][type_num] = tp;
+        TP_Err[brd][ski][type_num] = tp_e;
+      }
 
     }
     std::cout<<"Values have been retrieved into the arrays for LG_TOT"<<std::endl;
