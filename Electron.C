@@ -152,7 +152,9 @@ void Electron()
                 label1->SetTextAlign(12);
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
-                label1->AddText("HGCAL test beam, Oct 2017");
+                os.str("");
+                os<<"HGCAL test beam, "<<EnergyData[i]->FIT_NAME;
+                label1->AddText(os.str().c_str());
                 label1->Draw("same");
 
                 label2  = new TPaveText(0.09278351,0.9077253,0.3048601,0.9663805,"brNDC");
@@ -205,7 +207,9 @@ void Electron()
                 label1->SetTextAlign(12);
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
-                label1->AddText("HGCAL test beam, Oct 2017");
+                os.str("");
+                os<<"HGCAL test beam, "<<EnergyData[i]->FIT_NAME;
+                label1->AddText(os.str().c_str());
                 label1->Draw("same");
 
                 label2  = new TPaveText(0.09278351,0.9077253,0.3048601,0.9663805,"brNDC");
@@ -327,7 +331,9 @@ void Electron()
                 label1->SetTextAlign(12);
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
-                label1->AddText("HGCAL test beam, Oct 2017");
+                os.str("");
+                os<<"HGCAL test beam, "<<EnergyData[i]->FIT_NAME;
+                label1->AddText(os.str().c_str());
                 label1->Draw("same");
 
                 label2  = new TPaveText(0.09278351,0.9077253,0.3048601,0.9663805,"brNDC");
@@ -380,7 +386,9 @@ void Electron()
                 label1->SetTextAlign(12);
                 label1->SetTextSize(0.059);
                 label1->SetTextFont (62);
-                label1->AddText("HGCAL test beam, Oct 2017");
+                os.str("");
+                os<<"HGCAL test beam, "<<EnergyData[i]->FIT_NAME;
+                label1->AddText(os.str().c_str());
                 label1->Draw("same");
 
                 label2  = new TPaveText(0.09278351,0.9077253,0.3048601,0.9663805,"brNDC");
