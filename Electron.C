@@ -37,7 +37,6 @@ void Electron()
 
     if(enableFindValues)
     {
-      if(!enableDataExtraction) EnergyData[i]->LoadHistogram();
       EnergyData[i]->FitHistogram();
       EnergyData[i]->FindValues();
       EnergyData[i]->StoreValues(""); //Store those values with a name prefix given as the argument
@@ -415,10 +414,10 @@ void Electron()
         for(int board=0;board<BOARD;board++)
         {
           os.str("");
-          os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<Fit_Name[iter]<<"_"<<TP_Canvas[board][type_num]->GetName()<<".png";
+          os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<EnergyData[0]->FIT_NAME<<"_"<<TP_Canvas[board][type_num]->GetName()<<".png";
           TP_Canvas[board][type_num]->SaveAs(os.str().c_str());
           os.str("");
-          os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<Fit_Name[iter]<<"_"<<CF_Canvas[board][type_num]->GetName()<<".png";
+          os<<EnergyData[0]->rootFolder<<"../Stability/"<<type[type_num]<<"/"<<EnergyData[0]->FIT_NAME<<"_"<<CF_Canvas[board][type_num]->GetName()<<".png";
           CF_Canvas[board][type_num]->SaveAs(os.str().c_str());
 
         }
