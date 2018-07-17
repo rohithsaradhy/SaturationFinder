@@ -43,8 +43,16 @@ def get_Runs():
                     Data[Particle+"_"+Energy+"GeV"].append(Run_No)
                     nameFile ="./runs/"+Particle+"_"+Energy+"GeV"+".run"
                     out_file = open(nameFile,"a")
-                    print Run_No + " was included"
+                    print Run_No + " was included in "+Particle+"_"+Energy+"GeV"+".run"
                     out_file.write(Run_No+"\n")
+                    out_file.close()
+                    ### All Particles
+                    nameFile ="./runs/All_"+Particle+".run"
+                    out_file = open(nameFile,"a")
+                    print Run_No + " was included in All_"+Particle+".run"
+                    out_file.write(Run_No+"\n")
+                    out_file.close()
+
 
             except:
                     print "$$$$$$$$$$$$$$$$"

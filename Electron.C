@@ -6,6 +6,7 @@ using namespace std;
 
 void Electron()
 {
+  std::string run_type="Electron";
   std::ostringstream os( std::ostringstream::ate );
   gROOT->SetBatch(kTRUE); //Not displaying anything
 

@@ -113,6 +113,25 @@ void SaturationFinder::CreateStructure(const char * path)
     os1<<"LG_TOT/";
     makeDir(os1.str().c_str());
   }
+  else if(ENERGY==0)
+  {
+    os.str("");
+    makeDir(path);
+    os<<path<<"/"<<ANALYSIS_ID;
+    makeDir(os.str().c_str());
+    os<<"/"<<FIT_NAME<<"/ParticleWise/";
+    makeDir(os.str().c_str());
+    os<<RUN_TYPE<<"/";
+    makeDir(os.str().c_str());
+    os<<"All_"<<RUN_TYPE<<"/";
+    rootFolder = os.str();
+    makeDir(os.str().c_str());
+    os1<<os.str();
+    os<<"HG_LG/";
+    makeDir(os.str().c_str());
+    os1<<"LG_TOT/";
+    makeDir(os1.str().c_str());
+  }
   else if(ENERGY != 0)
   {
     os.str("");

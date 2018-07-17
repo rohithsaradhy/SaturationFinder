@@ -11,50 +11,47 @@ void SaturationFinder::CollectFromNTuples(std::string runInfoFolder)
 
 std::cout<<"Run files are taken from the following folder:"<<runInfoFolder<<std::endl;
 
-// std::vector<std::string> FileNames;
-//Getting all files inside a directory...
 
-// TSystemDirectory* dir = new TSystemDirectory(runInfoFolder.c_str(), runInfoFolder.c_str());
-//  TList *files = dir->GetListOfFiles();
-//  if (files)
-// {
-//   TSystemFile *file; TString fname; TIter next(files);
-//  while ((file=(TSystemFile*)next()))
-//   {
-//      fname = file->GetName();
-//      if (!file->IsDirectory() && fname.EndsWith("run"))
-//       {
-//          FileNames.push_back( fname.Data());
-//       }
-//   }
-//  }
+if(ENERGY==0 && RUN_TYPE=="All")
+{
+  std::cout<<"Have not written code for all type... please fix this as this will not proceed further... ERROR!!!! Check CollectFromNTuples"<<std::endl;
+  exit(1);
+}
+else if(ENERGY==0)
+{
+  std::fstream fs;
+  os.str("");
+  os<<runInfoFolder<<"/All_"<<RUN_TYPE<<".run";
+  std::cout<<"Collecting Run Numbers from "<<os.str()<<std::endl;
+  fs.open (os.str().c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
+  while(fs>>Run_No)
+  {
+    std::cout<<"Collecting From Run No: "<<Run_No<<std::endl;
+    dataExtractor();
+  }
+  std::cout<<"Values have been retrieved into the arrays for HG_LG"<<std::endl;
+  fs.close();
 
-// For all files in that folder
-// for(int i=0; i< FileNames.size(); i++)
-// {
-//   std::cout<<FileNames.at(i)<<std::endl;
-//   os.str("");
-//   os<<RUN_TYPE<<"_"<<ENERGY<<"GeV.run";
-//   if(FileNames.at(i)==os.str())
-//   {
-//
-//
-//   }
-// }
+}
+else
+{
+  //Collect Energy runs...
+      std::fstream fs;
+      os.str("");
+      os<<runInfoFolder<<"/"<<RUN_TYPE<<"_"<<ENERGY<<"GeV.run";
+      fs.open (os.str().c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
+      while(fs>>Run_No)
+      {
+        std::cout<<"Collecting From Run No: "<<Run_No<<std::endl;
+        dataExtractor();
+      }
+      std::cout<<"Values have been retrieved into the arrays for HG_LG"<<std::endl;
+      fs.close();
+
+}
 
 
 
-    std::fstream fs;
-    os.str("");
-    os<<runInfoFolder<<"/"<<RUN_TYPE<<"_"<<ENERGY<<"GeV.run";
-    fs.open (os.str().c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
-    while(fs>>Run_No)
-    {
-      std::cout<<"Collecting From Run No: "<<Run_No<<std::endl;
-      dataExtractor();
-    }
-    std::cout<<"Values have been retrieved into the arrays for HG_LG"<<std::endl;
-    fs.close();
 
 
 }
