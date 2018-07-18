@@ -57,6 +57,7 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
     int module,touch,brd,ski,type_num;
     float cf,cf_e,cf_int,cf_int_e,tp,tp_e;
     std::fstream fs;
+    std::string trash;
 
 
     type_num =0;
@@ -67,13 +68,16 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
     while(!fs.eof())
     {
 
-      fs>>module>>touch>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
       if(i==0)
       {
+        fs>>trash>>trash>>trash>>trash>>trash>>trash>>trash>>trash>>trash>>trash;
+
         i++;
       }
       else
       {
+        fs>>module>>touch>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
+
         // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
         Module[brd]=module;
         Touched[brd][ski][type_num]= touch;
@@ -101,13 +105,15 @@ void SaturationFinder::RetrieveValues(std::string prefixName)
     while(!fs.eof())
     {
 
-      fs>>module>>touch>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
       if(i==0)
       {
+        fs>>trash>>trash>>trash>>trash>>trash>>trash>>trash>>trash>>trash>>trash;
+
         i++;
       }
       else
       {
+        fs>>module>>touch>>brd>>ski>>cf>>cf_e>>cf_int>>cf_int_e>>tp>>tp_e;
         // std::cout<<brd<<"\t"<<ski<<"\t"<<fs.eof()<<std::endl;
         Module[brd]=module;
         Touched[brd][ski][type_num]= touch;
