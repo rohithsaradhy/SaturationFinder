@@ -186,16 +186,13 @@ void SaturationFinder::SetModuleMaps(const char * path)
   os.str("");
   os<<path;
   fs.open (os.str().c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
-  std::string stuff;
-  getline(fs,stuff);
-  while(!fs.eof())
+  // std::string stuff;
+  // getline(fs,stuff);
+  while(fs>>b>>a>>a>>a>>a>>module)
   {
-
-    fs>>b>>a>>a>>a>>a>>module;
     std::stringstream int_str(module);
     int_str >> Module[brd];
     brd++;
-
   }
 
   std::cout<<"No: of boards that we collected is "<<brd-1<<std::endl;
