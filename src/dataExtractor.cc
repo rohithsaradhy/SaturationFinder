@@ -26,8 +26,8 @@ void SaturationFinder::dataExtractor()
   std::vector<int>* Hit_Sensor_iu=0;
   std::vector<int>* Hit_Sensor_iv=0;
   std::vector<float>* Hit_Sensor_energy=0;
-  std::vector<float>* Hit_Sensor_maxTS2TS3High=0;
-  std::vector<float>* Hit_Sensor_maxTS2TS3Low=0;
+  // std::vector<float>* Hit_Sensor_maxTS2TS3High=0;
+  // std::vector<float>* Hit_Sensor_maxTS2TS3Low=0;
   std::vector<float>* Hit_Sensor_amplitudeHigh=0;
   std::vector<float>* Hit_Sensor_amplitudeLow=0;
   std::vector<float>* Hit_Sensor_Tot=0;
@@ -88,8 +88,8 @@ void SaturationFinder::dataExtractor()
     T->SetBranchAddress("rechit_iu", &Hit_Sensor_iu);
     T->SetBranchAddress("rechit_iv", &Hit_Sensor_iv);
     T->SetBranchAddress("rechit_energy", &Hit_Sensor_energy);
-    T->SetBranchAddress("rechit_maxTS2TS3High", &Hit_Sensor_maxTS2TS3High);
-    T->SetBranchAddress("rechit_maxTS2TS3Low", &Hit_Sensor_maxTS2TS3Low);
+    // T->SetBranchAddress("rechit_maxTS2TS3High", &Hit_Sensor_maxTS2TS3High);
+    // T->SetBranchAddress("rechit_maxTS2TS3Low", &Hit_Sensor_maxTS2TS3Low);
 
     T->SetBranchAddress("rechit_amplitudeHigh", &Hit_Sensor_amplitudeHigh);
     T->SetBranchAddress("rechit_amplitudeLow", &Hit_Sensor_amplitudeLow);

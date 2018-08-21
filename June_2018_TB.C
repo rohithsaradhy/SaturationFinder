@@ -19,7 +19,7 @@ void June_2018_TB()
 
   for (int i=0;i<numOfEnergy;i++)
   {
-    a = new SaturationFinder(numOfBoards,0,"Electrons","June_2018_TB_v9","June_2018_v9","/eos/cms/store/group/dpg_hgcal/tb_hgcal/2018/cern_h2_june/offline_analysis/ntuples/v9");
+    a = new SaturationFinder(numOfBoards,Energy[i],"Electrons","June_2018_TB_v9","June_2018_v9","/eos/cms/store/group/dpg_hgcal/tb_hgcal/2018/cern_h2_june/offline_analysis/ntuples/v9");
     a->SetModuleMaps("forTBFramework/2018/layerGeom_june2018_h2_28layers.txt");
     a->CreateStructure("/eos/user/r/rsaradhy/www/June2018/"); // Setting the root Folder for all analysed files to be dropped off and creating the structure ;
     a->CollectFromNTuples(runFileFolder);
