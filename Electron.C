@@ -26,7 +26,7 @@ void Electron()
 
   for(int i=0;i<Number_Energy;i++)
   {
-    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],"Electrons","June_2018_TB","June_2018","/eos/cms/store/group/dpg_hgcal/tb_hgcal/2018/cern_h2_june/offline_analysis/ntuples/v6"); // 0i mplies that it is a allfile...
+    EnergyData[i] = new SaturationFinder(BOARD,Energy[i],"Electrons","June_2018_TB_v9","June_2018_v9","/eos/cms/store/group/dpg_hgcal/tb_hgcal/2018/cern_h2_june/offline_analysis/ntuples/v9"); // 0i mplies that it is a allfile...
     EnergyData[i]->CreateStructure("/eos/user/r/rsaradhy/www/June2018/");
   }
 
